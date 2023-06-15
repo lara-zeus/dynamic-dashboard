@@ -23,26 +23,27 @@ class Widgets
 
     public static function available()
     {
+        Cache::forget('rain.widgets');
         if (app()->isLocal()) {
             Cache::forget('rain.widgets');
         }
 
-        return Cache::remember('rain.widgets', Carbon::parse('1 month'), function () {
-            $coreWidgets = self::collectWidgets(__DIR__ . '/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
-            $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
+        //return Cache::remember('rain.widgets', Carbon::parse('1 month'), function () {
+        $coreWidgets = self::collectWidgets(__DIR__ . '/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
+        $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
-            $widgets = collect();
+        $widgets = collect();
 
-            if (! $coreWidgets->isEmpty()) {
-                $widgets = $widgets->merge($coreWidgets);
-            }
+        if (! $coreWidgets->isEmpty()) {
+            $widgets = $widgets->merge($coreWidgets);
+        }
 
-            if (! $appWidgets->isEmpty()) {
-                $widgets = $widgets->merge($appWidgets);
-            }
+        if (! $appWidgets->isEmpty()) {
+            $widgets = $widgets->merge($appWidgets);
+        }
 
-            return $widgets->sortBy('sort');
-        });
+        return $widgets->sortBy('sort')->toArray();
+        //});
     }
 
     public static function collectWidgets($path, $namespace)

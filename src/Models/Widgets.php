@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $user_id
  * @property array $widgets
+ * @property string $layout_title
+ * @property string $layout_slug
  */
 class Widgets extends Model
 {

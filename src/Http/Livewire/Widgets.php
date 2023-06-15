@@ -8,12 +8,12 @@ class Widgets extends Component
 {
     public $widget;
 
-    public function mount($widgetID = null)
+    public function mount($slug = null)
     {
-        if ($this->widget === null) {
-            $this->widget = \LaraZeus\Rain\Models\Widgets::first();
+        if ($slug === null) {
+            $this->widget = \LaraZeus\Rain\Models\Widgets::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
         } else {
-            $this->widget = \LaraZeus\Rain\Models\Widgets::findOrFail($widgetID);
+            $this->widget = \LaraZeus\Rain\Models\Widgets::where('layout_slug', $slug)->firstOrFail();
         }
     }
 

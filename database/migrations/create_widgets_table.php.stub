@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('widgets', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('title');
+            $table->string('layout_title');
+            $table->string('layout_slug');
             $table->longText('widgets');
             $table->timestamps();
             $table->softDeletes();

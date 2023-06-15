@@ -1,4 +1,4 @@
-<div class="max-w-4xl mx-auto my-4">
+<div class="container mx-auto">
     @if($widget->widgets !== null)
         <div class="grid grid-cols-1 md:grid-cols-12 gap-2 w-full">
             @foreach (\LaraZeus\Rain\Models\Columns::all() as $layout)
@@ -12,11 +12,13 @@
                                 @php
                                     $getWidget = new $data['data']['widget'];
                                 @endphp
-                                <div class="bg-white shadow mb-2 md:mb-6 mt-14 mx-1 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 rounded-3xl border border-primary-100">
+                                <div class="bg-white dark:bg-black shadow mb-2 md:mb-6 mt-6 mx-1 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 ltr:rounded-tr-none rtl:rounded-tl-none rounded-3xl border border-gray-100 dark:border-gray-700">
                                     @if($data['data']['title'])
-                                        <h5 class="mb-2 bg-gray-200 rounded-3xl absolute -mt-8 px-4 py-2 shadow font-bold text-sm lg:text-lg text-primary-800">{{ $data['data']['title'] }}</h5>
+                                        <h5 class="mb-2 bg-gray-100 dark:bg-gray-900 border border-secondary-200 dark:border-secondary-800 rounded-3xl ltr:rounded-tl-none rtl:rounded-tr-none absolute -mt-8 px-4 py-2 shadow font-bold text-sm lg:text-lg text-primary-600 dark:text-primary-300">
+                                            {{ $data['data']['title'] }}
+                                        </h5>
                                     @endif
-                                    <div class="@if($data['data']['title']) pt-10 @endif">
+                                    <div class="@if($data['data']['title']) pt-2 @endif">
                                         {!! $getWidget->render($data) !!}
                                     </div>
                                 </div>

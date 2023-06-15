@@ -57,4 +57,9 @@ return [
      * Navigation Group Label
      */
     'navigation_group_label' => 'rain',
+
+    /**
+     * default layout slug
+     */
+    'default_layout' => 'new-page',
 ];

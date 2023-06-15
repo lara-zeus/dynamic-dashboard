@@ -30,6 +30,11 @@ class LayoutResource extends Resource
                     ->searchable()
                     ->toggleable()
                     ->label(__('id')),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable()
+                    ->label(__('title')),
                 TextColumn::make('user.name')
                     ->sortable()
                     ->searchable()

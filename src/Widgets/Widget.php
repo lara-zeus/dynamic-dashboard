@@ -8,7 +8,7 @@ class Widget
 
     public function render($data): string
     {
-        return view('zeus-rain::themes.widgets.' . last(explode('\\', $data['data']['widget'])))
+        return view(app('rain-theme') . '.widgets.' . last(explode('\\', $data['data']['widget'])))
             ->with('data', $data)
             ->render();
     }

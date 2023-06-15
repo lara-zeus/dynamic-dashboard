@@ -2,10 +2,12 @@
 
 namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 
+use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Resources\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Str;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
 use LaraZeus\Rain\Models\Columns;
 use LaraZeus\Rain\Models\Widgets;
@@ -28,10 +30,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     protected function getTitle(): string|Htmlable
     {
         if ($this->widget->id === null) {
-            return 'create layout';
+            return __('create layout');
         }
 
-        return 'edit layout';
+        return __('edit layout');
     }
 
     public function mount($record = null): void
@@ -41,6 +43,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             foreach (Columns::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
                     $column->key => '',
+                ]);
+                $this->{'widgetsFromMain'}->fill([
+                    'layout_title' => '',
+                    'layout_slug' => '',
                 ]);
             }
         } else {
@@ -59,6 +65,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                     ]);
                 }
             }
+            $this->{'widgetsFromMain'}->fill([
+                'layout_title' => $this->widget->layout_title,
+                'layout_slug' => $this->widget->layout_slug,
+            ]);
         }
     }
 
@@ -72,18 +82,37 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsible()
                 ->cloneable()
                 ->createItemButtonLabel(__('add widget'))
-                ->blocks(\LaraZeus\Rain\Widgets\Widgets::available()->toArray()),
+                ->blocks(\LaraZeus\Rain\Widgets\Widgets::available()),
+        ];
+    }
+
+    public function mainComponents(): array
+    {
+        return [
+            Forms\Components\TextInput::make('widget.layout_title')
+                ->label(__('title'))
+                ->reactive()
+                ->afterStateUpdated(function (Closure $set, $state) {
+                    if ($this->widget->id !== null) {
+                        return;
+                    }
+
+                    $set('widget.layout_slug', Str::slug($state));
+                }),
+            Forms\Components\TextInput::make('widget.layout_slug')->label(__('slug')),
         ];
     }
 
     protected function getForms(): array
     {
         $forms = [];
+
+        $forms['widgetsFromMain'] = $this->makeForm()
+            ->schema($this->mainComponents());
+
         foreach (Columns::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
-                ->schema(
-                    $this->getBlocksForms($layout->key)
-                );
+                ->schema($this->getBlocksForms($layout->key));
         }
 
         return $forms;
@@ -92,10 +121,13 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     public function submit(): void
     {
         $widgetsData = [];
+
         foreach (Columns::all() as $layout) {
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()[$layout->key];
         }
 
+        $this->widget->layout_title = $this->{'widgetsFromMain'}->getState()['widget']['layout_title'];
+        $this->widget->layout_slug = $this->{'widgetsFromMain'}->getState()['widget']['layout_slug'];
         $this->widget->widgets = $widgetsData;
         $this->widget->user_id = auth()->user()->id;
         $this->widget->save();
