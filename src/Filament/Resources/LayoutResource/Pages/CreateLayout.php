@@ -12,6 +12,9 @@ use LaraZeus\Rain\Filament\Resources\LayoutResource;
 use LaraZeus\Rain\Models\Columns;
 use LaraZeus\Rain\Models\Widgets;
 
+/**
+ * @property \stdClass $widgetsFromMain.
+ */
 class CreateLayout extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
