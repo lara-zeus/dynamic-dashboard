@@ -1,5 +1,5 @@
 ---
-title: v1
+title: v0
 slogan: simple way to manage widgets for your website landing page.
 githubUrl: https://github.com/lara-zeus/rain
 branch: main
