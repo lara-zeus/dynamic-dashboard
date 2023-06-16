@@ -8,14 +8,14 @@ weight: 2
 You can install the package via composer:
 
 ```bash
-composer require lara-zeus/wind
+composer require lara-zeus/rain
 ```
 
 ## publish
 for your convenient, we create a one command to publish them all:
 
 ```bash
-php artisan wind:publish
+php artisan rain:publish
 ```
 
 you can pass `--force` option to force publishing all the files, helps if you're updating the package
@@ -24,7 +24,7 @@ you can pass `--force` option to force publishing all the files, helps if you're
 to just publish the migrations files
 
 ```bash
-php artisan vendor:publish --tag=zeus-wind-migrations
+php artisan vendor:publish --tag=zeus-rain-migrations
 ```
 
 ## Seeder and Factories
@@ -32,8 +32,8 @@ php artisan vendor:publish --tag=zeus-wind-migrations
 optionally, if you want to seed the database, publish the seeder and factories with:
 
 ```bash
-php artisan vendor:publish --tag=zeus-wind-seeder
-php artisan vendor:publish --tag=zeus-wind-factories
+php artisan vendor:publish --tag=zeus-rain-seeder
+php artisan vendor:publish --tag=zeus-rain-factories
 ```
 
 ## Assets

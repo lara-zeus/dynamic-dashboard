@@ -19,10 +19,10 @@ php artisan vendor:publish --tag=zeus-views
 
 ## Publishing the default views
 
-to customize the default views for wind:
+to customize the default views for rain:
 
 ```bash
-php artisan vendor:publish --tag=zeus-wind-views
+php artisan vendor:publish --tag=zeus-rain-views
 ```
 
 ## Publishing Translations
@@ -30,7 +30,7 @@ php artisan vendor:publish --tag=zeus-wind-views
 to customize the translations:
 
 ```bash
-php artisan vendor:publish --tag=zeus-wind-translations
+php artisan vendor:publish --tag=zeus-rain-translations
 ```
 
 ## themes
