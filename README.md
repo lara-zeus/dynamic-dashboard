@@ -1,7 +1,5 @@
-<h1 align="center">Lara Zeus Rain</h1>
-
 <p align="center">
-<a href="https://larazeus.com"><img src="https://larazeus.com/images/rain-banner.png" /></a>
+<a href="https://larazeus.com"><img alt="zeus rain" src="https://larazeus.com/images/rain-banner.png" /></a>
 </p>
 
 <p align="center">
@@ -25,35 +23,20 @@ Lara-zeus rain simple way to manage widgets for your website landing page.
 </a>
 
 ## features
-- 🔥 ...
-
+- 🔥 built in widgets for all Zeus packages
+- 🔥 simple interface to create a layout
+- 🔥 create multiple layouts, for users or tenants
+- 🔥 create your own widget
+- 🔥 each widget with its own render, you can customize any built in widget.
+- 🔥 full responsive and dark mode 🌚 supported
 
 ## Demo
 
 > visit our website to get the full documentation: https://larazeus.com/rain
 
+## Documentation
 
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require lara-zeus/rain
-```
-
-run the command:
-
-```bash
-php artisan rain:publish
-```
-
-## Usage
-
-visit the url `/admin` to manage the Letters, and `/rain` to access the contact form.
-
-## Full Documentation
-
-> visit our website to get the full documentation: https://larazeus.com/rain
+You can read all the docs in [lara zeus](https://larazeus.com/docs/rain) website.
 
 ## Changelog
 
