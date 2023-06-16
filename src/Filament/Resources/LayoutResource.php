@@ -25,21 +25,21 @@ class LayoutResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable()
-                    ->label(__('id')),
-                TextColumn::make('title')
+                TextColumn::make('layout_title')
                     ->sortable()
                     ->searchable()
                     ->toggleable()
                     ->label(__('title')),
+                TextColumn::make('layout_slug')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable()
+                    ->label(__('slug')),
                 TextColumn::make('user.name')
                     ->sortable()
                     ->searchable()
                     ->toggleable()
-                    ->label(__('user name')),
+                    ->label(__('user')),
             ])
             ->defaultSort('id', 'desc')
             ->actions([

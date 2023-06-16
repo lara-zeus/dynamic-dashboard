@@ -30,7 +30,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return $this->widget;
     }
 
-    protected function getTitle(): string|Htmlable
+    protected function getTitle(): string
     {
         if ($this->widget->id === null) {
             return __('create layout');
@@ -95,6 +95,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             Forms\Components\TextInput::make('widget.layout_title')
                 ->label(__('title'))
                 ->reactive()
+                ->required()
                 ->afterStateUpdated(function (Closure $set, $state) {
                     if ($this->widget->id !== null) {
                         return;
@@ -102,7 +103,9 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
                     $set('widget.layout_slug', Str::slug($state));
                 }),
-            Forms\Components\TextInput::make('widget.layout_slug')->label(__('slug')),
+            Forms\Components\TextInput::make('widget.layout_slug')
+                ->required()
+                ->label(__('slug')),
         ];
     }
 
