@@ -5,22 +5,28 @@ weight: 1
 
 ## Introduction
 
-Lara-zeus Rain, is a package provides a simple contact form manger, with the abilety to store the messages in the database, and you can reply to them from the dashboard.
-
+Lara-zeus Rain, is a package provides a simple way to manage widgets and layout for your website landing page
 
 **[Demo](https://rain.larazeus.com) · [Source Code](https://github.com/lara-zeus/rain)**
 
-## features:
+## Features:
 
 🔥 built with [TALL stack](https://tallstack.dev/)
 
-🔥 using [filament](https://filamentadmin.com) as an admin panel
+🔥 using [filament](https://filamentadmin.com)
 
-🔥 optionally you can add departments to the contact form like 'sales','dev','report bug' etc.
+🔥 built in widgets for all Zeus packages
 
-🔥 you can add logos for all departments.
+🔥 simple interface to create a layout and manage widgets
 
-🔥 direct URL to contact on specific department.
+🔥 create multiple layouts, useful for users or multi tenants
+
+🔥 create your own widget
+
+🔥 each widget with its own render, you can customize any built in widget.
+
+🔥 full responsive and dark mode 🌚 supported
+
 
 ## Support
 

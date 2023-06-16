@@ -1,6 +1,6 @@
 ---
 title: Customization
-weight: 6
+weight: 4
 ---
 
 to customize the layout, you can change the default layout in the config file
@@ -33,5 +33,3 @@ to customize the translations:
 php artisan vendor:publish --tag=zeus-rain-translations
 ```
 
-## themes
-soon

@@ -18,22 +18,16 @@ for your convenient, we create a one command to publish them all:
 php artisan rain:publish
 ```
 
+the command will publish the following: config,views and translations.
+and zeus assets.
+
 you can pass `--force` option to force publishing all the files, helps if you're updating the package
 
 ## Migrations
-to just publish the migrations files
+to publish the migrations files
 
 ```bash
 php artisan vendor:publish --tag=zeus-rain-migrations
-```
-
-## Seeder and Factories
-
-optionally, if you want to seed the database, publish the seeder and factories with:
-
-```bash
-php artisan vendor:publish --tag=zeus-rain-seeder
-php artisan vendor:publish --tag=zeus-rain-factories
 ```
 
 ## Assets

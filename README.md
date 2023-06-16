@@ -24,7 +24,7 @@ Lara-zeus rain simple way to manage widgets for your website landing page.
 
 ## features
 - 🔥 built in widgets for all Zeus packages
-- 🔥 simple interface to create a layout
+- 🔥 simple interface to create a layout and manage widgets
 - 🔥 create multiple layouts, for users or tenants
 - 🔥 create your own widget
 - 🔥 each widget with its own render, you can customize any built in widget.
