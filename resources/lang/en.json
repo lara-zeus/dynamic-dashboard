@@ -1,6 +1,6 @@
 {
   "id": "id",
-  "user name": "user name",
+  "user": "user name",
   "Edit": "Edit",
   "Delete": "Delete",
   "Layout": "Layout",
@@ -11,5 +11,9 @@
   "right": "right",
   "middle": "middle",
   "left": "left",
-  "bottom": "bottom"
+  "bottom": "bottom",
+  "title": "title",
+  "slug": "slug",
+  "create layout": "create layout",
+  "edit layout": "edit layout"
 }
