@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 0.0.5 - 2023-06-16
+
+### What's Changed
+
+- Update config by @atmonshi in https://github.com/lara-zeus/rain/pull/4
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/0.0.4...0.0.5
+
 ## 0.0.4 - 2023-06-16
 
 ### What's Changed
