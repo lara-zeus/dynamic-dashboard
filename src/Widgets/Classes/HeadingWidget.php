@@ -3,32 +3,28 @@
 namespace LaraZeus\Rain\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Tabs;
 use LaraZeus\Rain\Widgets\Widget;
 
-class HeadingWidget extends Widget
+class HeadingWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
-    public function form()
+    public function form(): Builder\Block
     {
         return Builder\Block::make('paragraph')
-            ->icon('heroicon-o-bookmark')
-            ->label('فقرة نصية')
+            ->label(__('Paragraph'))
             ->schema([
-                Placeholder::make('show-' . __CLASS__)->label('يمكنك عرض اي نص تريده'),
-
-                TextInput::make('title')
-                    ->helperText('تقدر تتركه فارغ')
-                    ->label('العنوان')
-                    ->nullable(),
-                TextInput::make('sort')->default(1)->label('الترتيب في العرض'),
-                Hidden::make('widget')->default(__CLASS__),
-
-                MarkdownEditor::make('content')
-                    ->label('المحتوى')
-                    ->required(),
+                Tabs::make('paragraph_tabs')
+                    ->schema([
+                        Tabs\Tab::make('paragraph')
+                            ->label(__('Paragraph'))
+                            ->schema([
+                                MarkdownEditor::make('content')
+                                    ->label(__('content'))
+                                    ->required(),
+                            ]),
+                        $this->defaultOptionsTab(),
+                    ]),
             ]);
     }
 }

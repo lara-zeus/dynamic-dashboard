@@ -1,14 +1,19 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets;
+namespace LaraZeus\Rain\Facades;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Facade;
 use Symfony\Component\Finder\Finder;
 
-class Widgets
+class Rain extends Facade
 {
+    protected static function getFacadeAccessor(): string
+    {
+        return 'rain';
+    }
+
     public static function loadClasses($path, $namespace): array
     {
         $classes = [];
@@ -21,7 +26,7 @@ class Widgets
         return $classes;
     }
 
-    public static function available()
+    public static function available(): array
     {
         Cache::forget('rain.widgets');
         if (app()->isLocal()) {
@@ -29,7 +34,7 @@ class Widgets
         }
 
         //return Cache::remember('rain.widgets', Carbon::parse('1 month'), function () {
-        $coreWidgets = self::collectWidgets(__DIR__ . '/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
+        $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
         $widgets = collect();
@@ -63,11 +68,26 @@ class Widgets
 
         foreach ($classes as $widget) {
             $widgetClass = new $widget();
-            if (! $widgetClass->disabled) {
+            if ($widgetClass->enabled()) {
                 $allWidgets[] = $widgetClass->form();
             }
         }
 
         return $allWidgets;
+    }
+
+    public static function jsJson($string): bool
+    {
+        if ($string === '') {
+            return false;
+        }
+
+        json_decode($string);
+
+        if (json_last_error()) {
+            return false;
+        }
+
+        return true;
     }
 }
