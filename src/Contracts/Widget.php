@@ -10,5 +10,5 @@ interface Widget
 
     public function render($data): string;
 
-    public function form() :Block;
+    public function form(): Block;
 }

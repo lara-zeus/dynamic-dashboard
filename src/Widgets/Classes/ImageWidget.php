@@ -4,7 +4,6 @@ namespace LaraZeus\Rain\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use LaraZeus\Rain\Widgets\Widget;
