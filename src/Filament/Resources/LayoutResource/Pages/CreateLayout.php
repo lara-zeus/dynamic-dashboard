@@ -7,6 +7,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Resources\Pages\Page;
 use Illuminate\Support\Str;
+use LaraZeus\Rain\Facades\Rain;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
 use LaraZeus\Rain\Models\Columns;
 use LaraZeus\Rain\Models\Widgets;
@@ -84,7 +85,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsible()
                 ->cloneable()
                 ->createItemButtonLabel(__('add widget'))
-                ->blocks(\LaraZeus\Rain\Widgets\Widgets::available()),
+                ->blocks(Rain::available()),
         ];
     }
 
