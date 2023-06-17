@@ -15,5 +15,21 @@
   "title": "العنوان",
   "slug": "الرابط المختصر",
   "create layout": "اضافة قالب",
-  "edit layout": "تعديل قالب"
+  "edit layout": "تعديل قالب",
+  "Image": "صورة",
+  "image alt text": "نص الوصرة البديل",
+  "options": "خيارات",
+  "optional": "اختياري",
+  "widget title": "عنوان البلوك",
+  "order": "الترتيب",
+  "Paragraph": "فقرة نصية",
+  "content": "المحتوى",
+  "Posts": "التدوينات",
+  "created at": "تاريخ الإنشاء",
+  "published at": "تاريخ النشر",
+  "asc": "تصاعدي",
+  "desc": "تنازلي",
+  "order direction": "اتجاه الترتيب",
+  "show thumbnail": "عرض الصورة",
+  "show description": "عرض الوصف"
 }
