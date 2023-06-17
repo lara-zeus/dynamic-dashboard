@@ -2,6 +2,17 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 0.0.8 - 2023-06-17
+
+### What's Changed
+
+- Refactor widgets by @atmonshi in https://github.com/lara-zeus/rain/pull/10
+- Update core by @atmonshi in https://github.com/lara-zeus/rain/pull/9
+- Imporve UI by @atmonshi in https://github.com/lara-zeus/rain/pull/8
+- Add sky widget by @atmonshi in https://github.com/lara-zeus/rain/pull/7
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/0.0.7...0.0.8
+
 ## 0.0.5 - 2023-06-16
 
 ### What's Changed
