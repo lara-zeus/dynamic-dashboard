@@ -16,6 +16,7 @@ class Widget
     public function render($data): string
     {
         $data['widgetViewData'] = $this->viewData($data);
+
         return view(app('rain-theme') . '.widgets.' . last(explode('\\', $data['widget'])))
             ->with('data', $data)
             ->render();
