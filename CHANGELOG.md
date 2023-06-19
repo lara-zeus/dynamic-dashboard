@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.0.0 - 2023-06-19
+
+### What's Changed
+
+- refactor and prepare for stable release by @atmonshi in https://github.com/lara-zeus/rain/pull/11
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/0.0.8...1.0.0
+
 ## 0.0.8 - 2023-06-17
 
 ### What's Changed
