@@ -3,6 +3,7 @@
 namespace LaraZeus\Rain\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $user_id
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $layout_title
  * @property string $layout_slug
  */
-class Widgets extends Model
+class Layout extends Model
 {
     protected $guarded = [];
 
@@ -18,7 +19,7 @@ class Widgets extends Model
         'widgets' => 'array',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(config('auth.providers.users.model'));
     }

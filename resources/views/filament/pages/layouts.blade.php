@@ -1,9 +1,7 @@
 <x-filament::page>
         <form wire:submit.prevent="submit" class="space-y-6">
 
-            <x-filament::card class="w-full p-2">
-                {{ $this->{'widgetsFromMain'} }}
-            </x-filament::card>
+            {{ $this->{'widgetsFromMain'} }}
 
             <div class="grid grid-cols-12 gap-2 w-full">
                 @foreach (\LaraZeus\Rain\Models\Columns::all() as $layout)

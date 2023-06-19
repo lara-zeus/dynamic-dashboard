@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use LaraZeus\Rain\Console\PublishCommand;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
-use LaraZeus\Rain\Http\Livewire\Widgets;
+use LaraZeus\Rain\Http\Livewire\Layouts;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 
@@ -21,7 +21,7 @@ class RainServiceProvider extends PluginServiceProvider
 
     public function bootingPackage(): void
     {
-        Livewire::component('landing', Widgets::class);
+        Livewire::component('landing', Layouts::class);
 
         View::share('', 'rain-theme::themes.' . config('zeus-rain.theme', 'zeus'));
 

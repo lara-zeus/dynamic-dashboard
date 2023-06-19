@@ -5,12 +5,15 @@ namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\TextInput;
+use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\Page;
 use Illuminate\Support\Str;
 use LaraZeus\Rain\Facades\Rain;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
 use LaraZeus\Rain\Models\Columns;
-use LaraZeus\Rain\Models\Widgets;
+use LaraZeus\Rain\Models\Layout;
 
 /**
  * @property \stdClass $widgetsFromMain.
@@ -21,18 +24,18 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     protected static string $resource = LayoutResource::class;
 
-    protected static string $view = 'zeus-rain::filament.pages.layout';
+    protected static string $view = 'zeus-rain::filament.pages.layouts';
 
-    public Widgets $widget;
+    public Layout $rainLayout;
 
-    protected function getFormModel(): Widgets
+    protected function getFormModel(): Layout
     {
-        return $this->widget;
+        return $this->rainLayout;
     }
 
     protected function getTitle(): string
     {
-        if ($this->widget->id === null) {
+        if ($this->rainLayout->id === null) {
             return __('create layout');
         }
 
@@ -42,7 +45,8 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     public function mount($record = null): void
     {
         if ($record === null) {
-            $this->widget = new Widgets();
+            $layoutModel = config('zeus-rain.models.layout');
+            $this->rainLayout = new $layoutModel;
             foreach (Columns::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
                     $column->key => '',
@@ -53,9 +57,9 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ]);
             }
         } else {
-            $this->widget = Widgets::findOrFail($record);
+            $this->rainLayout = config('zeus-rain.models.layout')::findOrFail($record);
 
-            $allWidgets = $this->widget->widgets;
+            $allWidgets = $this->rainLayout->widgets;
             foreach (Columns::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
                     $widgetsItems = collect($allWidgets[$column->key])->sortBy('data.sort')->toArray();
@@ -68,9 +72,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                     ]);
                 }
             }
+
             $this->{'widgetsFromMain'}->fill([
-                'layout_title' => $this->widget->layout_title,
-                'layout_slug' => $this->widget->layout_slug,
+                'layout_title' => $this->rainLayout->layout_title,
+                'layout_slug' => $this->rainLayout->layout_slug,
             ]);
         }
     }
@@ -84,7 +89,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsed()
                 ->collapsible()
                 ->cloneable()
-                ->createItemButtonLabel(__('add widget'))
+                ->createItemButtonLabel(__('add layout'))
                 ->blocks(Rain::available()),
         ];
     }
@@ -92,20 +97,24 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     public function mainComponents(): array
     {
         return [
-            Forms\Components\TextInput::make('widget.layout_title')
-                ->label(__('title'))
-                ->reactive()
-                ->required()
-                ->afterStateUpdated(function (Closure $set, $state) {
-                    if ($this->widget->id !== null) {
-                        return;
-                    }
+            Fieldset::make('mainComponents')
+                ->label(__('Title & Slug'))
+                ->schema([
+                    TextInput::make('rainLayout.layout_title')
+                        ->label(__('title'))
+                        ->reactive()
+                        ->required()
+                        ->afterStateUpdated(function (Closure $set, $state) {
+                            if ($this->rainLayout->id !== null) {
+                                return;
+                            }
 
-                    $set('widget.layout_slug', Str::slug($state));
-                }),
-            Forms\Components\TextInput::make('widget.layout_slug')
-                ->required()
-                ->label(__('slug')),
+                            $set('rainLayout.layout_slug', Str::slug($state));
+                        }),
+                    TextInput::make('rainLayout.layout_slug')
+                        ->required()
+                        ->label(__('slug')),
+                ]),
         ];
     }
 
@@ -113,8 +122,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         $forms = [];
 
-        $forms['widgetsFromMain'] = $this->makeForm()
-            ->schema($this->mainComponents());
+        $forms['widgetsFromMain'] = $this->makeForm()->schema($this->mainComponents());
 
         foreach (Columns::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
@@ -132,12 +140,26 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()[$layout->key];
         }
 
-        $this->widget->layout_title = $this->{'widgetsFromMain'}->getState()['widget']['layout_title'];
-        $this->widget->layout_slug = $this->{'widgetsFromMain'}->getState()['widget']['layout_slug'];
-        $this->widget->widgets = $widgetsData;
-        $this->widget->user_id = auth()->user()->id;
-        $this->widget->save();
+        $this->rainLayout->layout_title = $this->{'widgetsFromMain'}->getState()['rainLayout']['layout_title'];
+        $this->rainLayout->layout_slug = $this->{'widgetsFromMain'}->getState()['rainLayout']['layout_slug'];
+        $this->rainLayout->widgets = $widgetsData;
+        $this->rainLayout->user_id = auth()->user()->id;
+        $this->rainLayout->save();
 
         $this->notify('success', __('saved successfully'));
+    }
+
+    protected function getActions(): array
+    {
+        return [
+            Action::make('view')
+                ->visible($this->rainLayout->id !== null)
+                ->label(__('View'))
+                ->icon('heroicon-o-external-link')
+                ->tooltip(__('view form'))
+                ->color('warning')
+                ->url(fn () => route('landing-page', $this->rainLayout->layout_slug))
+                ->openUrlInNewTab(),
+        ];
     }
 }

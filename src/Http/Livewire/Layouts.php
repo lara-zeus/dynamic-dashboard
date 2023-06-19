@@ -4,16 +4,16 @@ namespace LaraZeus\Rain\Http\Livewire;
 
 use Livewire\Component;
 
-class Widgets extends Component
+class Layouts extends Component
 {
-    public $widget;
+    public $layout;
 
     public function mount($slug = null)
     {
         if ($slug === null) {
-            $this->widget = \LaraZeus\Rain\Models\Widgets::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
+            $this->layout = config('zeus-rain.models.layout')::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
         } else {
-            $this->widget = \LaraZeus\Rain\Models\Widgets::where('layout_slug', $slug)->firstOrFail();
+            $this->layout = config('zeus-rain.models.layout')::where('layout_slug', $slug)->firstOrFail();
         }
     }
 
@@ -28,7 +28,7 @@ class Widgets extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('rain-theme') . '.widgets')
+        return view(app('rain-theme') . '.layouts')
             ->layout(config('zeus-rain.layout'));
     }
 }

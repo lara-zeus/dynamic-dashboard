@@ -4,6 +4,7 @@ namespace LaraZeus\Rain\Filament\Resources;
 
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
@@ -14,7 +15,7 @@ class LayoutResource extends Resource
 {
     public static function getModel(): string
     {
-        return config('zeus-rain.models.widgets');
+        return config('zeus-rain.models.layout');
     }
 
     protected static ?string $navigationIcon = 'heroicon-o-cloud';
@@ -45,8 +46,14 @@ class LayoutResource extends Resource
             ->actions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
-                    DeleteAction::make('delete')
-                        ->label(__('Delete')),
+                    Action::make('show')
+                        ->color('warning')
+                        ->label(__('View Layout'))
+                        ->icon('heroicon-o-external-link')
+                        ->tooltip(__('view Layout'))
+                        ->url(fn ($record): string => route('landing-page', $record->layout_slug))
+                        ->openUrlInNewTab(),
+                    DeleteAction::make('delete')->label(__('Delete')),
                 ]),
             ]);
     }
