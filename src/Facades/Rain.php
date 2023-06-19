@@ -33,7 +33,6 @@ class Rain extends Facade
             Cache::forget('rain.widgets');
         }
 
-        //return Cache::remember('rain.widgets', Carbon::parse('1 month'), function () {
         $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
@@ -48,21 +47,21 @@ class Rain extends Facade
         }
 
         return $widgets->sortBy('sort')->toArray();
-        //});
     }
 
-    public static function collectWidgets($path, $namespace)
+    public static function collectWidgets($path, $namespace): \Illuminate\Support\Collection
     {
         if (! is_dir($path)) {
             return collect();
         }
+
         $classes = self::loadClasses($path, $namespace);
-        $allWidgets = self::setWidget($classes);
+        $allWidgets = self::setLayout($classes);
 
         return collect($allWidgets);
     }
 
-    protected static function setWidget($classes)
+    protected static function setLayout($classes): array
     {
         $allWidgets = [];
 
@@ -74,20 +73,5 @@ class Rain extends Facade
         }
 
         return $allWidgets;
-    }
-
-    public static function jsJson($string): bool
-    {
-        if ($string === '') {
-            return false;
-        }
-
-        json_decode($string);
-
-        if (json_last_error()) {
-            return false;
-        }
-
-        return true;
     }
 }

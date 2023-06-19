@@ -13,7 +13,7 @@ class Columns extends Model
 {
     use \Sushi\Sushi;
 
-    public function getRows()
+    public function getRows(): array
     {
         return [
             ['key' => 'headerColumn', 'name' => __('top'), 'class' => 'w-full col-span-1 md:col-span-12'],

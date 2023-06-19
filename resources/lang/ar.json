@@ -5,7 +5,7 @@
   "Delete": "حذف",
   "Layout": "القالب",
   "Layouts": "القوالب",
-  "add widget": "اضافة قالب",
+  "add layout": "اضافة قالب",
   "saved successfully": "تم الحفظ بنجاح",
   "top": "العمود العلوي",
   "right": "العمود الأيمن",
@@ -31,5 +31,6 @@
   "desc": "تنازلي",
   "order direction": "اتجاه الترتيب",
   "show thumbnail": "عرض الصورة",
-  "show description": "عرض الوصف"
+  "show description": "عرض الوصف",
+  "Title & Slug": "العنوان والرابط"
 }

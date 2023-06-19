@@ -19,7 +19,7 @@ Lara-zeus Rain, is a package provides a simple way to manage widgets and layout 
 
 🔥 simple interface to create a layout and manage widgets
 
-🔥 create multiple layouts, useful for users or multi tenants
+🔥 create multiple layouts, useful for users dashboard or multi tenants
 
 🔥 create your own widget
 

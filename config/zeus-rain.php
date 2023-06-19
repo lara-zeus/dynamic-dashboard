@@ -2,7 +2,7 @@
 
 return [
     /**
-     * set the default path for the widgets.
+     * set the default path for the layout page.
      */
     'path' => 'rain',
 
@@ -16,7 +16,7 @@ return [
      * customize the models
      */
     'models' => [
-        'widgets' => \LaraZeus\Rain\Models\Widgets::class,
+        'layout' => \LaraZeus\Rain\Models\Layout::class,
     ],
 
     /**
@@ -30,7 +30,7 @@ return [
      */
     'uploads' => [
         'disk' => 'public',
-        'directory' => 'widgets',
+        'directory' => 'layouts',
     ],
 
     /**

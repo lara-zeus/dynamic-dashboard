@@ -1,11 +1,11 @@
 <div class="container mx-auto">
-    @if($widget->widgets !== null)
+    @if($layout->widgets !== null)
         <div class="grid grid-cols-1 md:grid-cols-12 gap-2 w-full">
-            @foreach (\LaraZeus\Rain\Models\Columns::all() as $layout)
-                <div class="w-full {{ $layout->class }}">
-                    @if(isset($widget->widgets[$layout->key]))
+            @foreach (\LaraZeus\Rain\Models\Columns::all() as $column)
+                <div class="w-full {{ $column->class }}">
+                    @if(isset($layout->widgets[$column->key]))
                         @php
-                            $widgetsItems = collect($widget->widgets[$layout->key])->sortBy('data.sort')->toArray();
+                            $widgetsItems = collect($layout->widgets[$column->key])->sortBy('data.sort')->toArray();
                         @endphp
                         @foreach($widgetsItems as $key => $data)
                             @if(class_exists($data['data']['widget']))
