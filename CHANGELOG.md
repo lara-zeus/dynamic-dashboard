@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.0.1 - 2023-06-19
+
+### What's Changed
+
+- fix primary color 🦩 by @atmonshi in https://github.com/lara-zeus/rain/pull/12
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.0...1.0.1
+
 ## 1.0.0 - 2023-06-19
 
 ### What's Changed
