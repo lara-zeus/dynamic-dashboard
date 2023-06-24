@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.0.2 - 2023-06-24
+
+### What's Changed
+
+- update zeus core by @atmonshi in https://github.com/lara-zeus/rain/pull/13
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.1...1.0.2
+
 ## 1.0.1 - 2023-06-19
 
 ### What's Changed
