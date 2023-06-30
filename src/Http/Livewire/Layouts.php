@@ -28,7 +28,7 @@ class Layouts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('rain-theme') . '.layouts')
+        return view(app('rainTheme') . '.layouts')
             ->layout(config('zeus.layout'));
     }
 }

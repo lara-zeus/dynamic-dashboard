@@ -20,10 +20,8 @@ class RainServiceProvider extends PluginServiceProvider
 
     public function bootingPackage(): void
     {
-        Livewire::component('landing', Layouts::class);
-
         CoreServiceProvider::setThemePath('rain');
-
+        Livewire::component('landing', Layouts::class);
     }
 
     protected function getCommands(): array
@@ -33,10 +31,11 @@ class RainServiceProvider extends PluginServiceProvider
         ];
     }
 
-    public function packageConfiguring(Package $package): void
+    public function packageConfigured(Package $package): void
     {
         $package
             ->hasMigrations(['create_widgets_table'])
+            ->hasViews('zeus')
             ->hasRoute('web');
     }
 }
