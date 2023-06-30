@@ -3,7 +3,7 @@
 namespace LaraZeus\Rain\Facades;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 use Symfony\Component\Finder\Finder;
 
@@ -14,7 +14,7 @@ class Rain extends Facade
         return 'rain';
     }
 
-    public static function loadClasses($path, $namespace): array
+    public static function loadClasses(string $path, string $namespace): array
     {
         $classes = [];
         $path = array_unique(Arr::wrap($path));
@@ -28,11 +28,6 @@ class Rain extends Facade
 
     public static function available(): array
     {
-        Cache::forget('rain.widgets');
-        if (app()->isLocal()) {
-            Cache::forget('rain.widgets');
-        }
-
         $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
@@ -49,7 +44,7 @@ class Rain extends Facade
         return $widgets->sortBy('sort')->toArray();
     }
 
-    public static function collectWidgets($path, $namespace): \Illuminate\Support\Collection
+    public static function collectWidgets(string $path, string $namespace): Collection
     {
         if (! is_dir($path)) {
             return collect();
@@ -58,10 +53,10 @@ class Rain extends Facade
         $classes = self::loadClasses($path, $namespace);
         $allWidgets = self::setLayout($classes);
 
-        return collect($allWidgets);
+        return new Collection($allWidgets);
     }
 
-    protected static function setLayout($classes): array
+    protected static function setLayout(array $classes): array
     {
         $allWidgets = [];
 

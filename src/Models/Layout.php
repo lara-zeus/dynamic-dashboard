@@ -4,6 +4,8 @@ namespace LaraZeus\Rain\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use LaraZeus\Bolt\Models\Category;
+use LaraZeus\Bolt\Models\Form;
 
 /**
  * @property int $user_id

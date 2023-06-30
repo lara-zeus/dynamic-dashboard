@@ -13,7 +13,7 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
     public function enabled(): bool
     {
-        return class_exists(\LaraZeus\Wind\WindServiceProvider::class);
+        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class);
     }
 
     public function form(): Builder\Block
@@ -43,8 +43,9 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                     ->default('desc'),
 
                                 Select::make('category')
-                                    ->options(config('zeus-sky.models.tag')::withType('category')->pluck('name', 'id'))
-                                    ->default('desc'),
+                                    ->options(config('zeus-sky.models.tag')::query()
+                                        ->withType('category')
+                                        ->pluck('name', 'id')),
 
                                 Toggle::make('show_thumbnail')->label(__('show thumbnail')),
                                 Toggle::make('show_description')->label(__('show description')),
@@ -54,7 +55,7 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
             ]);
     }
 
-    public function viewData($data): array
+    public function viewData(array $data): array
     {
         $posts = config('zeus-sky.models.post')::query();
 

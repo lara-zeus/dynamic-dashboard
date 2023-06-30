@@ -9,6 +9,7 @@ use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\Page;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use LaraZeus\Rain\Facades\Rain;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
@@ -42,7 +43,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return __('edit layout');
     }
 
-    public function mount($record = null): void
+    public function mount(?int $record = null): void
     {
         if ($record === null) {
             $layoutModel = config('zeus-rain.models.layout');
@@ -62,7 +63,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             $allWidgets = $this->rainLayout->widgets;
             foreach (Columns::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
-                    $widgetsItems = collect($allWidgets[$column->key])->sortBy('data.sort')->toArray();
+                    $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
                     $this->{'widgetsFrom' . $column->key}->fill([
                         $column->key => $widgetsItems,
                     ]);
@@ -80,7 +81,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         }
     }
 
-    protected function getBlocksForms($key): array
+    protected function getBlocksForms(string $key): array
     {
         return [
             Builder::make($key)

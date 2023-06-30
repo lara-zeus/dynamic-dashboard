@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Console;
+namespace LaraZeus\Rain\Commands;
 
 use Illuminate\Console\Command;
 
