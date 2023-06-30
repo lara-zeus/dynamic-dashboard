@@ -2,10 +2,10 @@
 
 namespace LaraZeus\Rain\Widgets\Classes;
 
-use Filament\Forms\Components\Select;
-use LaraZeus\Rain\Widgets\Widget;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
+use LaraZeus\Rain\Widgets\Widget;
 
 class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -27,12 +27,12 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                 Select::make('menu_slug')
                                     ->options(
                                         // @phpstan-ignore-next-line
-                                        \RyanChandler\FilamentNavigation\Models\Navigation::pluck('name','handle')
+                                        \RyanChandler\FilamentNavigation\Models\Navigation::pluck('name', 'handle')
                                     ),
                                 Select::make('menu_dir')
                                     ->options([
-                                        'vertical'=>__('vertical'),
-                                        'horizontal'=>__('horizontal'),
+                                        'vertical' => __('vertical'),
+                                        'horizontal' => __('horizontal'),
                                     ]),
                             ]),
                         $this->defaultOptionsTab(),
@@ -44,8 +44,7 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     {
         return [
             // @phpstan-ignore-next-line
-            'menu'=> \RyanChandler\FilamentNavigation\Facades\FilamentNavigation::get($data['menu_slug']),
+            'menu' => \RyanChandler\FilamentNavigation\Facades\FilamentNavigation::get($data['menu_slug']),
         ];
     }
 }
-

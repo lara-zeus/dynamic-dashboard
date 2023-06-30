@@ -49,6 +49,7 @@ trait CanManipulateFiles
     protected function getDefaultStubPath(): string
     {
         $reflectionClass = new ReflectionClass($this);
+
         return (string) Str::of($reflectionClass->getFileName())
             ->beforeLast('Commands')
             ->append('../stubs');

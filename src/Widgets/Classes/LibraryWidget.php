@@ -2,10 +2,10 @@
 
 namespace LaraZeus\Rain\Widgets\Classes;
 
-use Filament\Forms\Components\Select;
-use LaraZeus\Rain\Widgets\Widget;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
+use LaraZeus\Rain\Widgets\Widget;
 
 class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -30,7 +30,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                             ->where('type', 'library')
                                             ->get()
                                             ->pluck('name', 'slug')
-                                    )
+                                    ),
                             ]),
                         $this->defaultOptionsTab(),
                     ]),
@@ -44,4 +44,3 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
         ];
     }
 }
-

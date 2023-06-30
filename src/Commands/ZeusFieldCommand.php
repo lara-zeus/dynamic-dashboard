@@ -30,16 +30,18 @@ class ZeusFieldCommand extends Command
     {
         $ClassName = $this->argument('name');
 
-        $this->copyStubToApp('ZeusWidget.php', 'app/Zeus/Widgets/'.$ClassName.'Widget.php', [
+        $this->copyStubToApp('ZeusWidget.php', 'app/Zeus/Widgets/' . $ClassName . 'Widget.php', [
             'namespace' => 'App\\Zeus\\Widgets',
             'class' => $ClassName,
         ]);
 
-        $this->copyStubToApp('ZeusWidget.blade.php',
-            'resources/views/vendor/zeus-rain/themes/'.config('zeus-rain.theme').'/widgets/'.$ClassName.'Widget.blade.php',
+        $this->copyStubToApp(
+            'ZeusWidget.blade.php',
+            'resources/views/vendor/zeus-rain/themes/' . config('zeus-rain.theme') . '/widgets/' . $ClassName . 'Widget.blade.php',
             [
                 'class' => $ClassName,
-            ]);
+            ]
+        );
 
         $this->info('zeus widget created successfully!');
     }

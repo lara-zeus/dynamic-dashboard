@@ -2,10 +2,10 @@
 
 namespace LaraZeus\Rain\Widgets\Classes;
 
-use Filament\Forms\Components\Select;
-use LaraZeus\Rain\Widgets\Widget;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
+use LaraZeus\Rain\Widgets\Widget;
 
 class FormsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -26,12 +26,11 @@ class FormsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->schema([
                                 Select::make('form_slug')
                                     ->options(
-                                        config('zeus-bolt.models.Form')::pluck('name','slug')
-                                    )
+                                        config('zeus-bolt.models.Form')::pluck('name', 'slug')
+                                    ),
                             ]),
                         $this->defaultOptionsTab(),
                     ]),
             ]);
     }
 }
-
