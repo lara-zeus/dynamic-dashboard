@@ -25,11 +25,13 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->label(__('Menu'))
                             ->schema([
                                 Select::make('menu_slug')
+                                    ->required()
                                     ->options(
                                         // @phpstan-ignore-next-line
                                         \RyanChandler\FilamentNavigation\Models\Navigation::pluck('name', 'handle')
                                     ),
                                 Select::make('menu_dir')
+                                    ->default('vertical')
                                     ->options([
                                         'vertical' => __('vertical'),
                                         'horizontal' => __('horizontal'),
@@ -44,7 +46,7 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     {
         return [
             // @phpstan-ignore-next-line
-            'menu' => \RyanChandler\FilamentNavigation\Facades\FilamentNavigation::get($data['menu_slug']),
+            'menu' => ($data['menu_slug'] !== null) ? \RyanChandler\FilamentNavigation\Facades\FilamentNavigation::get($data['menu_slug']) : null,
         ];
     }
 }
