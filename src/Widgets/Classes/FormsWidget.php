@@ -25,6 +25,7 @@ class FormsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->label(__('Forms'))
                             ->schema([
                                 Select::make('form_slug')
+                                    ->required()
                                     ->options(
                                         config('zeus-bolt.models.Form')::pluck('name', 'slug')
                                     ),

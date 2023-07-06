@@ -25,6 +25,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->label(__('Library'))
                             ->schema([
                                 Select::make('library_slug')
+                                    ->required()
                                     ->options(
                                         config('zeus-sky.models.tag')::query()
                                             ->where('type', 'library')
@@ -40,7 +41,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            'library' => config('zeus-sky.models.library')::withAnyTags([$data['library_slug']], 'library')->get(),
+            'library' => ($data['library_slug'] !== null) ? config('zeus-sky.models.library')::withAnyTags([$data['library_slug']], 'library')->get() : null,
         ];
     }
 }

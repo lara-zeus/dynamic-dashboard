@@ -10,19 +10,21 @@
 
     Special Thanks and Love to Ildiko Gaspar
     -->
-    @foreach($data['faqs'] as $faq)
-        <div class="transition rounded-xl hover:bg-gray-100 bg-gray-50">
-            <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-                <x-heroicon-o-chevron-down class="w-5 h-5 text-secondary-600"/>
-                <h3 class="font-semibold">{{ $faq->question }}</h3>
-            </div>
-            <div class="accordion-content overflow-hidden max-h-0">
-                <div class="bg-white border border-gray-200 rounded-xl rounded-t-none leading-6 font-light text-justify p-4">
-                    {!! $faq->answer !!}
+    @if($data['faqs'] !== null)
+        @foreach($data['faqs'] as $faq)
+            <div class="transition rounded-xl hover:bg-gray-100 bg-gray-50">
+                <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+                    <x-heroicon-o-chevron-down class="w-5 h-5 text-secondary-600"/>
+                    <h3 class="font-semibold">{{ $faq->question }}</h3>
+                </div>
+                <div class="accordion-content overflow-hidden max-h-0">
+                    <div class="bg-white border border-gray-200 rounded-xl rounded-t-none leading-6 font-light text-justify p-4">
+                        {!! $faq->answer !!}
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    @endif
 
     <style>
         .accordion-content {

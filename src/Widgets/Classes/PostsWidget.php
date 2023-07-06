@@ -26,7 +26,9 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                         Tabs\Tab::make('posts')
                             ->label(__('Posts'))
                             ->schema([
-                                TextInput::make('limit')->numeric()->default(5),
+                                TextInput::make('limit')
+                                    ->numeric()
+                                    ->default(5),
                                 Select::make('orderBy')
                                     ->options([
                                         'id' => __('id'),

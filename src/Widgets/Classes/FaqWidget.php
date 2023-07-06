@@ -25,6 +25,7 @@ class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->label(__('Faq'))
                             ->schema([
                                 Select::make('faq_cat')
+                                    ->required()
                                     ->options(
                                         config('zeus-sky.models.tag')::query()
                                             ->where('type', 'faq')
@@ -40,7 +41,7 @@ class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            'faqs' => config('zeus-sky.models.faq')::withAnyTags([$data['faq_cat']], 'faq')->get(),
+            'faqs' => ($data['faq_cat'] !== null) ? config('zeus-sky.models.faq')::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
         ];
     }
 }
