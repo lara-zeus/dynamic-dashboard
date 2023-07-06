@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.0.5 - 2023-07-06
+
+### What's Changed
+
+- add some validation for all widgets by @atmonshi in https://github.com/lara-zeus/rain/pull/17
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.4...1.0.5
+
 ## 1.0.4 - 2023-07-04
 
 ### What's Changed
