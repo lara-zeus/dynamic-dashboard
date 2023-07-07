@@ -24,10 +24,10 @@ class RainServiceProvider extends PluginServiceProvider
     {
         Livewire::component('landing', Layouts::class);
 
-        View::share('rain-theme', 'rain-theme::themes.'.config('zeus-rain.theme', 'zeus'));
+        View::share('rain-theme', 'rain-theme::themes.' . config('zeus-rain.theme', 'zeus'));
 
         App::singleton('rain-theme', function () {
-            return 'zeus-rain::themes.'.config('zeus-rain.theme', 'zeus');
+            return 'zeus-rain::themes.' . config('zeus-rain.theme', 'zeus');
         });
     }
 
