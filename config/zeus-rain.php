@@ -17,6 +17,7 @@ return [
      */
     'models' => [
         'layout' => \LaraZeus\Rain\Models\Layout::class,
+        'columns' => \LaraZeus\Rain\Models\Columns::class,
     ],
 
     /**
