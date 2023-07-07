@@ -2,6 +2,27 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.1.0 - 2023-07-07
+
+### What's Changed
+
+- Customize columns models by @atmonshi in https://github.com/lara-zeus/rain/pull/20
+
+### important
+
+update the config file to include:
+`'columns' => \LaraZeus\Rain\Models\Columns::class,`
+
+in the `models` array
+
+or republish the config file
+
+```bash
+php artisan vendor:publish --tag=zeus-rain-config --force
+
+```
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.6...1.1.0
+
 ## 1.0.6 - 2023-07-07
 
 ### What's Changed
