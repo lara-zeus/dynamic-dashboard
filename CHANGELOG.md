@@ -2,6 +2,14 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.0.6 - 2023-07-07
+
+### What's Changed
+
+- fix migration file name by @atmonshi in https://github.com/lara-zeus/rain/pull/19
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.5...1.0.6
+
 ## 1.0.5 - 2023-07-06
 
 ### What's Changed
