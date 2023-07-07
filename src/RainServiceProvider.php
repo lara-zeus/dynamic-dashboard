@@ -42,7 +42,7 @@ class RainServiceProvider extends PluginServiceProvider
     public function packageConfiguring(Package $package): void
     {
         $package
-            ->hasMigrations(['create_widgets_table'])
+            ->hasMigrations(['create_layouts_table'])
             ->hasRoute('web');
     }
 }
