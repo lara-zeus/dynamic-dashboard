@@ -42,7 +42,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return __('edit layout');
     }
 
-    public function mount(?int $record = null): void
+    public function mount(int $record = null): void
     {
         if ($record === null) {
             $layoutModel = config('zeus-rain.models.layout');
