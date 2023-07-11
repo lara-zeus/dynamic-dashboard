@@ -4,6 +4,7 @@
   "Edit": "تعديل",
   "Delete": "حذف",
   "Layout": "القالب",
+  "layout title": "القالب",
   "Layouts": "القوالب",
   "add layout": "اضافة قالب",
   "saved successfully": "تم الحفظ بنجاح",
@@ -17,7 +18,7 @@
   "create layout": "اضافة قالب",
   "edit layout": "تعديل قالب",
   "Image": "صورة",
-  "image alt text": "نص الوصرة البديل",
+  "image alt text": "نص الصورة البديل",
   "options": "خيارات",
   "optional": "اختياري",
   "widget title": "عنوان البلوك",
@@ -32,5 +33,6 @@
   "order direction": "اتجاه الترتيب",
   "show thumbnail": "عرض الصورة",
   "show description": "عرض الوصف",
-  "Title & Slug": "العنوان والرابط"
+  "Title & Slug": "العنوان والرابط",
+  "View Layout": "عرض القالب"
 }

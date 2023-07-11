@@ -40,7 +40,7 @@
                 let accordionMaxHeight = accordionContent.style.maxHeight;
 
                 // Condition handling
-                if (accordionMaxHeight == "0px" || accordionMaxHeight.length == 0) {
+                if (accordionMaxHeight === "0px" || accordionMaxHeight.length === 0) {
                     accordionContent.style.maxHeight = `${accordionContent.scrollHeight + 32}px`;
                     header.parentElement.classList.add("bg-primary-50");
                 } else {
