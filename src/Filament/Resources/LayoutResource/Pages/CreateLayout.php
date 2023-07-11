@@ -101,7 +101,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->label(__('Title & Slug'))
                 ->schema([
                     TextInput::make('rainLayout.layout_title')
-                        ->label(__('title'))
+                        ->label(__('layout title'))
                         ->reactive()
                         ->required()
                         ->afterStateUpdated(function (Closure $set, $state) {
