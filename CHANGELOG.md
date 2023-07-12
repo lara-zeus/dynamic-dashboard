@@ -2,6 +2,15 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.1.1 - 2023-07-12
+
+### What's Changed
+
+- Update trans by @atmonshi in https://github.com/lara-zeus/rain/pull/21
+- update core by @atmonshi in https://github.com/lara-zeus/rain/pull/22
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2023-07-07
 
 ### What's Changed
@@ -19,6 +28,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-rain-config --force
+
 
 ```
 **Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.6...1.1.0
