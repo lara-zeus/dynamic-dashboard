@@ -1431,16 +1431,16 @@
         },
         {
             "name": "lara-zeus/core",
-            "version": "2.4.19",
+            "version": "2.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lara-zeus/core.git",
-                "reference": "282e2de665984c75dc573834cf885146aac40fad"
+                "reference": "e9e110ca10c46c507c6db2a5a18e16e7bad42013"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lara-zeus/core/zipball/282e2de665984c75dc573834cf885146aac40fad",
-                "reference": "282e2de665984c75dc573834cf885146aac40fad",
+                "url": "https://api.github.com/repos/lara-zeus/core/zipball/e9e110ca10c46c507c6db2a5a18e16e7bad42013",
+                "reference": "e9e110ca10c46c507c6db2a5a18e16e7bad42013",
                 "shasum": ""
             },
             "require": {
@@ -1503,7 +1503,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lara-zeus/core/issues",
-                "source": "https://github.com/lara-zeus/core/tree/2.4.19"
+                "source": "https://github.com/lara-zeus/core/tree/2.4.20"
             },
             "funding": [
                 {
@@ -1511,7 +1511,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-04T21:00:26+00:00"
+            "time": "2023-07-12T12:51:15+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7128,16 +7128,16 @@
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v8.5.8",
+            "version": "v8.5.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "c9c36e8ef9a8b91cbcc85f629be5ff3670133737"
+                "reference": "03049a27967ab80972a7c0c0a5be87e421b27ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/c9c36e8ef9a8b91cbcc85f629be5ff3670133737",
-                "reference": "c9c36e8ef9a8b91cbcc85f629be5ff3670133737",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/03049a27967ab80972a7c0c0a5be87e421b27ff4",
+                "reference": "03049a27967ab80972a7c0c0a5be87e421b27ff4",
                 "shasum": ""
             },
             "require": {
@@ -7205,7 +7205,7 @@
                 "issues": "https://github.com/orchestral/testbench/issues",
                 "source": "https://github.com/orchestral/testbench-core"
             },
-            "time": "2023-06-22T05:28:42+00:00"
+            "time": "2023-07-12T00:16:23+00:00"
         },
         {
             "name": "pestphp/pest",
