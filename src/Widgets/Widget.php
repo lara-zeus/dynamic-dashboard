@@ -13,16 +13,16 @@ class Widget
         return true;
     }
 
-    public function render($data): string
+    public function render(array $data): string
     {
-        $data['widgetViewData'] = $this->viewData($data);
+        $data = array_merge($data, $this->viewData($data));
 
         return view(app('rainTheme') . '.widgets.' . last(explode('\\', $data['widget'])))
             ->with('data', $data)
             ->render();
     }
 
-    public function viewData($data): array
+    public function viewData(array $data): array
     {
         return [];
     }

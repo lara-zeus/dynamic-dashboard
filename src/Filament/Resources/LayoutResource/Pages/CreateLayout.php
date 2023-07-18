@@ -9,10 +9,10 @@ use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\Page;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use LaraZeus\Rain\Facades\Rain;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
-use LaraZeus\Rain\Models\Columns;
 use LaraZeus\Rain\Models\Layout;
 
 /**
@@ -42,12 +42,12 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return __('edit layout');
     }
 
-    public function mount($record = null): void
+    public function mount(int $record = null): void
     {
         if ($record === null) {
             $layoutModel = config('zeus-rain.models.layout');
             $this->rainLayout = new $layoutModel;
-            foreach (Columns::all() as $column) {
+            foreach (config('zeus-rain.models.columns')::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
                     $column->key => '',
                 ]);
@@ -60,9 +60,9 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             $this->rainLayout = config('zeus-rain.models.layout')::findOrFail($record);
 
             $allWidgets = $this->rainLayout->widgets;
-            foreach (Columns::all() as $column) {
+            foreach (config('zeus-rain.models.columns')::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
-                    $widgetsItems = collect($allWidgets[$column->key])->sortBy('data.sort')->toArray();
+                    $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
                     $this->{'widgetsFrom' . $column->key}->fill([
                         $column->key => $widgetsItems,
                     ]);
@@ -80,7 +80,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         }
     }
 
-    protected function getBlocksForms($key): array
+    protected function getBlocksForms(string $key): array
     {
         return [
             Builder::make($key)
@@ -101,7 +101,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->label(__('Title & Slug'))
                 ->schema([
                     TextInput::make('rainLayout.layout_title')
-                        ->label(__('title'))
+                        ->label(__('layout title'))
                         ->reactive()
                         ->required()
                         ->afterStateUpdated(function (Closure $set, $state) {
@@ -124,7 +124,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
         $forms['widgetsFromMain'] = $this->makeForm()->schema($this->mainComponents());
 
-        foreach (Columns::all() as $layout) {
+        foreach (config('zeus-rain.models.columns')::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
                 ->schema($this->getBlocksForms($layout->key));
         }
@@ -136,7 +136,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         $widgetsData = [];
 
-        foreach (Columns::all() as $layout) {
+        foreach (config('zeus-rain.models.columns')::all() as $layout) {
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()[$layout->key];
         }
 

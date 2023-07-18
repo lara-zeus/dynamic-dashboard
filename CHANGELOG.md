@@ -2,6 +2,85 @@
 
 All notable changes to `rain` will be documented in this file
 
+## 1.1.1 - 2023-07-12
+
+### What's Changed
+
+- Update trans by @atmonshi in https://github.com/lara-zeus/rain/pull/21
+- update core by @atmonshi in https://github.com/lara-zeus/rain/pull/22
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.1.0...1.1.1
+
+## 1.1.0 - 2023-07-07
+
+### What's Changed
+
+- Customize columns models by @atmonshi in https://github.com/lara-zeus/rain/pull/20
+
+### important
+
+update the config file to include:
+`'columns' => \LaraZeus\Rain\Models\Columns::class,`
+
+in the `models` array
+
+or republish the config file
+
+```bash
+php artisan vendor:publish --tag=zeus-rain-config --force
+
+
+```
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.6...1.1.0
+
+## 1.0.6 - 2023-07-07
+
+### What's Changed
+
+- fix migration file name by @atmonshi in https://github.com/lara-zeus/rain/pull/19
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.5...1.0.6
+
+## 1.0.5 - 2023-07-06
+
+### What's Changed
+
+- add some validation for all widgets by @atmonshi in https://github.com/lara-zeus/rain/pull/17
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.4...1.0.5
+
+## 1.0.4 - 2023-07-04
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/lara-zeus/rain/pull/15
+- update all dependecies by @atmonshi in https://github.com/lara-zeus/rain/pull/16
+
+### New Contributors
+
+- @dependabot made their first contribution in https://github.com/lara-zeus/rain/pull/15
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.3...1.0.4
+
+## 1.0.3 - 2023-06-30
+
+### What's Changed
+
+- tons of updates by @atmonshi in https://github.com/lara-zeus/rain/pull/14
+- 
+- add new widgets: Forms, Menu, Library, Faq. All from Sky update Docs on how to make a new widget
+- 
+- fixes for phpstan
+- 
+- improve UI
+- 
+- refactor widget class
+- 
+- add a command to create a custom widget
+- 
+
+**Full Changelog**: https://github.com/lara-zeus/rain/compare/1.0.2...1.0.3
+
 ## 1.0.2 - 2023-06-24
 
 ### What's Changed

@@ -8,7 +8,7 @@ interface Widget
 {
     public function enabled(): bool;
 
-    public function render($data): string;
+    public function render(array $data): string;
 
     public function form(): Block;
 }

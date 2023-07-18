@@ -4,7 +4,7 @@
             {{ $this->{'widgetsFromMain'} }}
 
             <div class="grid grid-cols-12 gap-2 w-full">
-                @foreach (\LaraZeus\Rain\Models\Columns::all() as $layout)
+                @foreach (config('zeus-rain.models.columns')::all() as $layout)
                     <x-filament::card class="w-full {{ $layout->class }} p-2">
                         <p>{{ $layout->name }}</p>
                         {{ $this->{'widgetsFrom'.$layout->key} }}

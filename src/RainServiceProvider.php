@@ -2,40 +2,37 @@
 
 namespace LaraZeus\Rain;
 
-use Filament\PluginServiceProvider;
 use LaraZeus\Core\CoreServiceProvider;
-use LaraZeus\Rain\Console\PublishCommand;
-use LaraZeus\Rain\Filament\Resources\LayoutResource;
+use LaraZeus\Rain\Commands\PublishCommand;
+use LaraZeus\Rain\Commands\ZeusFieldCommand;
 use LaraZeus\Rain\Http\Livewire\Layouts;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class RainServiceProvider extends PluginServiceProvider
+class RainServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'zeus-rain';
-
-    protected array $resources = [
-        LayoutResource::class,
-    ];
-
-    public function bootingPackage(): void
+    public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('rain');
         Livewire::component('landing', Layouts::class);
+    }
+
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('zeus-rain')
+            ->hasConfigFile()
+            ->hasMigrations(['create_widgets_table'])
+            ->hasViews('zeus')
+            ->hasRoute('web');
     }
 
     protected function getCommands(): array
     {
         return [
             PublishCommand::class,
+            ZeusFieldCommand::class,
         ];
-    }
-
-    public function packageConfigured(Package $package): void
-    {
-        $package
-            ->hasMigrations(['create_widgets_table'])
-            ->hasViews('zeus')
-            ->hasRoute('web');
     }
 }

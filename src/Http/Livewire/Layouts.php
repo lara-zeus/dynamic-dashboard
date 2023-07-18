@@ -2,13 +2,15 @@
 
 namespace LaraZeus\Rain\Http\Livewire;
 
+use Illuminate\View\View;
+use LaraZeus\Rain\Models\Layout;
 use Livewire\Component;
 
 class Layouts extends Component
 {
-    public $layout;
+    public Layout $layout;
 
-    public function mount($slug = null)
+    public function mount(string $slug = null): void
     {
         if ($slug === null) {
             $this->layout = config('zeus-rain.models.layout')::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
@@ -17,7 +19,7 @@ class Layouts extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         seo()
             ->site(config('app.name', 'Laravel'))
