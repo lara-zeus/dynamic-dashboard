@@ -20,15 +20,16 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "lara-zeus/core": "dev-themes"
+        "php": "^8.0.2",
+        "lara-zeus/core": "3.x-dev"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0 || ^7.0 || ^8.0",
+        "orchestra/testbench": "^7.0 || ^8.0",
         "laravel/pint": "^1.0",
-        "nunomaduro/larastan": "^2.0",
-        "pestphp/pest": "^1.21 || ^2.0",
-        "pestphp/pest-plugin-laravel": "^1.1 || ^2.0",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
         "pestphp/pest-plugin-livewire": "^1.0",
         "pestphp/pest-plugin-parallel": "^0.3",
         "phpstan/extension-installer": "^1.1",
@@ -72,6 +73,7 @@
             }
         }
     },
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "path",

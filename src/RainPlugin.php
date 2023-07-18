@@ -1,25 +1,24 @@
 <?php
 
-namespace LaraZeus\Sky;
+namespace LaraZeus\Rain;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use LaraZeus\Sky\Filament\Resources\TagResource;
+use LaraZeus\Rain\Filament\Resources\LayoutResource;
 
-class SkyPlugin implements Plugin
+class RainPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'zeus-sky';
+        return 'zeus-rain';
     }
 
     public function register(Panel $panel): void
     {
         $panel
-            ->resources(array_merge(
-                config('zeus-sky.enabled_resources'),
-                [TagResource::class]
-            ));
+            ->resources([
+                LayoutResource::class,
+            ]);
     }
 
     public static function make(): static
