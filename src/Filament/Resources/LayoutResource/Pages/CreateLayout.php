@@ -7,7 +7,8 @@ use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
-use Filament\Pages\Actions\Action;
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -24,7 +25,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     protected static string $resource = LayoutResource::class;
 
-    protected static string $view = 'zeus-rain::filament.pages.layouts';
+    protected static string $view = 'zeus::filament.pages.layouts';
 
     public Layout $rainLayout;
 
@@ -33,7 +34,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return $this->rainLayout;
     }
 
-    protected function getTitle(): string
+    public function getTitle(): string
     {
         if ($this->rainLayout->id === null) {
             return __('create layout');
@@ -89,7 +90,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsed()
                 ->collapsible()
                 ->cloneable()
-                ->createItemButtonLabel(__('add layout'))
+                ->addActionLabel(__('add layout'))
                 ->blocks(Rain::available()),
         ];
     }
@@ -104,7 +105,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                         ->label(__('layout title'))
                         ->reactive()
                         ->required()
-                        ->afterStateUpdated(function (Closure $set, $state) {
+                        ->afterStateUpdated(function (Forms\Set $set, $state) {
                             if ($this->rainLayout->id !== null) {
                                 return;
                             }
@@ -132,7 +133,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return $forms;
     }
 
-    public function submit(): void
+    public function submit()
     {
         $widgetsData = [];
 
@@ -146,7 +147,12 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         $this->rainLayout->user_id = auth()->user()->id;
         $this->rainLayout->save();
 
-        $this->notify('success', __('saved successfully'));
+        Notification::make()
+            ->title(__('saved successfully'))
+            ->success()
+            ->send();
+
+        return redirect($this->getResource()::getUrl('edit',['record'=>$this->rainLayout]));
     }
 
     protected function getActions(): array
@@ -155,7 +161,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             Action::make('view')
                 ->visible($this->rainLayout->id !== null)
                 ->label(__('View'))
-                ->icon('heroicon-o-external-link')
+                ->icon('heroicon-o-arrow-top-right-on-square')
                 ->tooltip(__('view form'))
                 ->color('warning')
                 ->url(fn () => route('landing-page', $this->rainLayout->layout_slug))

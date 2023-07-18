@@ -5,7 +5,7 @@ namespace LaraZeus\Rain\Commands;
 use Illuminate\Console\Command;
 use LaraZeus\Rain\Concerns\CanManipulateFiles;
 
-class ZeusFieldCommand extends Command
+class ZeusWidgetCommand extends Command
 {
     use CanManipulateFiles;
 

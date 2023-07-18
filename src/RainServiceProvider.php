@@ -4,7 +4,7 @@ namespace LaraZeus\Rain;
 
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Rain\Commands\PublishCommand;
-use LaraZeus\Rain\Commands\ZeusFieldCommand;
+use LaraZeus\Rain\Commands\ZeusWidgetCommand;
 use LaraZeus\Rain\Http\Livewire\Layouts;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
@@ -23,7 +23,7 @@ class RainServiceProvider extends PackageServiceProvider
         $package
             ->name('zeus-rain')
             ->hasConfigFile()
-            ->hasMigrations(['create_widgets_table'])
+            ->hasMigrations(['create_layouts_table'])
             ->hasViews('zeus')
             ->hasRoute('web');
     }
@@ -32,7 +32,7 @@ class RainServiceProvider extends PackageServiceProvider
     {
         return [
             PublishCommand::class,
-            ZeusFieldCommand::class,
+            ZeusWidgetCommand::class,
         ];
     }
 }

@@ -3,24 +3,24 @@
 namespace LaraZeus\Rain\Filament\Resources;
 
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
 {
+    protected static ?string $navigationIcon = 'heroicon-o-cloud';
+
+    protected static ?int $navigationSort = 20;
+
     public static function getModel(): string
     {
         return config('zeus-rain.models.layout');
     }
-
-    protected static ?string $navigationIcon = 'heroicon-o-cloud';
-
-    protected static ?int $navigationSort = 20;
 
     public static function table(Table $table): Table
     {
@@ -45,13 +45,15 @@ class LayoutResource extends Resource
             ->defaultSort('id', 'desc')
             ->actions([
                 ActionGroup::make([
-                    EditAction::make('edit')->label(__('Edit')),
+                    EditAction::make('edit')
+                        ->label(__('Edit')),
+
                     Action::make('show')
                         ->color('warning')
                         ->label(__('View Layout'))
-                        ->icon('heroicon-o-external-link')
+                        ->icon('heroicon-o-arrow-top-right-on-square')
                         ->tooltip(__('view Layout'))
-                        ->url(fn ($record): string => route('landing-page', $record->layout_slug))
+                        ->url(fn($record): string => route('landing-page', $record->layout_slug))
                         ->openUrlInNewTab(),
                     DeleteAction::make('delete')->label(__('Delete')),
                 ]),
@@ -77,12 +79,12 @@ class LayoutResource extends Resource
         return __('Layouts');
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Layouts');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return config('zeus-rain.navigation_group_label');
     }
