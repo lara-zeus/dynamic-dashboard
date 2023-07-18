@@ -53,7 +53,7 @@ class LayoutResource extends Resource
                         ->label(__('View Layout'))
                         ->icon('heroicon-o-arrow-top-right-on-square')
                         ->tooltip(__('view Layout'))
-                        ->url(fn($record): string => route('landing-page', $record->layout_slug))
+                        ->url(fn ($record): string => route('landing-page', $record->layout_slug))
                         ->openUrlInNewTab(),
                     DeleteAction::make('delete')->label(__('Delete')),
                 ]),

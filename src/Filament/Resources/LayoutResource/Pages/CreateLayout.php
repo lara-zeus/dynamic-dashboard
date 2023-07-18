@@ -2,12 +2,11 @@
 
 namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 
-use Closure;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
-use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
 use Illuminate\Support\Collection;
@@ -152,7 +151,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             ->success()
             ->send();
 
-        return redirect($this->getResource()::getUrl('edit',['record'=>$this->rainLayout]));
+        return redirect($this->getResource()::getUrl('edit', ['record' => $this->rainLayout]));
     }
 
     protected function getActions(): array
