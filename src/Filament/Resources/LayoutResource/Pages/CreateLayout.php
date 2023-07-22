@@ -62,7 +62,6 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                     'layout_title' => '',
                     'layout_slug' => '',
                 ]);
-                dd($this->widgetsFromMain);
             }
         } else {
             $this->rainLayout = config('zeus-rain.models.layout')::findOrFail($record);
