@@ -1,7 +1,7 @@
 <x-filament::page>
     <form wire:submit.prevent="submit" class="space-y-6">
 
-        {{ $this->{'widgetsFromMain'} }}
+        {{ $this->mainWidgetForm }}
 
         <div class="grid grid-cols-12 gap-2 w-full">
             @foreach (config('zeus-rain.models.columns')::all() as $layout)
