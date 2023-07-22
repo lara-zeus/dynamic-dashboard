@@ -1590,9 +1590,8 @@
                 "archtechx/laravel-seo": "^0.7",
                 "calebporzio/sushi": "^2.4",
                 "codeat3/blade-iconpark": "^1.5",
-                "filament/filament": "^3.0",
-                "illuminate/support": "^9.0 || ^10.0",
-                "php": "^8.0.2"
+                "filament/filament": "3.x-dev",
+                "php": "^8.1"
             },
             "require-dev": {
                 "laravel/pint": "^1.0",
@@ -1605,7 +1604,7 @@
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^10.2"
+                "phpunit/phpunit": "^10.1"
             },
             "type": "library",
             "extra": {
