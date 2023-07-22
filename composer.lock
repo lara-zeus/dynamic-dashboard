@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5501ef3d1a0f4ea3dca9b2f7e585d614",
+    "content-hash": "811c8a1d7d792c4f4a49ec14b9e334ab",
     "packages": [
         {
             "name": "archtechx/laravel-seo",
@@ -1580,11 +1580,17 @@
         },
         {
             "name": "lara-zeus/core",
-            "version": "3.x-dev",
+            "version": "v3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lara-zeus/core.git",
+                "reference": "18db93d580c650e13043e654cf32cd27e8288e70"
+            },
             "dist": {
-                "type": "path",
-                "url": "../core",
-                "reference": "8477f62918782e0c94c5ddcc4997847e1b5223b9"
+                "type": "zip",
+                "url": "https://api.github.com/repos/lara-zeus/core/zipball/18db93d580c650e13043e654cf32cd27e8288e70",
+                "reference": "18db93d580c650e13043e654cf32cd27e8288e70",
+                "shasum": ""
             },
             "require": {
                 "archtechx/laravel-seo": "^0.7",
@@ -1622,26 +1628,7 @@
                     "LaraZeus\\Core\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "LaraZeus\\Core\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "pint": [
-                    "vendor/bin/pint"
-                ],
-                "test:pest": [
-                    "vendor/bin/pest --parallel"
-                ],
-                "test:phpstan": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "@test:pest",
-                    "@test:phpstan"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1661,9 +1648,17 @@
                 "lara-zeus",
                 "laravel"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/lara-zeus/core/issues",
+                "source": "https://github.com/lara-zeus/core/tree/v3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/atmonshi",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-07-22T18:57:30+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7687,12 +7682,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "cf5275293fe693ec2cf4dbadbadae01daaa08169"
+                "reference": "705f19dd87caf16de4c24f5cfb7eff2e4aab3e3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/cf5275293fe693ec2cf4dbadbadae01daaa08169",
-                "reference": "cf5275293fe693ec2cf4dbadbadae01daaa08169",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/705f19dd87caf16de4c24f5cfb7eff2e4aab3e3f",
+                "reference": "705f19dd87caf16de4c24f5cfb7eff2e4aab3e3f",
                 "shasum": ""
             },
             "require": {
@@ -7769,7 +7764,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.9.3"
+                "source": "https://github.com/pestphp/pest/tree/v2.9.4"
             },
             "funding": [
                 {
@@ -7781,7 +7776,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-20T18:47:23+00:00"
+            "time": "2023-07-22T14:42:37+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -8535,12 +8530,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "e1f354e6921820364742c7ecd9f1ddc6e53a10f0"
+                "reference": "08e4464a32f24c8008f034cf88290d37592b3b1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e1f354e6921820364742c7ecd9f1ddc6e53a10f0",
-                "reference": "e1f354e6921820364742c7ecd9f1ddc6e53a10f0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/08e4464a32f24c8008f034cf88290d37592b3b1a",
+                "reference": "08e4464a32f24c8008f034cf88290d37592b3b1a",
                 "shasum": ""
             },
             "require": {
@@ -8589,7 +8584,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-20T14:22:40+00:00"
+            "time": "2023-07-22T13:13:22+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
