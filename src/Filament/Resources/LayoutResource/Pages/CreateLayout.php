@@ -49,12 +49,20 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             $this->rainLayout = new $layoutModel;
             foreach (config('zeus-rain.models.columns')::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
-                    $column->key => '',
+                    $column->key => [
+                        [
+                            "type" => "Posts",
+                            "data" => [
+                                'limit'=>1
+                            ],
+                        ]
+                    ],
                 ]);
-                $this->{'widgetsFromMain'}->fill([
+                $this->widgetsFromMain->fill([
                     'layout_title' => '',
                     'layout_slug' => '',
                 ]);
+                dd($this->widgetsFromMain);
             }
         } else {
             $this->rainLayout = config('zeus-rain.models.layout')::findOrFail($record);
@@ -63,6 +71,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             foreach (config('zeus-rain.models.columns')::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
                     $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
+                    //dd($widgetsItems);
                     $this->{'widgetsFrom' . $column->key}->fill([
                         $column->key => $widgetsItems,
                     ]);
@@ -73,7 +82,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 }
             }
 
-            $this->{'widgetsFromMain'}->fill([
+            $this->widgetsFromMain->fill([
                 'layout_title' => $this->rainLayout->layout_title,
                 'layout_slug' => $this->rainLayout->layout_slug,
             ]);
@@ -140,8 +149,8 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()[$layout->key];
         }
 
-        $this->rainLayout->layout_title = $this->{'widgetsFromMain'}->getState()['rainLayout']['layout_title'];
-        $this->rainLayout->layout_slug = $this->{'widgetsFromMain'}->getState()['rainLayout']['layout_slug'];
+        $this->rainLayout->layout_title = $this->widgetsFromMain->getState()['rainLayout']['layout_title'];
+        $this->rainLayout->layout_slug = $this->widgetsFromMain->getState()['rainLayout']['layout_slug'];
         $this->rainLayout->widgets = $widgetsData;
         $this->rainLayout->user_id = auth()->user()->id;
         $this->rainLayout->save();
