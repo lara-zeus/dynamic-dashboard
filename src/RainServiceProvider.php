@@ -22,6 +22,7 @@ class RainServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('zeus-rain')
+            ->hasTranslations()
             ->hasConfigFile()
             ->hasMigrations(['create_layouts_table'])
             ->hasViews('zeus')
