@@ -9,7 +9,11 @@
         "landing page",
         "filamentphp"
     ],
-    "homepage": "https://github.com/lara-zeus",
+    "homepage": "https://larazeus.com/rain",
+    "support": {
+        "issues": "https://github.com/lara-zeus/rain/issues",
+        "source": "https://github.com/lara-zeus/rain"
+    },
     "license": "MIT",
     "type": "library",
     "authors": [

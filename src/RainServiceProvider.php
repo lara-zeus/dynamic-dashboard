@@ -12,6 +12,8 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class RainServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'zeus-rain';
+
     public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('rain');
@@ -21,7 +23,7 @@ class RainServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('zeus-rain')
+            ->name(static::$name)
             ->hasTranslations()
             ->hasConfigFile()
             ->hasMigrations(['create_layouts_table'])
