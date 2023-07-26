@@ -139,7 +139,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
         return $forms;
     }
 
-    public function submit(): Application|Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
+    public function submit(): Application | Redirector | \Illuminate\Contracts\Foundation\Application | RedirectResponse
     {
         $widgetsData = [];
 
