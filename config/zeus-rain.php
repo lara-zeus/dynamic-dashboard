@@ -46,7 +46,7 @@ return [
     /**
      * Navigation Group Label
      */
-    'navigation_group_label' => 'rain',
+    'navigation_group_label' => 'Rain',
 
     /**
      * default layout slug
