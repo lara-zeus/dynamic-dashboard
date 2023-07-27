@@ -12,9 +12,9 @@
                                 @php
                                     $getWidget = new $data['data']['widget'];
                                 @endphp
-                                <div class="bg-white dark:bg-black shadow my-10 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 ltr:rounded-tr-none rtl:rounded-tl-none rounded-3xl border border-secondary-100 dark:border-secondary-700/50">
+                                <div class="bg-white dark:bg-black shadow my-10 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 ltr:rounded-tr-none rtl:rounded-tl-none rounded-3xl border border-custom-100 dark:border-custom-700/50">
                                     @if($data['data']['title'])
-                                        <h5 class="mb-2 bg-gray-100 dark:bg-gray-900 border border-secondary-200 dark:border-secondary-900/50 rounded-3xl ltr:rounded-tl-none rtl:rounded-tr-none absolute -mt-8 px-4 py-2 shadow font-bold text-sm lg:text-lg text-primary-600 dark:text-primary-100">
+                                        <h5 class="mb-2 bg-gray-100 dark:bg-gray-900 border border-custom-200 dark:border-custom-900/50 rounded-3xl ltr:rounded-tl-none rtl:rounded-tr-none absolute -mt-8 px-4 py-2 shadow font-bold text-sm lg:text-lg text-primary-600 dark:text-primary-100">
                                             {{ $data['data']['title'] }}
                                         </h5>
                                     @endif
