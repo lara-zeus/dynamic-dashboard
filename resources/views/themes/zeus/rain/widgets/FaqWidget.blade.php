@@ -14,7 +14,7 @@
         @foreach($data['faqs'] as $faq)
             <div class="transition rounded-xl hover:bg-gray-100 bg-gray-50">
                 <div class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-                    <x-heroicon-o-chevron-down class="w-5 h-5 text-secondary-600"/>
+                    @svg('heroicon-o-chevron-down','w-5 h-5 text-secondary-600')
                     <h3 class="font-semibold">{{ $faq->question }}</h3>
                 </div>
                 <div class="accordion-content overflow-hidden max-h-0">

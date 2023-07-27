@@ -6,6 +6,7 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use LaraZeus\Rain\Widgets\Widget;
+use LaraZeus\Sky\SkyPlugin;
 
 class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -27,7 +28,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                 Select::make('library_slug')
                                     ->required()
                                     ->options(
-                                        config('zeus-sky.models.tag')::query()
+                                        SkyPlugin::get()->getTagModel()::query()
                                             ->where('type', 'library')
                                             ->get()
                                             ->pluck('name', 'slug')
@@ -41,7 +42,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            'library' => ($data['library_slug'] !== null) ? config('zeus-sky.models.library')::withAnyTags([$data['library_slug']], 'library')->get() : null,
+            'library' => ($data['library_slug'] !== null) ? SkyPlugin::get()->getLibraryModel()::withAnyTags([$data['library_slug']], 'library')->get() : null,
         ];
     }
 }

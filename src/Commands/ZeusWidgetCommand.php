@@ -37,7 +37,7 @@ class ZeusWidgetCommand extends Command
 
         $this->copyStubToApp(
             'ZeusWidget.blade.php',
-            'resources/views/vendor/zeus-rain/themes/' . config('zeus-rain.theme') . '/widgets/' . $ClassName . 'Widget.blade.php',
+            'resources/views/vendor/zeus/themes/zeus/rain/widgets/' . config('zeus.theme') . '/widgets/' . $ClassName . 'Widget.blade.php',
             [
                 'class' => $ClassName,
             ]

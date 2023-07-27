@@ -6,6 +6,7 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use LaraZeus\Rain\Widgets\Widget;
+use LaraZeus\Sky\SkyPlugin;
 
 class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -27,7 +28,7 @@ class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                 Select::make('faq_cat')
                                     ->required()
                                     ->options(
-                                        config('zeus-sky.models.tag')::query()
+                                        SkyPlugin::get()->getTagModel()::query()
                                             ->where('type', 'faq')
                                             ->get()
                                             ->pluck('name', 'slug')
@@ -41,7 +42,7 @@ class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            'faqs' => ($data['faq_cat'] !== null) ? config('zeus-sky.models.faq')::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
+            'faqs' => ($data['faq_cat'] !== null) ? SkyPlugin::get()->getFaqModel()::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
         ];
     }
 }

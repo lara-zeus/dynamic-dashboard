@@ -6,6 +6,7 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
+use LaraZeus\Rain\RainPlugin;
 use LaraZeus\Rain\Widgets\Widget;
 
 class ImageWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
@@ -22,8 +23,8 @@ class ImageWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                             ->schema([
                                 FileUpload::make('url')
                                     ->label(__('Image'))
-                                    ->disk(config('zeus-rain.uploads.disk'))
-                                    ->directory(config('zeus-rain.uploads.directory'))
+                                    ->disk(RainPlugin::get()->getUploadDisk())
+                                    ->directory(RainPlugin::get()->getUploadDirectory())
                                     ->image()
                                     ->required(),
 

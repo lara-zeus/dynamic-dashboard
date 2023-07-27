@@ -8,6 +8,7 @@ use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use LaraZeus\Rain\Widgets\Widget;
+use LaraZeus\Sky\SkyPlugin;
 
 class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -45,7 +46,7 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                     ->default('desc'),
 
                                 Select::make('category')
-                                    ->options(config('zeus-sky.models.tag')::query()
+                                    ->options(SkyPlugin::get()->getTagModel()::query()
                                         ->withType('category')
                                         ->pluck('name', 'id')),
 
@@ -59,10 +60,10 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 
     public function viewData(array $data): array
     {
-        $posts = config('zeus-sky.models.post')::query();
+        $posts = SkyPlugin::get()->getPostModel()::query();
 
         if ($data['category'] !== null) {
-            $category = config('zeus-sky.models.tag')::where('type', 'category')->find($data['category']);
+            $category = SkyPlugin::get()->getTagModel()::where('type', 'category')->find($data['category']);
             if ($category !== null) {
                 $posts = $category->postsPublished();
             }

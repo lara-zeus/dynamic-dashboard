@@ -25,7 +25,7 @@ class RainServiceProvider extends PackageServiceProvider
         $package
             ->name(static::$name)
             ->hasTranslations()
-            ->hasConfigFile()
+            ->hasCommands(static::getCommands())
             ->hasMigrations(['create_layouts_table'])
             ->hasViews('zeus')
             ->hasRoute('web');

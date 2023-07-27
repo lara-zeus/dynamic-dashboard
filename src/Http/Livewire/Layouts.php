@@ -4,6 +4,7 @@ namespace LaraZeus\Rain\Http\Livewire;
 
 use Illuminate\View\View;
 use LaraZeus\Rain\Models\Layout;
+use LaraZeus\Rain\RainPlugin;
 use Livewire\Component;
 
 class Layouts extends Component
@@ -13,9 +14,9 @@ class Layouts extends Component
     public function mount(string $slug = null): void
     {
         if ($slug === null) {
-            $this->layout = config('zeus-rain.models.layout')::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
+            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
         } else {
-            $this->layout = config('zeus-rain.models.layout')::where('layout_slug', $slug)->firstOrFail();
+            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', $slug)->firstOrFail();
         }
     }
 
@@ -23,10 +24,10 @@ class Layouts extends Component
     {
         seo()
             ->site(config('app.name', 'Laravel'))
-            ->title(config('zeus-rain.site_title'))
-            ->description(config('zeus-rain.site_description'))
+            ->title(config('zeus.site_title'))
+            ->description(config('zeus.site_description'))
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
-            ->rawTag('<meta name="theme-color" content="' . config('zeus-rain.color') . '" />')
+            ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')
             ->withUrl()
             ->twitter();
 

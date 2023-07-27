@@ -28,7 +28,6 @@ class PublishCommand extends Command
     public function handle()
     {
         // publish Rain files
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-rain-config', '--force' => (bool) $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-rain-translations', '--force' => (bool) $this->option('force')]);
 
         // publish Zeus files

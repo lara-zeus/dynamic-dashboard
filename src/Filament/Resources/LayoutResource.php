@@ -10,6 +10,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
+use LaraZeus\Rain\RainPlugin;
 
 class LayoutResource extends Resource
 {
@@ -19,7 +20,7 @@ class LayoutResource extends Resource
 
     public static function getModel(): string
     {
-        return config('zeus-rain.models.layout');
+        return RainPlugin::get()->getLayoutModel();
     }
 
     public static function table(Table $table): Table
@@ -86,6 +87,6 @@ class LayoutResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return config('zeus-rain.navigation_group_label');
+        return RainPlugin::get()->getNavigationGroupLabel();
     }
 }
