@@ -7,7 +7,7 @@ trait Configuration
     /**
      * set the default path for the layout page.
      */
-    protected string $rainPrefix = 'Rain';
+    protected string $rainPrefix = 'rain';
 
     /**
      * the middleware you want to apply on all the blogs routes
