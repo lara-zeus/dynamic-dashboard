@@ -11,10 +11,7 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
     public function enabled(): bool
     {
-        // todo
-        return class_exists(\RyanChandler\FilamentNavigation\Models\Navigation::class);
-
-        //return class_exists(\LaraZeus\Sky\SkyServiceProvider::class);
+        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class);
     }
 
     public function form(): Builder\Block

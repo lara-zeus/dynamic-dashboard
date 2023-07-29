@@ -31,7 +31,7 @@ trait Configuration
 
     protected string $navigationGroupLabel = 'Rain';
 
-    protected string $defaultLayout = 'Rain';
+    protected string $defaultLayout = 'new-page';
 
     public function rainPrefix(string $prefix): static
     {

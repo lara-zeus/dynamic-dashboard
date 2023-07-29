@@ -14,7 +14,7 @@ class Layouts extends Component
     public function mount(string $slug = null): void
     {
         if ($slug === null) {
-            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', config('zeus-rain.default_layout'))->firstOrFail();
+            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', RainPlugin::get()->getDefaultLayout())->firstOrFail();
         } else {
             $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', $slug)->firstOrFail();
         }
