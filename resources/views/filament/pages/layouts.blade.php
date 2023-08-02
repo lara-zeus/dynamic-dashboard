@@ -5,10 +5,10 @@
 
         <div class="grid grid-cols-12 gap-2 w-full">
             @foreach (\LaraZeus\Rain\RainPlugin::get()->getColumnsModel()::all() as $layout)
-                <x-filament::card class="w-full {{ $layout->class }} p-2">
+                <x-filament::section class="w-full {{ $layout->class }} p-2">
                     <p>{{ $layout->name }}</p>
                     {{ $this->{'widgetsFrom'.$layout->key} }}
-                </x-filament::card>
+                </x-filament::section>
             @endforeach
         </div>
 
