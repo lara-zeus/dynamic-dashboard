@@ -97,6 +97,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsed()
                 ->collapsible()
                 ->cloneable()
+                ->reorderableWithButtons(false)
                 ->addActionLabel(__('add layout'))
                 ->blocks(Rain::available()),
         ];
