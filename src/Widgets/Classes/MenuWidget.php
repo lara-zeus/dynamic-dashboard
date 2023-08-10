@@ -46,7 +46,7 @@ class MenuWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     {
         return [
             // @phpstan-ignore-next-line
-            'menu' => ($data['menu_slug'] !== null) ? \RyanChandler\FilamentNavigation\Facades\FilamentNavigation::get($data['menu_slug']) : null,
+            'menu' => ($data['menu_slug'] !== null) ? \RyanChandler\FilamentNavigation\Models\Navigation::fromHandle($data['menu_slug']) : null,
         ];
     }
 }
