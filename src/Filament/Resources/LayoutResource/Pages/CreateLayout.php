@@ -111,7 +111,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->schema([
                     TextInput::make('rainLayout.layout_title')
                         ->label(__('layout title'))
-                        ->reactive()
+                        ->live(onBlur: true)
                         ->required()
                         ->afterStateUpdated(function (Forms\Set $set, $state) {
                             if ($this->rainLayout->id !== null) {
