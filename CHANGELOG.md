@@ -2,6 +2,10 @@
 
 All notable changes to `rain` will be documented in this file
 
+## v2.0.0 - 2023-08-19
+
+finally 🚀
+
 ## 1.1.1 - 2023-07-12
 
 ### What's Changed
@@ -28,6 +32,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-rain-config --force
+
 
 
 ```
