@@ -10,8 +10,7 @@ trait Configuration
     protected string $rainPrefix = 'rain';
 
     /**
-     * the middleware you want to apply on all the blog routes
-     * for example if you want to make your blog for users only, add the middleware 'auth'.
+     * the middleware you want to apply on the layout page routes
      */
     protected array $rainMiddleware = ['web'];
 
@@ -23,7 +22,7 @@ trait Configuration
     protected string $columnsModel = \LaraZeus\Rain\Models\Columns::class;
 
     /**
-     * set the default upload options for departments logo.
+     * set the default upload options.
      */
     protected string $uploadDisk = 'public';
 
