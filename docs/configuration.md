@@ -5,11 +5,18 @@ weight: 3
 
 ## Configuration
 
-to publish the config file run the command:
+to configure the plugin Rain, you can pass the configuration to the plugin in `adminPanelProvider`
 
-```bash
-php artisan vendor:publish --tag=zeus-rain-config
+these all the available configuration, and their defaults values
+
+```php
+RainPlugin::make()
+    ->rainPrefix('rain')
+    ->rainMiddleware(['web'])
+    ->layoutModel(\LaraZeus\Rain\Models\Layout::class)
+    ->columnsModel(\LaraZeus\Rain\Models\Columns::class)
+    ->uploadDisk('public')
+    ->uploadDirectory('layouts')
+    ->navigationGroupLabel('RaRainin')
+    ->defaultLayout('new-page')
 ```
-
-you can pass `--force` option to force publishing the config file
-

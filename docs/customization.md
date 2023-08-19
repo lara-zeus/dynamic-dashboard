@@ -3,7 +3,7 @@ title: Customization
 weight: 4
 ---
 
-to customize the layout, you can change the default layout in the config file
+to customize the layout, you can change the default layout in the `zeus.php` config file
 
 ```php
 'layout' => 'zeus::components.app',
@@ -15,14 +15,6 @@ or if you don't have a layout yet, you can publish the default one:
 
 ```bash
 php artisan vendor:publish --tag=zeus-views
-```
-
-## Publishing the default views
-
-to customize the default views for rain:
-
-```bash
-php artisan vendor:publish --tag=zeus-rain-views
 ```
 
 ## Publishing Translations
