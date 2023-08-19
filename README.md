@@ -19,7 +19,7 @@ Lara-zeus rain simple way to manage widgets for your website landing page.
 ## Support Filament
 
 <a href="https://github.com/sponsors/danharrin">
-<img width="320" alt="filament-logo" src="https://filamentadmin.com/images/sponsor-banner.jpg">
+<img alt="filament-logo" src="https://larazeus.com/images/filament-sponsor-banner.png">
 </a>
 
 ## features
