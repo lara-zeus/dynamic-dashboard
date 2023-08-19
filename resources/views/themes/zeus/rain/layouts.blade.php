@@ -10,6 +10,7 @@
                         @foreach($widgetsItems as $key => $data)
                             @if(class_exists($data['data']['widget']))
                                 @php
+                                    $data['data']['key'] = $key;
                                     $getWidget = new $data['data']['widget'];
                                 @endphp
                                 <div class="bg-white dark:bg-black shadow my-10 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 ltr:rounded-tr-none rtl:rounded-tl-none rounded-3xl border border-custom-100 dark:border-custom-700/50">

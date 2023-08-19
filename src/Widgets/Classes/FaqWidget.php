@@ -8,7 +8,7 @@ use Filament\Forms\Components\Tabs;
 use LaraZeus\Rain\Widgets\Widget;
 use LaraZeus\Sky\SkyPlugin;
 
-class FaqWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
+class FaqWidget extends Widget
 {
     public function enabled(): bool
     {

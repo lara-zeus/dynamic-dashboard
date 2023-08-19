@@ -11,4 +11,6 @@ interface Widget
     public function render(array $data): string;
 
     public function form(): Block;
+
+    public function viewData(array $data): array;
 }
