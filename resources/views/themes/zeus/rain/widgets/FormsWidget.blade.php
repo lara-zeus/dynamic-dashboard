@@ -1,5 +1,10 @@
 <div>
     @if($data['form_slug'] !== null)
-        <livewire:bolt.fill-form :inline="true" :slug="$data['form_slug']" />
+        @php
+            $checkForm = \LaraZeus\Bolt\BoltPlugin::getModel('Form')::whereSlug($data['form_slug'])->first();
+        @endphp
+        @if($checkForm !== null)
+            <livewire:bolt.fill-form :inline="true" :slug="$checkForm->slug" />
+        @endif
     @endif
 </div>
