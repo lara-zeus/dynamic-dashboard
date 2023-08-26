@@ -5,7 +5,6 @@ namespace LaraZeus\Rain\Widgets\Classes;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
-use LaraZeus\Bolt\BoltPlugin;
 use LaraZeus\Rain\Widgets\Widget;
 
 class FormsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
@@ -28,7 +27,8 @@ class FormsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                 Select::make('form_slug')
                                     ->required()
                                     ->options(
-                                        BoltPlugin::getModel('Form')::pluck('name', 'slug')
+                                        // @phpstan-ignore-next-line
+                                        \LaraZeus\Bolt\BoltPlugin::getModel('Form')::pluck('name', 'slug')
                                     ),
                             ]),
                         $this->defaultOptionsTab(),

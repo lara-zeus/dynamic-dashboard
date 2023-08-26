@@ -6,7 +6,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
 
-class RainPlugin implements Plugin
+final class RainPlugin implements Plugin
 {
     use Configuration;
 
@@ -25,12 +25,13 @@ class RainPlugin implements Plugin
 
     public static function make(): static
     {
-        return app(static::class);
+        return new self();
     }
 
-    public static function get(): Plugin | \Filament\FilamentManager
+    public static function get(): static
     {
-        return filament(app(static::class)->getId());
+        // @phpstan-ignore-next-line
+        return filament('zeus-rain');
     }
 
     public function boot(Panel $panel): void
