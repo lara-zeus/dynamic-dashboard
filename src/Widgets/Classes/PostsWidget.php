@@ -8,7 +8,6 @@ use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use LaraZeus\Rain\Widgets\Widget;
-use LaraZeus\Sky\SkyPlugin;
 
 class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
@@ -46,7 +45,8 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                     ->default('desc'),
 
                                 Select::make('category')
-                                    ->options(SkyPlugin::get()->getTagModel()::query()
+                                    // @phpstan-ignore-next-line
+                                    ->options(\LaraZeus\Sky\SkyPlugin::get()->getTagModel()::query()
                                         ->withType('category')
                                         ->pluck('name', 'id')),
 
@@ -60,10 +60,12 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 
     public function viewData(array $data): array
     {
-        $posts = SkyPlugin::get()->getPostModel()::query();
+        // @phpstan-ignore-next-line
+        $posts = \LaraZeus\Sky\SkyPlugin::get()->getPostModel()::query();
 
         if ($data['category'] !== null) {
-            $category = SkyPlugin::get()->getTagModel()::where('type', 'category')->find($data['category']);
+            // @phpstan-ignore-next-line
+            $category = \LaraZeus\Sky\SkyPlugin::get()->getTagModel()::where('type', 'category')->find($data['category']);
             if ($category !== null) {
                 $posts = $category->postsPublished();
             }
