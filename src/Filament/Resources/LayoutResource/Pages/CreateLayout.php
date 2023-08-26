@@ -81,7 +81,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     public function getTitle(): string
     {
-        if ($this->rainLayout->id === null) {
+        if (isset($this->rainLayout) && $this->rainLayout->id === null) {
             return __('create layout');
         }
 
