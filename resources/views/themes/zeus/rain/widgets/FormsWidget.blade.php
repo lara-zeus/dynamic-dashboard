@@ -7,4 +7,8 @@
             <livewire:bolt.fill-form :inline="true" :slug="$checkForm->slug" />
         @endif
     @endif
+
+    @push('styles')
+        @filamentStyles
+    @endpush
 </div>
