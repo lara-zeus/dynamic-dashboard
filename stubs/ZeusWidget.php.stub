@@ -19,7 +19,7 @@ class {{ class }}Widget extends Widget implements \LaraZeus\Rain\Contracts\Widge
                         Tabs\Tab::make('{{ class }}')
                             ->label(__('{{ class }}'))
                             ->schema([
-                                // todo add any filament components
+                                // add any filament components you want
                                 MarkdownEditor::make('content')
                                     ->label(__('content'))
                                     ->required(),
