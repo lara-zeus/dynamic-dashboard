@@ -2,12 +2,14 @@
 
 namespace LaraZeus\Rain;
 
+use Closure;
+
 trait Configuration
 {
     /**
      * set the default path for the layout page.
      */
-    protected string $rainPrefix = 'rain';
+    protected Closure | string $rainPrefix = 'rain';
 
     /**
      * the middleware you want to apply on the layout page routes
@@ -15,33 +17,34 @@ trait Configuration
     protected array $rainMiddleware = ['web'];
 
     /**
-     * customize the models
+     * you can overwrite any model and use your own
      */
-    protected string $layoutModel = \LaraZeus\Rain\Models\Layout::class;
-
-    protected string $columnsModel = \LaraZeus\Rain\Models\Columns::class;
+    protected array $rainModels = [
+        'Layout' => \LaraZeus\Rain\Models\Layout::class,
+        'Columns' => \LaraZeus\Rain\Models\Columns::class,
+    ];
 
     /**
      * set the default upload options.
      */
-    protected string $uploadDisk = 'public';
+    protected Closure | string $uploadDisk = 'public';
 
-    protected string $uploadDirectory = 'layouts';
+    protected Closure | string $uploadDirectory = 'layouts';
 
-    protected string $navigationGroupLabel = 'Rain';
+    protected Closure | string $navigationGroupLabel = 'Rain';
 
-    protected string $defaultLayout = 'new-page';
+    protected Closure | string $defaultLayout = 'new-page';
 
-    public function rainPrefix(string $prefix): static
+    public function rainPrefix(Closure | string $prefix): static
     {
         $this->rainPrefix = $prefix;
 
         return $this;
     }
 
-    public function getRainPrefix(): string
+    public function getRainPrefix(): Closure | string
     {
-        return $this->rainPrefix;
+        return $this->evaluate($this->rainPrefix);
     }
 
     public function rainMiddleware(array $middleware): static
@@ -56,75 +59,71 @@ trait Configuration
         return $this->rainMiddleware;
     }
 
-    public function layoutModel(string $model): static
+    public function rainModels(array $models): static
     {
-        $this->layoutModel = $model;
+        $this->rainModels = $models;
 
         return $this;
     }
 
-    public function getLayoutModel(): string
+    public function getRainModels(): array
     {
-        return $this->layoutModel;
+        return $this->rainModels;
     }
 
-    public function columnsModel(string $model): static
+    public static function getModel(string $model): string
     {
-        $this->columnsModel = $model;
-
-        return $this;
+        return array_merge(
+            (new static())->rainModels,
+            (new static())::get()->getRainModels()
+        )[$model];
     }
 
-    public function getColumnsModel(): string
-    {
-        return $this->columnsModel;
-    }
-
-    public function uploadDisk(string $disk): static
+    public function uploadDisk(Closure | string $disk): static
     {
         $this->uploadDisk = $disk;
 
         return $this;
     }
 
-    public function getUploadDisk(): string
+    public function getUploadDisk(): Closure | string
     {
-        return $this->uploadDisk;
+        return $this->evaluate($this->uploadDisk);
     }
 
-    public function uploadDirectory(string $dir): static
+    public function uploadDirectory(Closure | string $dir): static
     {
         $this->uploadDirectory = $dir;
 
         return $this;
     }
 
-    public function getUploadDirectory(): string
+    public function getUploadDirectory(): Closure | string
     {
-        return $this->uploadDirectory;
+        return $this->evaluate($this->uploadDirectory);
     }
 
-    public function navigationGroupLabel(string $lable): static
+    public function navigationGroupLabel(Closure | string $lable): static
     {
         $this->navigationGroupLabel = $lable;
 
         return $this;
     }
 
-    public function getNavigationGroupLabel(): string
+    public function getNavigationGroupLabel(): Closure | string
     {
-        return $this->navigationGroupLabel;
+        return $this->evaluate($this->navigationGroupLabel);
     }
 
-    public function defaultLayout(string $layout): static
+    public function defaultLayout(Closure | string $layout): static
     {
         $this->defaultLayout = $layout;
 
         return $this;
     }
 
-    public function getDefaultLayout(): string
+    public function getDefaultLayout(): Closure | string
     {
-        return $this->defaultLayout;
+        return $this->evaluate($this->defaultLayout);
     }
 }

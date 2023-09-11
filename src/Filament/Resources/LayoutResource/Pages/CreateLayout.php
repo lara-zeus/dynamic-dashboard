@@ -37,9 +37,9 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     public function mount(int $record = null): void
     {
         if ($record === null) {
-            $layoutModel = RainPlugin::get()->getLayoutModel();
+            $layoutModel = RainPlugin::get()->getModel('Layout');
             $this->rainLayout = new $layoutModel();
-            foreach (RainPlugin::get()->getColumnsModel()::all() as $column) {
+            foreach (RainPlugin::get()->getModel('Columns')::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
                     'widgetsData.' . $column->key => [],
                 ]);
@@ -50,10 +50,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ]);
             }
         } else {
-            $this->rainLayout = RainPlugin::get()->getLayoutModel()::findOrFail($record);
+            $this->rainLayout = RainPlugin::get()->getModel('Layout')::findOrFail($record);
 
             $allWidgets = $this->rainLayout->widgets;
-            foreach (RainPlugin::get()->getColumnsModel()::all() as $column) {
+            foreach (RainPlugin::get()->getModel('Columns')::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
                     $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
                     $this->{'widgetsFrom' . $column->key}->fill([
@@ -133,7 +133,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
         $forms['mainWidgetForm'] = $this->makeForm()->schema($this->mainComponents());
 
-        foreach (RainPlugin::get()->getColumnsModel()::all() as $layout) {
+        foreach (RainPlugin::get()->getModel('Columns')::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
                 ->schema($this->getBlocksForms($layout->key));
         }
@@ -145,7 +145,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         $widgetsData = [];
 
-        foreach (RainPlugin::get()->getColumnsModel()::all() as $layout) {
+        foreach (RainPlugin::get()->getModel('Columns')::all() as $layout) {
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()['widgetsData'][$layout->key];
         }
 

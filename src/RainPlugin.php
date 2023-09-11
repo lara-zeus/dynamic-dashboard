@@ -4,11 +4,13 @@ namespace LaraZeus\Rain;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Concerns\EvaluatesClosures;
 use LaraZeus\Rain\Filament\Resources\LayoutResource;
 
 final class RainPlugin implements Plugin
 {
     use Configuration;
+    use EvaluatesClosures;
 
     public function getId(): string
     {
