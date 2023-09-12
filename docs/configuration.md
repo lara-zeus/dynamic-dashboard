@@ -13,8 +13,10 @@ these all the available configuration, and their defaults values
 RainPlugin::make()
     ->rainPrefix('rain')
     ->rainMiddleware(['web'])
-    ->layoutModel(\LaraZeus\Rain\Models\Layout::class)
-    ->columnsModel(\LaraZeus\Rain\Models\Columns::class)
+    ->rainModels([
+        'Layout' => \LaraZeus\Rain\Models\Layout::class,
+        'Columns' => \LaraZeus\Rain\Models\Columns::class
+    ])
     ->uploadDisk('public')
     ->uploadDirectory('layouts')
     ->navigationGroupLabel('RaRainin')

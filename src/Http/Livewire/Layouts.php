@@ -14,9 +14,9 @@ class Layouts extends Component
     public function mount(string $slug = null): void
     {
         if ($slug === null) {
-            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', RainPlugin::get()->getDefaultLayout())->firstOrFail();
+            $this->layout = RainPlugin::get()->getModel('Layout')::where('layout_slug', RainPlugin::get()->getDefaultLayout())->firstOrFail();
         } else {
-            $this->layout = RainPlugin::get()->getLayoutModel()::where('layout_slug', $slug)->firstOrFail();
+            $this->layout = RainPlugin::get()->getModel('Layout')::where('layout_slug', $slug)->firstOrFail();
         }
     }
 

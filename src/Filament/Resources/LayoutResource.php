@@ -20,7 +20,7 @@ class LayoutResource extends Resource
 
     public static function getModel(): string
     {
-        return RainPlugin::get()->getLayoutModel();
+        return RainPlugin::get()->getModel('Layout');
     }
 
     public static function table(Table $table): Table

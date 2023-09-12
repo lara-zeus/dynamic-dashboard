@@ -43,7 +43,7 @@ class FaqWidget extends Widget
     {
         return [
             // @phpstan-ignore-next-line
-            'faqs' => ($data['faq_cat'] !== null) ? \LaraZeus\Sky\SkyPlugin::get()->getFaqModel()::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
+            'faqs' => ($data['faq_cat'] !== null) ? \LaraZeus\Sky\SkyPlugin::get()->getModel('Faq')::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
         ];
     }
 }
