@@ -38,6 +38,11 @@ Lara-zeus rain simple way to manage widgets for your website landing page.
 
 You can read all the docs in [lara zeus](https://larazeus.com/docs/rain) website.
 
+## Quick start
+
+[![starter-kit](https://larazeus.com/images/starter-kit-mini.png?v=2)](https://github.com/lara-zeus/zeus)
+[![artemis](https://larazeus.com/images/artemis-mini.png?v=2)](https://github.com/lara-zeus/artemis)
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
