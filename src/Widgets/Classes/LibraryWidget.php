@@ -28,7 +28,7 @@ class LibraryWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                     ->required()
                                     ->options(
                                         // @phpstan-ignore-next-line
-                                        \LaraZeus\Sky\SkyPlugin::get()->getTagModel()::query()
+                                        \LaraZeus\Sky\SkyPlugin::get()->getModel('Tag')::query()
                                             ->where('type', 'library')
                                             ->get()
                                             ->pluck('name', 'slug')
