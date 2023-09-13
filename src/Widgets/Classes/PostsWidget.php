@@ -46,7 +46,7 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 
                                 Select::make('category')
                                     // @phpstan-ignore-next-line
-                                    ->options(\LaraZeus\Sky\SkyPlugin::get()->getTagModel()::query()
+                                    ->options(\LaraZeus\Sky\SkyPlugin::get()->getModel('Tag')::query()
                                         ->withType('category')
                                         ->pluck('name', 'id')),
 
@@ -61,11 +61,11 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         // @phpstan-ignore-next-line
-        $posts = \LaraZeus\Sky\SkyPlugin::get()->getPostModel()::query();
+        $posts = \LaraZeus\Sky\SkyPlugin::get()->getModel('Post')::query();
 
         if ($data['category'] !== null) {
             // @phpstan-ignore-next-line
-            $category = \LaraZeus\Sky\SkyPlugin::get()->getTagModel()::where('type', 'category')->find($data['category']);
+            $category = \LaraZeus\Sky\SkyPlugin::get()->getModel('Tag')::where('type', 'category')->find($data['category']);
             if ($category !== null) {
                 $posts = $category->postsPublished();
             }

@@ -28,7 +28,7 @@ class FaqWidget extends Widget
                                     ->required()
                                     ->options(
                                         // @phpstan-ignore-next-line
-                                        \LaraZeus\Sky\SkyPlugin::get()->getTagModel()::query()
+                                        \LaraZeus\Sky\SkyPlugin::get()->getModel('Tag')::query()
                                             ->where('type', 'faq')
                                             ->get()
                                             ->pluck('name', 'slug')
