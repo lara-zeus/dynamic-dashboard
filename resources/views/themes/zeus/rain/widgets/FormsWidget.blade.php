@@ -1,4 +1,4 @@
-<div>
+<div class="my-4">
     @if($data['form_slug'] !== null)
         @php
             $checkForm = \LaraZeus\Bolt\BoltPlugin::getModel('Form')::whereSlug($data['form_slug'])->first();
