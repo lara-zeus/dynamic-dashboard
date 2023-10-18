@@ -18,6 +18,11 @@ class LayoutResource extends Resource
 
     protected static ?int $navigationSort = 20;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return ! RainPlugin::get()->isLayoutResourceHidden();
+    }
+
     public static function getModel(): string
     {
         return RainPlugin::get()->getModel('Layout');

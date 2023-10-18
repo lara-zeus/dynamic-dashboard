@@ -26,6 +26,7 @@ class ImageWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
                                     ->disk(RainPlugin::get()->getUploadDisk())
                                     ->directory(RainPlugin::get()->getUploadDirectory())
                                     ->image()
+                                    ->imageEditor()
                                     ->required(),
 
                                 TextInput::make('alt')

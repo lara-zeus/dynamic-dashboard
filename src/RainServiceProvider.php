@@ -5,7 +5,7 @@ namespace LaraZeus\Rain;
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Rain\Commands\PublishCommand;
 use LaraZeus\Rain\Commands\ZeusWidgetCommand;
-use LaraZeus\Rain\Http\Livewire\Layouts;
+use LaraZeus\Rain\Livewire\Layouts;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -25,6 +25,7 @@ class RainServiceProvider extends PackageServiceProvider
         $package
             ->name(static::$name)
             ->hasTranslations()
+            ->hasConfigFile()
             ->hasCommands(static::getCommands())
             ->hasMigrations(['create_layouts_table'])
             ->hasViews('zeus')
