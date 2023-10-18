@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Rain\Widgets\Classes;
 
+use Filament\Facades\Filament;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
@@ -13,7 +14,7 @@ class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
 {
     public function enabled(): bool
     {
-        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class);
+        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
     }
 
     public function form(): Builder\Block

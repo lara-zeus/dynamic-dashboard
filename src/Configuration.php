@@ -7,22 +7,9 @@ use Closure;
 trait Configuration
 {
     /**
-     * set the default path for the layout page.
-     */
-    protected Closure | string $rainPrefix = 'rain';
-
-    /**
-     * the middleware you want to apply on the layout page routes
-     */
-    protected array $rainMiddleware = ['web'];
-
-    /**
      * you can overwrite any model and use your own
      */
-    protected array $rainModels = [
-        'Layout' => \LaraZeus\Rain\Models\Layout::class,
-        'Columns' => \LaraZeus\Rain\Models\Columns::class,
-    ];
+    protected array $rainModels = [];
 
     /**
      * set the default upload options.
@@ -33,31 +20,7 @@ trait Configuration
 
     protected Closure | string $navigationGroupLabel = 'Rain';
 
-    protected Closure | string $defaultLayout = 'new-page';
-
-    public function rainPrefix(Closure | string $prefix): static
-    {
-        $this->rainPrefix = $prefix;
-
-        return $this;
-    }
-
-    public function getRainPrefix(): Closure | string
-    {
-        return $this->evaluate($this->rainPrefix);
-    }
-
-    public function rainMiddleware(array $middleware): static
-    {
-        $this->rainMiddleware = $middleware;
-
-        return $this;
-    }
-
-    public function getMiddleware(): array
-    {
-        return $this->rainMiddleware;
-    }
+    protected Closure | bool $hideLayoutResource = false;
 
     public function rainModels(array $models): static
     {
@@ -74,7 +37,7 @@ trait Configuration
     public static function getModel(string $model): string
     {
         return array_merge(
-            (new static())->rainModels,
+            config('zeus-rain.models'),
             (new static())::get()->getRainModels()
         )[$model];
     }
@@ -115,15 +78,15 @@ trait Configuration
         return $this->evaluate($this->navigationGroupLabel);
     }
 
-    public function defaultLayout(Closure | string $layout): static
+    public function hideLayoutResource(Closure | bool $condition = true): static
     {
-        $this->defaultLayout = $layout;
+        $this->hideLayoutResource = $condition;
 
         return $this;
     }
 
-    public function getDefaultLayout(): Closure | string
+    public function isLayoutResourceHidden(): Closure | bool
     {
-        return $this->evaluate($this->defaultLayout);
+        return $this->evaluate($this->hideLayoutResource);
     }
 }

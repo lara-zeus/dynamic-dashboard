@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaraZeus\Rain\Http\Livewire\Layouts;
-use LaraZeus\Rain\RainPlugin;
+use LaraZeus\Rain\Livewire\Layouts;
 
-if (! defined('__PHPSTAN_RUNNING__') && app('filament')->hasPlugin('zeus-rain')) {
-    Route::middleware(RainPlugin::get()->getMiddleware())
-        ->prefix(RainPlugin::get()->getRainPrefix())
-        ->get('/{slug?}', Layouts::class)
-        ->name('landing-page');
-}
+Route::domain(config('zeus-rain.domain'))
+    ->middleware(config('zeus-rain.middleware'))
+    ->prefix(config('zeus-rain.prefix'))
+    ->get('/{slug?}', Layouts::class)
+    ->name('landing-page');
