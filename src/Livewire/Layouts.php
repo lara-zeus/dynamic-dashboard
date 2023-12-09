@@ -10,7 +10,7 @@ class Layouts extends Component
 {
     public Layout $layout;
 
-    public function mount(string $slug = null): void
+    public function mount(?string $slug = null): void
     {
         if ($slug === null) {
             $this->layout = config('zeus-rain.models.Layout')::where('layout_slug', config('zeus-rain.defaultLayout'))->firstOrFail();
