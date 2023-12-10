@@ -9,7 +9,7 @@ interface Widget
 {
     public function enabled(): bool;
 
-    public function renderWidget(array $data): string|View;
+    public function renderWidget(array $data): string | View;
 
     public function form(): Block;
 

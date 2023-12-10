@@ -22,7 +22,7 @@ class Rain extends Facade
         $path = array_unique(Arr::wrap($path));
 
         foreach ((new Finder())->in($path)->files() as $className) {
-            $classes[] = $namespace.$className->getFilenameWithoutExtension();
+            $classes[] = $namespace . $className->getFilenameWithoutExtension();
         }
 
         return $classes;
@@ -30,22 +30,22 @@ class Rain extends Facade
 
     public static function available(): array
     {
-        $coreWidgets = self::collectWidgets(__DIR__.'/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
+        $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
         $allFilamentWidgets = self::filamentWidgets();
 
         $widgets = collect();
 
-        if (!$coreWidgets->isEmpty()) {
+        if (! $coreWidgets->isEmpty()) {
             $widgets = $widgets->merge($coreWidgets);
         }
 
-        if (!$appWidgets->isEmpty()) {
+        if (! $appWidgets->isEmpty()) {
             $widgets = $widgets->merge($appWidgets);
         }
 
-        if (!$allFilamentWidgets->isEmpty()) {
+        if (! $allFilamentWidgets->isEmpty()) {
             $widgets = $widgets->merge($allFilamentWidgets);
         }
 
@@ -61,7 +61,7 @@ class Rain extends Facade
         $filamentWidgets = array_combine($filamentWidgetClasses, $filamentWidgetNamespace);
 
         foreach ($filamentWidgets as $class => $namespace) {
-            $loadWidget = self::loadClasses($class, $namespace.'\\');
+            $loadWidget = self::loadClasses($class, $namespace . '\\');
             $allFilamentWidgets->push(self::setLayout($loadWidget)[0]);
         }
 
@@ -70,7 +70,7 @@ class Rain extends Facade
 
     public static function collectWidgets(string $path, string $namespace): Collection
     {
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             return collect();
         }
 
@@ -87,7 +87,7 @@ class Rain extends Facade
         foreach ($classes as $widget) {
             $widgetClass = new $widget();
 
-            if($widgetClass instanceof Widget && $widgetClass->enabled()){
+            if ($widgetClass instanceof Widget && $widgetClass->enabled()) {
                 $allWidgets[] = $widgetClass->form();
             }
         }
