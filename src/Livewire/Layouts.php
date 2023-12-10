@@ -11,7 +11,7 @@ class Layouts extends Component
 {
     public Layout $rainLayout;
 
-    public function mount(string $slug = null): void
+    public function mount(?string $slug = null): void
     {
         $l = $slug ?? RainPlugin::get()->getDefaultLayout();
         $this->rainLayout = RainPlugin::get()->getModel('Layout')::where('layout_slug', $l)->firstOrFail();

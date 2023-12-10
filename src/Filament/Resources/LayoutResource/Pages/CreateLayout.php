@@ -33,7 +33,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     public array $widgetsData;
 
-    public function mount(int $record = null): void
+    public function mount(?int $record = null): void
     {
         if ($record === null) {
             $layoutModel = RainPlugin::get()->getModel('Layout');
