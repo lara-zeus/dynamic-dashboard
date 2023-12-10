@@ -3,12 +3,13 @@
 namespace LaraZeus\Rain\Contracts;
 
 use Filament\Forms\Components\Builder\Block;
+use Illuminate\Contracts\View\View;
 
 interface Widget
 {
     public function enabled(): bool;
 
-    public function render(array $data): string;
+    public function renderWidget(array $data): string|View;
 
     public function form(): Block;
 

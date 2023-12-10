@@ -4,6 +4,6 @@
     ]);
 @endphp
 
-<div style="{{ $styles }}" class="p-4 prose lg:prose-xl prose-custom dark:prose-invert">
+<div style="{{ $styles }}" class="p-4 prose lg:prose-xl prose-primary dark:prose-invert">
     {!! str($data['content'])->markdown() !!}
 </div>

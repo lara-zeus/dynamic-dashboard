@@ -2,7 +2,6 @@
 
 namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 
-use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Fieldset;
@@ -81,11 +80,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     public function getTitle(): string
     {
-        if (isset($this->rainLayout) && $this->rainLayout->id === null) {
-            return __('create layout');
-        }
-
-        return __('edit layout');
+        return __('create layout');
     }
 
     protected function getBlocksForms(string $key): array
@@ -163,19 +158,5 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             ->send();
 
         return redirect($this->getResource()::getUrl('edit', ['record' => $this->rainLayout]));
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Action::make('view')
-                ->visible($this->rainLayout->id !== null)
-                ->label(__('View'))
-                ->icon('heroicon-o-arrow-top-right-on-square')
-                ->tooltip(__('view form'))
-                ->color('warning')
-                ->url(fn () => route('landing-page', $this->rainLayout->layout_slug))
-                ->openUrlInNewTab(),
-        ];
     }
 }

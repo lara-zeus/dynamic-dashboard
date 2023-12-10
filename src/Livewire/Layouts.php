@@ -4,19 +4,17 @@ namespace LaraZeus\Rain\Livewire;
 
 use Illuminate\View\View;
 use LaraZeus\Rain\Models\Layout;
+use LaraZeus\Rain\RainPlugin;
 use Livewire\Component;
 
 class Layouts extends Component
 {
-    public Layout $layout;
+    public Layout $rainLayout;
 
     public function mount(string $slug = null): void
     {
-        if ($slug === null) {
-            $this->layout = config('zeus-rain.models.Layout')::where('layout_slug', config('zeus-rain.defaultLayout'))->firstOrFail();
-        } else {
-            $this->layout = config('zeus-rain.models.Layout')::where('layout_slug', $slug)->firstOrFail();
-        }
+        $l = $slug ?? RainPlugin::get()->getDefaultLayout();
+        $this->rainLayout = RainPlugin::get()->getModel('Layout')::where('layout_slug', $l)->firstOrFail();
     }
 
     public function render(): View

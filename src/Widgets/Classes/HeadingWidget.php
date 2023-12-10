@@ -5,10 +5,12 @@ namespace LaraZeus\Rain\Widgets\Classes;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Tabs;
-use LaraZeus\Rain\Widgets\Widget;
+use LaraZeus\Rain\Concerns\InteractWithWidgets;
 
-class HeadingWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
+class HeadingWidget implements \LaraZeus\Rain\Contracts\Widget
 {
+    use InteractWithWidgets;
+
     public function form(): Builder\Block
     {
         return Builder\Block::make('paragraph')

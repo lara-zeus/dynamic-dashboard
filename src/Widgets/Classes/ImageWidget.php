@@ -6,11 +6,13 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
+use LaraZeus\Rain\Concerns\InteractWithWidgets;
 use LaraZeus\Rain\RainPlugin;
-use LaraZeus\Rain\Widgets\Widget;
 
-class ImageWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
+class ImageWidget implements \LaraZeus\Rain\Contracts\Widget
 {
+    use InteractWithWidgets;
+
     public function form(): Builder\Block
     {
         return Builder\Block::make('image')

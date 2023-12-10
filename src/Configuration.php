@@ -14,6 +14,8 @@ trait Configuration
     /**
      * set the default upload options.
      */
+    protected Closure | string $defaultLayout = 'new-page';
+
     protected Closure | string $uploadDisk = 'public';
 
     protected Closure | string $uploadDirectory = 'layouts';
@@ -40,6 +42,18 @@ trait Configuration
             config('zeus-rain.models'),
             (new static())::get()->getRainModels()
         )[$model];
+    }
+
+    public function defaultLayout(Closure | string $layout): static
+    {
+        $this->defaultLayout = $layout;
+
+        return $this;
+    }
+
+    public function getDefaultLayout(): Closure | string
+    {
+        return $this->evaluate($this->defaultLayout);
     }
 
     public function uploadDisk(Closure | string $disk): static

@@ -1,4 +1,4 @@
-<div>
+<x-filament::page>
     @if($rainLayout->widgets !== null)
         <div class="grid grid-cols-12 gap-2 w-full px-2">
             @foreach (\LaraZeus\Rain\RainPlugin::get()->getModel('Columns')::all() as $column)
@@ -8,10 +8,9 @@
                     @endphp
                     <div class="{{ $column->class }}">
                         @if(count($widgetsItems) !== 0)
-                            @foreach($widgetsItems as $key => $data)
+                            @foreach($widgetsItems as $data)
                                 @if(class_exists($data['data']['widget']))
                                     @php
-                                        $data['data']['key'] = $key;
                                         $getWidget = new $data['data']['widget'];
                                     @endphp
                                     <div class="bg-white dark:bg-black shadow my-10 py-3 px-4 hover:shadow-lg transition-all ease-in-out duration-500 ltr:rounded-tr-none rtl:rounded-tl-none rounded-3xl border border-primary-100 dark:border-primary-700/50">
@@ -25,11 +24,11 @@
                                         </div>
                                     </div>
                                 @endif
-                            @endforeach
+                          @endforeach
                        @endif
                     </div>
                 @endif
             @endforeach
         </div>
     @endif
-</div>
+</x-filament::page>

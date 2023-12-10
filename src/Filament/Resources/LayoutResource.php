@@ -8,6 +8,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
 use LaraZeus\Rain\RainPlugin;
@@ -42,6 +43,11 @@ class LayoutResource extends Resource
                     ->searchable()
                     ->toggleable()
                     ->label(__('slug')),
+
+                ToggleColumn::make('is_active')
+                    ->toggleable()
+                    ->label(__('is active')),
+
                 TextColumn::make('user.name')
                     ->sortable()
                     ->searchable()
@@ -70,8 +76,8 @@ class LayoutResource extends Resource
     {
         return [
             'index' => Pages\ListLayout::route('/'),
-            'create' => Pages\CreateLayout::route('/create'),
-            'edit' => Pages\CreateLayout::route('/{record}/edit'),
+            'edit' => Pages\EditLayout::route('/{record}/manage'),
+            'create' => Pages\CreateLayout::route('/manage'),
         ];
     }
 

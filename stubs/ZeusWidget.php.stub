@@ -2,13 +2,14 @@
 
 namespace {{ namespace }};
 
-use LaraZeus\Rain\Widgets\Widget;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Tabs;
 
-class {{ class }}Widget extends Widget implements \LaraZeus\Rain\Contracts\Widget
+class {{ class }}Widget implements \LaraZeus\Rain\Contracts\Widget
 {
+    use \LaraZeus\Rain\Concerns\InteractWithWidgets;
+
     public function form(): Builder\Block
     {
         return Builder\Block::make('{{ class }}')

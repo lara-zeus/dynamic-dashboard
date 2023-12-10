@@ -8,10 +8,13 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use LaraZeus\Rain\Widgets\Widget;
+use LaraZeus\Rain\Concerns\InteractWithWidgets;
+use LaraZeus\Rain\Contracts\Widget;
 
-class PostsWidget extends Widget implements \LaraZeus\Rain\Contracts\Widget
+class PostsWidget implements Widget
 {
+    use InteractWithWidgets;
+
     public function enabled(): bool
     {
         return class_exists(\LaraZeus\Sky\SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
