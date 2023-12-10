@@ -13,7 +13,7 @@ class DynamicDashboard extends \Filament\Pages\Dashboard
 
     protected static string $view = 'zeus::filament.pages.dynamic-dashboard';
 
-    public function mount(string $slug = null): void
+    public function mount(?string $slug = null): void
     {
         $defaultLayout = $slug ?? RainPlugin::get()->getDefaultLayout();
 
@@ -37,7 +37,7 @@ class DynamicDashboard extends \Filament\Pages\Dashboard
                 ->tooltip('Edit Dashboard')
                 ->icon('heroicon-m-pencil-square')
                 ->iconButton()
-                ->url(fn() => EditLayout::getUrl(['record' => $this->rainLayout->id]))
+                ->url(fn () => EditLayout::getUrl(['record' => $this->rainLayout->id])),
         ];
     }
 }
