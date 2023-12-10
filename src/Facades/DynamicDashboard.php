@@ -1,19 +1,19 @@
 <?php
 
-namespace LaraZeus\Rain\Facades;
+namespace LaraZeus\DynamicDashboard\Facades;
 
 use Filament\Facades\Filament;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
-use LaraZeus\Rain\Contracts\Widget;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
 use Symfony\Component\Finder\Finder;
 
-class Rain extends Facade
+class DynamicDashboard extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'rain';
+        return 'dynamic-dashboard';
     }
 
     public static function loadClasses(string $path, string $namespace): array
@@ -30,7 +30,7 @@ class Rain extends Facade
 
     public static function available(): array
     {
-        $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\Rain\\Widgets\\Classes\\');
+        $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\DynamicDashboard\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
 
         $allFilamentWidgets = self::filamentWidgets();

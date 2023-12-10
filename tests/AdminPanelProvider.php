@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Tests;
+namespace LaraZeus\DynamicDashboard\Tests;
 
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -25,7 +25,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->login()
             ->plugins([
-                \LaraZeus\Rain\RainPlugin::make(),
+                \LaraZeus\DynamicDashboard\DynamicDashboardPlugin::make(),
                 SpatieLaravelTranslatablePlugin::make()
                     ->defaultLocales(['en']),
             ])

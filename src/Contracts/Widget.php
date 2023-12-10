@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Contracts;
+namespace LaraZeus\DynamicDashboard\Contracts;
 
 use Filament\Forms\Components\Builder\Block;
 use Illuminate\Contracts\View\View;

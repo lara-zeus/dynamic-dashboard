@@ -20,14 +20,14 @@ All notable changes to `rain` will be documented in this file
 ### important
 
 update the config file to include:
-`'columns' => \LaraZeus\Rain\Models\Columns::class,`
+`'columns' => \LaraZeus\DynamicDashboard\Models\Columns::class,`
 
 in the `models` array
 
 or republish the config file
 
 ```bash
-php artisan vendor:publish --tag=zeus-rain-config --force
+php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
 
 
 ```

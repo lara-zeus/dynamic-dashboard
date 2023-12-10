@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
+namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
@@ -13,10 +13,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use LaraZeus\Rain\Facades\Rain;
-use LaraZeus\Rain\Filament\Resources\LayoutResource;
-use LaraZeus\Rain\Models\Layout;
-use LaraZeus\Rain\RainPlugin;
+use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
+use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
+use LaraZeus\DynamicDashboard\Models\Layout;
 
 /**
  * @property \stdClass $mainWidgetForm.
@@ -29,16 +29,16 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     protected static string $view = 'zeus::filament.pages.layouts';
 
-    public Layout $rainLayout;
+    public Layout $dashLayout;
 
     public array $widgetsData;
 
     public function mount(?int $record = null): void
     {
         if ($record === null) {
-            $layoutModel = RainPlugin::get()->getModel('Layout');
-            $this->rainLayout = new $layoutModel();
-            foreach (RainPlugin::get()->getModel('Columns')::all() as $column) {
+            $layoutModel = DynamicDashboardPlugin::get()->getModel('Layout');
+            $this->dashLayout = new $layoutModel();
+            foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column) {
                 $this->{'widgetsFrom' . $column->key}->fill([
                     'widgetsData.' . $column->key => [],
                 ]);
@@ -49,10 +49,10 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ]);
             }
         } else {
-            $this->rainLayout = RainPlugin::get()->getModel('Layout')::findOrFail($record);
+            $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::findOrFail($record);
 
-            $allWidgets = $this->rainLayout->widgets;
-            foreach (RainPlugin::get()->getModel('Columns')::all() as $column) {
+            $allWidgets = $this->dashLayout->widgets;
+            foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column) {
                 if (isset($allWidgets[$column->key])) {
                     $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
                     $this->{'widgetsFrom' . $column->key}->fill([
@@ -67,15 +67,15 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
             // @phpstan-ignore-next-line
             $this->mainWidgetForm->fill([
-                'layout_title' => $this->rainLayout->layout_title,
-                'layout_slug' => $this->rainLayout->layout_slug,
+                'layout_title' => $this->dashLayout->layout_title,
+                'layout_slug' => $this->dashLayout->layout_slug,
             ]);
         }
     }
 
     protected function getFormModel(): Layout
     {
-        return $this->rainLayout;
+        return $this->dashLayout;
     }
 
     public function getTitle(): string
@@ -94,7 +94,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->cloneable()
                 ->reorderableWithButtons(false)
                 ->addActionLabel(__('add layout'))
-                ->blocks(Rain::available()),
+                ->blocks(DynamicDashboard::available()),
         ];
     }
 
@@ -104,18 +104,18 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
             Fieldset::make('mainComponents')
                 ->label(__('Title & Slug'))
                 ->schema([
-                    TextInput::make('rainLayout.layout_title')
+                    TextInput::make('dashLayout.layout_title')
                         ->label(__('layout title'))
                         ->live(onBlur: true)
                         ->required()
                         ->afterStateUpdated(function (Forms\Set $set, $state) {
-                            if ($this->rainLayout->id !== null) {
+                            if ($this->dashLayout->id !== null) {
                                 return;
                             }
 
-                            $set('rainLayout.layout_slug', Str::slug($state));
+                            $set('dashLayout.layout_slug', Str::slug($state));
                         }),
-                    TextInput::make('rainLayout.layout_slug')
+                    TextInput::make('dashLayout.layout_slug')
                         ->required()
                         ->label(__('slug')),
                 ]),
@@ -128,7 +128,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
         $forms['mainWidgetForm'] = $this->makeForm()->schema($this->mainComponents());
 
-        foreach (RainPlugin::get()->getModel('Columns')::all() as $layout) {
+        foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
                 ->schema($this->getBlocksForms($layout->key));
         }
@@ -140,23 +140,23 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         $widgetsData = [];
 
-        foreach (RainPlugin::get()->getModel('Columns')::all() as $layout) {
+        foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout) {
             $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()['widgetsData'][$layout->key];
         }
 
         // @phpstan-ignore-next-line
-        $this->rainLayout->layout_title = $this->mainWidgetForm->getState()['rainLayout']['layout_title'];
+        $this->dashLayout->layout_title = $this->mainWidgetForm->getState()['dashLayout']['layout_title'];
         // @phpstan-ignore-next-line
-        $this->rainLayout->layout_slug = $this->mainWidgetForm->getState()['rainLayout']['layout_slug'];
-        $this->rainLayout->widgets = $widgetsData;
-        $this->rainLayout->user_id = auth()->user()->id;
-        $this->rainLayout->save();
+        $this->dashLayout->layout_slug = $this->mainWidgetForm->getState()['dashLayout']['layout_slug'];
+        $this->dashLayout->widgets = $widgetsData;
+        $this->dashLayout->user_id = auth()->user()->id;
+        $this->dashLayout->save();
 
         Notification::make()
             ->title(__('saved successfully'))
             ->success()
             ->send();
 
-        return redirect($this->getResource()::getUrl('edit', ['record' => $this->rainLayout]));
+        return redirect($this->getResource()::getUrl('edit', ['record' => $this->dashLayout]));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Tests;
+namespace LaraZeus\DynamicDashboard\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -14,7 +14,7 @@ use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use LaraZeus\Core\CoreServiceProvider;
-use LaraZeus\Rain\RainServiceProvider;
+use LaraZeus\DynamicDashboard\DynamicDashboardServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -43,7 +43,7 @@ class TestCase extends Orchestra
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
 
-            RainServiceProvider::class,
+            DynamicDashboardServiceProvider::class,
             AdminPanelProvider::class,
             CoreServiceProvider::class,
         ];

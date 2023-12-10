@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain;
+namespace LaraZeus\DynamicDashboard;
 
 use Closure;
 
@@ -9,7 +9,7 @@ trait Configuration
     /**
      * you can overwrite any model and use your own
      */
-    protected array $rainModels = [];
+    protected array $models = [];
 
     /**
      * set the default upload options.
@@ -20,27 +20,27 @@ trait Configuration
 
     protected Closure | string $uploadDirectory = 'layouts';
 
-    protected Closure | string $navigationGroupLabel = 'Rain';
+    protected Closure | string $navigationGroupLabel = 'Dynamic Dashboard';
 
     protected Closure | bool $hideLayoutResource = false;
 
-    public function rainModels(array $models): static
+    public function models(array $models): static
     {
-        $this->rainModels = $models;
+        $this->models = $models;
 
         return $this;
     }
 
-    public function getRainModels(): array
+    public function getModels(): array
     {
-        return $this->rainModels;
+        return $this->models;
     }
 
     public static function getModel(string $model): string
     {
         return array_merge(
-            config('zeus-rain.models'),
-            (new static())::get()->getRainModels()
+            config('zeus-dynamic-dashboard.models'),
+            (new static())::get()->getModels()
         )[$model];
     }
 

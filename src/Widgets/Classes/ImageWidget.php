@@ -1,15 +1,15 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets\Classes;
+namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
-use LaraZeus\Rain\Concerns\InteractWithWidgets;
-use LaraZeus\Rain\RainPlugin;
+use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 
-class ImageWidget implements \LaraZeus\Rain\Contracts\Widget
+class ImageWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
     use InteractWithWidgets;
 
@@ -25,8 +25,8 @@ class ImageWidget implements \LaraZeus\Rain\Contracts\Widget
                             ->schema([
                                 FileUpload::make('url')
                                     ->label(__('Image'))
-                                    ->disk(RainPlugin::get()->getUploadDisk())
-                                    ->directory(RainPlugin::get()->getUploadDirectory())
+                                    ->disk(DynamicDashboardPlugin::get()->getUploadDisk())
+                                    ->directory(DynamicDashboardPlugin::get()->getUploadDirectory())
                                     ->image()
                                     ->imageEditor()
                                     ->required(),

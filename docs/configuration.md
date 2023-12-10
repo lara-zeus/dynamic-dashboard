@@ -5,17 +5,23 @@ weight: 3
 
 ## Configuration
 
-to configure the plugin Rain, you can pass the configuration to the plugin in `adminPanelProvider`
+to configure the plugin Dynamic Dashboard, you can pass the configuration to the plugin in `adminPanelProvider`
 
 these all the available configuration, and their defaults values
 
 ```php
-RainPlugin::make()
-    ->rainModels([
-        'Layout' => \LaraZeus\Rain\Models\Layout::class,
-        'Columns' => \LaraZeus\Rain\Models\Columns::class
+DynamicDashboardPlugin::make()
+    ->models([
+        'Layout' => \LaraZeus\DynamicDashboard\Models\Layout::class,
+        'Columns' => \LaraZeus\DynamicDashboard\Models\Columns::class
     ])
+    
     ->uploadDisk('public')
     ->uploadDirectory('layouts')
-    ->navigationGroupLabel('Rain')
+    
+    ->navigationGroupLabel('Dynamic Dashboard')
+    
+    ->hideLayoutResource()
+    
+    ->defaultLayout('new-page')
 ```

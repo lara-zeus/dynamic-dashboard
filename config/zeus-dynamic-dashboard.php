@@ -20,8 +20,8 @@ return [
      * ->skyModels([ ... ])
      */
     'models' => [
-        'Layout' => \LaraZeus\Rain\Models\Layout::class,
-        'Columns' => \LaraZeus\Rain\Models\Columns::class,
+        'Layout' => \LaraZeus\DynamicDashboard\Models\Layout::class,
+        'Columns' => \LaraZeus\DynamicDashboard\Models\Columns::class,
     ],
 
     'defaultLayout' => 'new-page',

@@ -1,10 +1,10 @@
 <?php
 
-namespace LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
+namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
-use LaraZeus\Rain\Filament\Resources\LayoutResource;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 
 class ListLayout extends ListRecords
 {

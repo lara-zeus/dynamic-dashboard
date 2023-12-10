@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Models;
+namespace LaraZeus\DynamicDashboard\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Concerns;
+namespace LaraZeus\DynamicDashboard\Concerns;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
@@ -12,7 +12,7 @@ trait CanManipulateFiles
     {
         $filesystem = app(Filesystem::class);
 
-        if (! $this->fileExists($stubPath = base_path("stubs/zeus-rain/{$stub}.stub"))) {
+        if (! $this->fileExists($stubPath = base_path("stubs/zeus-dynamic-dashboard/{$stub}.stub"))) {
             $stubPath = $this->getDefaultStubPath() . "/{$stub}.stub";
         }
 

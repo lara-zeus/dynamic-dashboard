@@ -1,9 +1,9 @@
 <?php
 
-namespace LaraZeus\Rain\Commands;
+namespace LaraZeus\DynamicDashboard\Commands;
 
 use Illuminate\Console\Command;
-use LaraZeus\Rain\Concerns\CanManipulateFiles;
+use LaraZeus\DynamicDashboard\Concerns\CanManipulateFiles;
 
 class ZeusWidgetCommand extends Command
 {
@@ -21,7 +21,7 @@ class ZeusWidgetCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create custom widget for zeus rain';
+    protected $description = 'Create custom widget for zeus Dynamic Dashboard';
 
     /**
      * Execute the console command.
@@ -37,7 +37,7 @@ class ZeusWidgetCommand extends Command
 
         $this->copyStubToApp(
             'ZeusWidget.blade.php',
-            'resources/views/vendor/zeus/themes/zeus/rain/widgets/' . config('zeus.theme') . '/widgets/' . $ClassName . 'Widget.blade.php',
+            'resources/views/vendor/zeus/themes/zeus/dynamic-dashboard/widgets/' . config('zeus.theme') . '/widgets/' . $ClassName . 'Widget.blade.php',
             [
                 'class' => $ClassName,
             ]

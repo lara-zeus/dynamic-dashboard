@@ -22,6 +22,6 @@ php artisan vendor:publish --tag=zeus-views
 to customize the translations:
 
 ```bash
-php artisan vendor:publish --tag=zeus-rain-translations
+php artisan vendor:publish --tag=zeus-dynamic-dashboard-translations
 ```
 

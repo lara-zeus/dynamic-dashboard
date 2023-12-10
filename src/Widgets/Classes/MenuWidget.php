@@ -1,15 +1,14 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets\Classes;
+namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
-use LaraZeus\Rain\Concerns\InteractWithWidgets;
-use LaraZeus\Sky\SkyPlugin;
+use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 
-class MenuWidget implements \LaraZeus\Rain\Contracts\Widget
+class MenuWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
     use InteractWithWidgets;
 
@@ -31,7 +30,8 @@ class MenuWidget implements \LaraZeus\Rain\Contracts\Widget
                                 Select::make('menu_slug')
                                     ->required()
                                     ->options(
-                                        SkyPlugin::get()->getModel('Navigation')::pluck('name', 'handle')
+                                        // @phpstan-ignore-next-line
+                                        \LaraZeus\Sky\SkyPlugin::get()->getModel('Navigation')::pluck('name', 'handle')
                                     ),
                                 Select::make('menu_dir')
                                     ->default('vertical')
@@ -48,7 +48,8 @@ class MenuWidget implements \LaraZeus\Rain\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            'menu' => ($data['menu_slug'] !== null) ? SkyPlugin::get()->getModel('Navigation')::fromHandle($data['menu_slug']) : null,
+            // @phpstan-ignore-next-line
+            'menu' => ($data['menu_slug'] !== null) ? \LaraZeus\Sky\SkyPlugin::get()->getModel('Navigation')::fromHandle($data['menu_slug']) : null,
         ];
     }
 }

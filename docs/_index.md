@@ -1,7 +1,7 @@
 ---
-title: v2
-slogan: simple way to manage widgets and layout for your website landing page.
-githubUrl: https://github.com/lara-zeus/rain
-branch: main
+title: v3
+slogan: Dynamic widgets for your Dashboard
+githubUrl: https://github.com/lara-zeus/dynamic-widgets
+branch: 3.x
 icon: carbon-rain-heavy
 ---

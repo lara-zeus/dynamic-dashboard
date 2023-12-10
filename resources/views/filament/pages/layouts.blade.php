@@ -4,7 +4,7 @@
         {{ $this->mainWidgetForm }}
 
         <div class="grid grid-cols-12 gap-2 w-full">
-            @foreach (\LaraZeus\Rain\RainPlugin::get()->getModel('Columns')::all() as $layout)
+            @foreach (\LaraZeus\DynamicDashboard\DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout)
                 <x-filament::section class="w-full {{ $layout->class }} p-2">
                     <p>{{ $layout->name }}</p>
                     {{ $this->{'widgetsFrom'.$layout->key} }}

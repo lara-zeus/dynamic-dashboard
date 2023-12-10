@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets\Classes;
+namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Tabs;
-use LaraZeus\Rain\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 
-class HeadingWidget implements \LaraZeus\Rain\Contracts\Widget
+class HeadingWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
     use InteractWithWidgets;
 

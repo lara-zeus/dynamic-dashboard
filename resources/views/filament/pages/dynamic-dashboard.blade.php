@@ -1,10 +1,10 @@
 <x-filament::page>
-    @if($rainLayout->widgets !== null)
+    @if($dashLayout->widgets !== null)
         <div class="grid grid-cols-12 gap-2 w-full px-2">
-            @foreach (\LaraZeus\Rain\RainPlugin::get()->getModel('Columns')::all() as $column)
-                @if(isset($rainLayout->widgets[$column->key]))
+            @foreach (\LaraZeus\DynamicDashboard\DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column)
+                @if(isset($dashLayout->widgets[$column->key]))
                     @php
-                        $widgetsItems = collect($rainLayout->widgets[$column->key])->sortBy('data.sort')->toArray();
+                        $widgetsItems = collect($dashLayout->widgets[$column->key])->sortBy('data.sort')->toArray();
                     @endphp
                     <div class="{{ $column->class }}">
                         @if(count($widgetsItems) !== 0)
@@ -24,8 +24,8 @@
                                         </div>
                                     </div>
                                 @endif
-                          @endforeach
-                       @endif
+                            @endforeach
+                        @endif
                     </div>
                 @endif
             @endforeach

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Filament\Resources;
+namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
@@ -10,8 +10,8 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
-use LaraZeus\Rain\Filament\Resources\LayoutResource\Pages;
-use LaraZeus\Rain\RainPlugin;
+use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
 {
@@ -21,12 +21,12 @@ class LayoutResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return ! RainPlugin::get()->isLayoutResourceHidden();
+        return ! DynamicDashboardPlugin::get()->isLayoutResourceHidden();
     }
 
     public static function getModel(): string
     {
-        return RainPlugin::get()->getModel('Layout');
+        return DynamicDashboardPlugin::get()->getModel('Layout');
     }
 
     public static function table(Table $table): Table
@@ -98,6 +98,6 @@ class LayoutResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return RainPlugin::get()->getNavigationGroupLabel();
+        return DynamicDashboardPlugin::get()->getNavigationGroupLabel();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets\Classes;
+namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Builder;
@@ -8,8 +8,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use LaraZeus\Rain\Concerns\InteractWithWidgets;
-use LaraZeus\Rain\Contracts\Widget;
+use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
 
 class PostsWidget implements Widget
 {

@@ -27,7 +27,7 @@ you can pass `--force` option to force publishing all the files, helps if you're
 to publish the migrations files
 
 ```bash
-php artisan vendor:publish --tag=zeus-rain-migrations
+php artisan vendor:publish --tag=zeus-dynamic-dashboard-migrations
 ```
 
 ## Assets

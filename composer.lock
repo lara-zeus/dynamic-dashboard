@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09f4693f3cbd6421e5fd4f4dda658c2b",
+    "content-hash": "c25155c38c0ad432ed1a4a389263ae7b",
     "packages": [
         {
             "name": "archtechx/laravel-seo",
@@ -8467,12 +8467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larastan/larastan.git",
-                "reference": "63654614d4ae8a29a908d6184e666108bf38aca6"
+                "reference": "446ed3608cd56ac0183a7d0be0b9e97ec0ae9273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larastan/larastan/zipball/63654614d4ae8a29a908d6184e666108bf38aca6",
-                "reference": "63654614d4ae8a29a908d6184e666108bf38aca6",
+                "url": "https://api.github.com/repos/larastan/larastan/zipball/446ed3608cd56ac0183a7d0be0b9e97ec0ae9273",
+                "reference": "446ed3608cd56ac0183a7d0be0b9e97ec0ae9273",
                 "shasum": ""
             },
             "require": {
@@ -8562,7 +8562,7 @@
                 }
             ],
             "abandoned": "larastan/larastan",
-            "time": "2023-12-10T21:14:22+00:00"
+            "time": "2023-12-10T22:52:59+00:00"
         },
         {
             "name": "nunomaduro/phpinsights",

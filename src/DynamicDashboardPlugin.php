@@ -1,20 +1,20 @@
 <?php
 
-namespace LaraZeus\Rain;
+namespace LaraZeus\DynamicDashboard;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use LaraZeus\Rain\Filament\Resources\LayoutResource;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 
-final class RainPlugin implements Plugin
+final class DynamicDashboardPlugin implements Plugin
 {
     use Configuration;
     use EvaluatesClosures;
 
     public function getId(): string
     {
-        return 'zeus-rain';
+        return 'zeus-dynamic-dashboard';
     }
 
     public function register(Panel $panel): void
@@ -33,7 +33,7 @@ final class RainPlugin implements Plugin
     public static function get(): static
     {
         // @phpstan-ignore-next-line
-        return filament('zeus-rain');
+        return filament('zeus-dynamic-dashboard');
     }
 
     public function boot(Panel $panel): void

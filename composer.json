@@ -1,6 +1,6 @@
 {
     "name": "lara-zeus/rain",
-    "description": "Zeus Rain simple way to manage widgets for your website landing page",
+    "description": "Zeus Rain Dynamic Dashboard to manage widgets for your website landing page",
     "keywords": [
         "laravel",
         "lara-zeus",
@@ -42,12 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LaraZeus\\Rain\\": "src"
+            "LaraZeus\\DynamicDashboard\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaraZeus\\Rain\\Tests\\": "tests"
+            "LaraZeus\\DynamicDashboard\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -70,10 +70,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaraZeus\\Rain\\RainServiceProvider"
+                "LaraZeus\\DynamicDashboard\\DynamicDashboardServiceProvider"
             ],
             "aliases": {
-                "Rain": "LaraZeus\\Rain\\Facades\\Rain"
+                "DynamicDashboard": "LaraZeus\\DynamicDashboard\\Facades\\DynamicDashboard"
             }
         }
     },

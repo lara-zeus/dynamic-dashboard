@@ -1,22 +1,22 @@
 <?php
 
-namespace LaraZeus\Rain;
+namespace LaraZeus\DynamicDashboard;
 
 use LaraZeus\Core\CoreServiceProvider;
-use LaraZeus\Rain\Commands\PublishCommand;
-use LaraZeus\Rain\Commands\ZeusWidgetCommand;
-use LaraZeus\Rain\Livewire\Layouts;
+use LaraZeus\DynamicDashboard\Commands\PublishCommand;
+use LaraZeus\DynamicDashboard\Commands\ZeusWidgetCommand;
+use LaraZeus\DynamicDashboard\Livewire\Layouts;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class RainServiceProvider extends PackageServiceProvider
+class DynamicDashboardServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'zeus-rain';
+    public static string $name = 'zeus-dynamic-dashboard';
 
     public function packageBooted(): void
     {
-        CoreServiceProvider::setThemePath('rain');
+        CoreServiceProvider::setThemePath('dynamic-dashboard');
         Livewire::component('landing', Layouts::class);
     }
 

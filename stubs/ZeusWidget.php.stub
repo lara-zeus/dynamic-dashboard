@@ -6,9 +6,9 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Tabs;
 
-class {{ class }}Widget implements \LaraZeus\Rain\Contracts\Widget
+class {{ class }}Widget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
-    use \LaraZeus\Rain\Concerns\InteractWithWidgets;
+    use \LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 
     public function form(): Builder\Block
     {

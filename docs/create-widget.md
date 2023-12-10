@@ -21,4 +21,4 @@ to define all fields you want to store it with the widget
 the view to be rendered on the frontend
 
 ## Customization
-check out the contract `LaraZeus\Rain\Widgets\Widget.php` and see all the available methods.
+check out the contract `LaraZeus\DynamicDashboard\Widgets\Widget.php` and see all the available methods.

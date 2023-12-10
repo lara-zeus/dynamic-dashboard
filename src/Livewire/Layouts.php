@@ -1,20 +1,20 @@
 <?php
 
-namespace LaraZeus\Rain\Livewire;
+namespace LaraZeus\DynamicDashboard\Livewire;
 
 use Illuminate\View\View;
-use LaraZeus\Rain\Models\Layout;
-use LaraZeus\Rain\RainPlugin;
+use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
+use LaraZeus\DynamicDashboard\Models\Layout;
 use Livewire\Component;
 
 class Layouts extends Component
 {
-    public Layout $rainLayout;
+    public Layout $dashLayout;
 
     public function mount(?string $slug = null): void
     {
-        $l = $slug ?? RainPlugin::get()->getDefaultLayout();
-        $this->rainLayout = RainPlugin::get()->getModel('Layout')::where('layout_slug', $l)->firstOrFail();
+        $l = $slug ?? DynamicDashboardPlugin::get()->getDefaultLayout();
+        $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::where('layout_slug', $l)->firstOrFail();
     }
 
     public function render(): View
@@ -28,7 +28,7 @@ class Layouts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('rainTheme') . '.layouts')
+        return view(app('dynamicDashboardTheme') . '.layouts')
             ->layout(config('zeus.layout'));
     }
 }

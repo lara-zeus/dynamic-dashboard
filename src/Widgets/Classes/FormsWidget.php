@@ -1,13 +1,13 @@
 <?php
 
-namespace LaraZeus\Rain\Widgets\Classes;
+namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
-use LaraZeus\Rain\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 
-class FormsWidget implements \LaraZeus\Rain\Contracts\Widget
+class FormsWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
     use InteractWithWidgets;
 

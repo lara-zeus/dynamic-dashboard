@@ -1,5 +1,5 @@
 <?php
 
-use LaraZeus\Rain\Tests\TestCase;
+use LaraZeus\DynamicDashboard\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

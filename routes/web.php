@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaraZeus\Rain\Livewire\Layouts;
+use LaraZeus\DynamicDashboard\Livewire\Layouts;
 
-Route::domain(config('zeus-rain.domain'))
-    ->middleware(config('zeus-rain.middleware'))
-    ->prefix(config('zeus-rain.prefix'))
+Route::domain(config('zeus-dynamic-dashboard.domain'))
+    ->middleware(config('zeus-dynamic-dashboard.middleware'))
+    ->prefix(config('zeus-dynamic-dashboard.prefix'))
     ->get('/{slug?}', Layouts::class)
     ->name('landing-page');
