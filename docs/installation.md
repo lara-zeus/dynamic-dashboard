@@ -8,14 +8,14 @@ weight: 2
 You can install the package via composer:
 
 ```bash
-composer require lara-zeus/rain
+composer require lara-zeus/dynamic-dashboard
 ```
 
 ## publish
 for your convenient, we create a one command to publish them all:
 
 ```bash
-php artisan rain:publish
+php artisan dynamic-dashboard:publish
 ```
 
 the command will publish the following: config,views and translations.

@@ -4,6 +4,7 @@ namespace LaraZeus\DynamicDashboard;
 
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\DynamicDashboard\Commands\PublishCommand;
+use LaraZeus\DynamicDashboard\Commands\UpdateWidgetsClassNameCommand;
 use LaraZeus\DynamicDashboard\Commands\ZeusWidgetCommand;
 use LaraZeus\DynamicDashboard\Livewire\Layouts;
 use Livewire\Livewire;
@@ -40,6 +41,7 @@ class DynamicDashboardServiceProvider extends PackageServiceProvider
         return [
             PublishCommand::class,
             ZeusWidgetCommand::class,
+            UpdateWidgetsClassNameCommand::class,
         ];
     }
 }

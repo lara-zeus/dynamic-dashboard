@@ -8,7 +8,7 @@ class EditLayout extends CreateLayout
 {
     public function getTitle(): string
     {
-        return __('edit layout');
+        return __('edit dashboard');
     }
 
     protected function getHeaderActions(): array

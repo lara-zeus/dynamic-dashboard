@@ -28,7 +28,7 @@ class Layouts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('dynamicDashboardTheme') . '.layouts')
+        return view(app('dynamic-dashboardTheme') . '.layouts')
             ->layout(config('zeus.layout'));
     }
 }

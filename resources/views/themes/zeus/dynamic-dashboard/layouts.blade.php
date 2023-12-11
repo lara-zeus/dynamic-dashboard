@@ -20,7 +20,7 @@
                                                 {{ $data['data']['title'] }}
                                             </h5>
                                         @endif
-                                        <div class="@if($data['data']['title']) pt-4 @endif">
+                                        <div class="@if($data['data']['title']) pt-1 @endif">
                                             {!! $getWidget->renderWidget($data['data']) !!}
                                         </div>
                                     </div>

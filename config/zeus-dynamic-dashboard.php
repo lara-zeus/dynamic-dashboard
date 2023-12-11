@@ -6,7 +6,7 @@ return [
     /**
      * set the default path for the blog homepage.
      */
-    'prefix' => 'rain',
+    'prefix' => 'dynamic-dashboard',
 
     /**
      * the middleware you want to apply on all the blog routes

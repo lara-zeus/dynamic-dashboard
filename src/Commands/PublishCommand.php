@@ -29,6 +29,7 @@ class PublishCommand extends Command
     {
         // publish Dynamic Dashboard files
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-dynamic-dashboard-translations', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-dynamic-dashboard-config', '--force' => (bool) $this->option('force')]);
 
         // publish Zeus files
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => (bool) $this->option('force')]);

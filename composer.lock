@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c25155c38c0ad432ed1a4a389263ae7b",
+    "content-hash": "ccdd56fcc3e72b38a491e68a8acf7130",
     "packages": [
         {
             "name": "archtechx/laravel-seo",
@@ -1789,12 +1789,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0d5072b9ebb4f1de2be73f28e548b7271c75733c"
+                "reference": "7907bfb50165b3951403e2d9882b4f8e0ee26b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0d5072b9ebb4f1de2be73f28e548b7271c75733c",
-                "reference": "0d5072b9ebb4f1de2be73f28e548b7271c75733c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7907bfb50165b3951403e2d9882b4f8e0ee26b9e",
+                "reference": "7907bfb50165b3951403e2d9882b4f8e0ee26b9e",
                 "shasum": ""
             },
             "require": {
@@ -1984,7 +1984,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-12-10T13:40:04+00:00"
+            "time": "2023-12-11T19:31:00+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -2680,16 +2680,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.2.6",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "ecded08cdc4b36bbb4b26bcc7f7a171ea2e4368c"
+                "reference": "7c1f609515e74ef1197c08e56a5606571b3ec1d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/ecded08cdc4b36bbb4b26bcc7f7a171ea2e4368c",
-                "reference": "ecded08cdc4b36bbb4b26bcc7f7a171ea2e4368c",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/7c1f609515e74ef1197c08e56a5606571b3ec1d9",
+                "reference": "7c1f609515e74ef1197c08e56a5606571b3ec1d9",
                 "shasum": ""
             },
             "require": {
@@ -2742,7 +2742,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.2.6"
+                "source": "https://github.com/livewire/livewire/tree/v3.3.0"
             },
             "funding": [
                 {
@@ -2750,7 +2750,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-04T21:20:19+00:00"
+            "time": "2023-12-11T18:04:00+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -3031,31 +3031,31 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.x-dev",
+            "version": "v1.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "22f76752f509441b56612df986af4e56e9f3e90f"
+                "reference": "a6d3a6d1f545f01ef38e60f375d1cf1f4de98188"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/22f76752f509441b56612df986af4e56e9f3e90f",
-                "reference": "22f76752f509441b56612df986af4e56e9f3e90f",
+                "url": "https://api.github.com/repos/nette/schema/zipball/a6d3a6d1f545f01ef38e60f375d1cf1f4de98188",
+                "reference": "a6d3a6d1f545f01ef38e60f375d1cf1f4de98188",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": "7.1 - 8.3"
+                "nette/utils": "^4.0",
+                "php": "8.1 - 8.3"
             },
             "require-dev": {
-                "nette/tester": "^2.3 || ^2.4",
+                "nette/tester": "^2.4",
                 "phpstan/phpstan-nette": "^1.0",
-                "tracy/tracy": "^2.7"
+                "tracy/tracy": "^2.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -3087,9 +3087,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2"
+                "source": "https://github.com/nette/schema/tree/v1.3"
             },
-            "time": "2023-10-31T11:15:55+00:00"
+            "time": "2023-12-11T11:54:22+00:00"
         },
         {
             "name": "nette/utils",
@@ -6854,12 +6854,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "f1fdce1413dfe15ed043fa2f31631c45a1032f33"
+                "reference": "619a82491232d2bcbdcab257828f14469d22826d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/f1fdce1413dfe15ed043fa2f31631c45a1032f33",
-                "reference": "f1fdce1413dfe15ed043fa2f31631c45a1032f33",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/619a82491232d2bcbdcab257828f14469d22826d",
+                "reference": "619a82491232d2bcbdcab257828f14469d22826d",
                 "shasum": ""
             },
             "require": {
@@ -6870,7 +6870,7 @@
                 "fidry/cpu-core-counter": "^0.5.1 || ^1.0.0",
                 "jean85/pretty-package-versions": "^2.0.5",
                 "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-                "phpunit/php-code-coverage": "^10.1.9",
+                "phpunit/php-code-coverage": "^10.1.10",
                 "phpunit/php-file-iterator": "^4.1.0",
                 "phpunit/php-timer": "^6.0",
                 "phpunit/phpunit": "^10.5.2",
@@ -6942,7 +6942,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2023-12-08T17:10:43+00:00"
+            "time": "2023-12-11T07:40:27+00:00"
         },
         {
             "name": "cmgmyr/phploc",
@@ -8467,32 +8467,32 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larastan/larastan.git",
-                "reference": "446ed3608cd56ac0183a7d0be0b9e97ec0ae9273"
+                "reference": "59a35aa6dcbe7dbc36423377c6c6e2f5c05c7b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larastan/larastan/zipball/446ed3608cd56ac0183a7d0be0b9e97ec0ae9273",
-                "reference": "446ed3608cd56ac0183a7d0be0b9e97ec0ae9273",
+                "url": "https://api.github.com/repos/larastan/larastan/zipball/59a35aa6dcbe7dbc36423377c6c6e2f5c05c7b5c",
+                "reference": "59a35aa6dcbe7dbc36423377c6c6e2f5c05c7b5c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "illuminate/console": "^9.52.16 || ^10.28.0",
-                "illuminate/container": "^9.52.16 || ^10.28.0",
-                "illuminate/contracts": "^9.52.16 || ^10.28.0",
-                "illuminate/database": "^9.52.16 || ^10.28.0",
-                "illuminate/http": "^9.52.16 || ^10.28.0",
-                "illuminate/pipeline": "^9.52.16 || ^10.28.0",
-                "illuminate/support": "^9.52.16 || ^10.28.0",
+                "illuminate/console": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/container": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/contracts": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/database": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/http": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/pipeline": "^9.52.16 || ^10.28.0 || ^11.0",
+                "illuminate/support": "^9.52.16 || ^10.28.0 || ^11.0",
                 "php": "^8.0.2",
                 "phpmyadmin/sql-parser": "^5.8.2",
                 "phpstan/phpstan": "^1.10.48"
             },
             "require-dev": {
                 "nikic/php-parser": "^4.17.1",
-                "orchestra/canvas": "^7.11.1 || ^8.11.0",
-                "orchestra/testbench": "^7.33.0 || ^8.13.0",
-                "phpunit/phpunit": "^9.6.13"
+                "orchestra/canvas": "^7.11.1 || ^8.11.0 || ^9.0.0",
+                "orchestra/testbench": "^7.33.0 || ^8.13.0 || ^9.0.0",
+                "phpunit/phpunit": "^9.6.13 || ^10.5"
             },
             "suggest": {
                 "orchestra/testbench": "Using Larastan for analysing a package needs Testbench"
@@ -8562,7 +8562,7 @@
                 }
             ],
             "abandoned": "larastan/larastan",
-            "time": "2023-12-10T22:52:59+00:00"
+            "time": "2023-12-11T10:38:13+00:00"
         },
         {
             "name": "nunomaduro/phpinsights",
@@ -9037,12 +9037,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "9a8f6e64149592b2555a2519237abb39e9e4f1fe"
+                "reference": "dd0dddffd42c754c5004364cd2a365ae49ac89ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/9a8f6e64149592b2555a2519237abb39e9e4f1fe",
-                "reference": "9a8f6e64149592b2555a2519237abb39e9e4f1fe",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/dd0dddffd42c754c5004364cd2a365ae49ac89ed",
+                "reference": "dd0dddffd42c754c5004364cd2a365ae49ac89ed",
                 "shasum": ""
             },
             "require": {
@@ -9126,7 +9126,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.28.0"
+                "source": "https://github.com/pestphp/pest/tree/2.x"
             },
             "funding": [
                 {
@@ -9138,7 +9138,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-05T19:06:22+00:00"
+            "time": "2023-12-11T12:05:58+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -9597,87 +9597,6 @@
             "time": "2022-02-21T12:50:22+00:00"
         },
         {
-            "name": "phpcsstandards/php_codesniffer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "7fb951513b9c99b006a83129841936e419203e66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/7fb951513b9c99b006a83129841936e419203e66",
-                "reference": "7fb951513b9c99b006a83129841936e419203e66",
-                "shasum": ""
-            },
-            "require": {
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
-            },
-            "default-branch": true,
-            "bin": [
-                "bin/phpcbf",
-                "bin/phpcs"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Sherwood",
-                    "role": "Former lead"
-                },
-                {
-                    "name": "Juliette Reinders Folmer",
-                    "role": "Current lead"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer/graphs/contributors"
-                }
-            ],
-            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
-            "keywords": [
-                "phpcs",
-                "standards",
-                "static analysis"
-            ],
-            "support": {
-                "issues": "https://github.com/PHPCSStandards/PHP_CodeSniffer/issues",
-                "security": "https://github.com/PHPCSStandards/PHP_CodeSniffer/security/policy",
-                "source": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
-                "wiki": "https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/PHPCSStandards",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/jrfnl",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/php_codesniffer",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2023-12-10T05:11:06+00:00"
-        },
-        {
             "name": "phpdocumentor/reflection-common",
             "version": "dev-master",
             "source": {
@@ -10037,12 +9956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "1ee23ad281e691ddf6a60b70208adc4d7e512e31"
+                "reference": "43cffe34a764b8dcca65e7a8e61148976d29b6ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1ee23ad281e691ddf6a60b70208adc4d7e512e31",
-                "reference": "1ee23ad281e691ddf6a60b70208adc4d7e512e31",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/43cffe34a764b8dcca65e7a8e61148976d29b6ff",
+                "reference": "43cffe34a764b8dcca65e7a8e61148976d29b6ff",
                 "shasum": ""
             },
             "require": {
@@ -10092,7 +10011,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-10T19:30:46+00:00"
+            "time": "2023-12-11T17:29:34+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -10148,12 +10067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f430918b3b35cd04a28ce1445d5701e152b3f9a8"
+                "reference": "599109c8ca6bae97b23482d557d2874c25a65e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f430918b3b35cd04a28ce1445d5701e152b3f9a8",
-                "reference": "f430918b3b35cd04a28ce1445d5701e152b3f9a8",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/599109c8ca6bae97b23482d557d2874c25a65e59",
+                "reference": "599109c8ca6bae97b23482d557d2874c25a65e59",
                 "shasum": ""
             },
             "require": {
@@ -10211,7 +10130,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/main"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.10"
             },
             "funding": [
                 {
@@ -10219,7 +10138,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-09T13:10:27+00:00"
+            "time": "2023-12-11T06:28:43+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -11744,19 +11663,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "271394724bf57dd77819f766c450d5543d9c9ab3"
+                "reference": "ad4eab6f2cf9aa099c8853e4e3a250a9ae5fb4bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/271394724bf57dd77819f766c450d5543d9c9ab3",
-                "reference": "271394724bf57dd77819f766c450d5543d9c9ab3",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ad4eab6f2cf9aa099c8853e4e3a250a9ae5fb4bd",
+                "reference": "ad4eab6f2cf9aa099c8853e4e3a250a9ae5fb4bd",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7 || ^1.0",
                 "php": "^7.2 || ^8.0",
-                "phpcsstandards/php_codesniffer": "^3.7.1",
-                "phpstan/phpdoc-parser": "^1.23.1"
+                "phpstan/phpdoc-parser": "^1.23.1",
+                "squizlabs/php_codesniffer": "^3.7.1"
             },
             "require-dev": {
                 "phing/phing": "2.17.4",
@@ -11802,7 +11721,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-01T17:29:36+00:00"
+            "time": "2023-12-11T15:30:10+00:00"
         },
         {
             "name": "spatie/backtrace",
@@ -12083,12 +12002,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "7fb951513b9c99b006a83129841936e419203e66"
+                "reference": "11f0bacff8e64fba7ce6e5913c2d0e136a310992"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/7fb951513b9c99b006a83129841936e419203e66",
-                "reference": "7fb951513b9c99b006a83129841936e419203e66",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/11f0bacff8e64fba7ce6e5913c2d0e136a310992",
+                "reference": "11f0bacff8e64fba7ce6e5913c2d0e136a310992",
                 "shasum": ""
             },
             "require": {
@@ -12156,7 +12075,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-10T05:11:06+00:00"
+            "time": "2023-12-11T18:59:48+00:00"
         },
         {
             "name": "symfony/cache",

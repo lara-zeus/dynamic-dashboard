@@ -9,7 +9,6 @@ use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\TextInput;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Blade;
 
 trait InteractWithWidgets
 {
@@ -22,13 +21,16 @@ trait InteractWithWidgets
     {
         $widgetClass = new $data['widget'];
 
+        $view = app('dynamic-dashboardTheme') . '.widgets.' . last(explode('\\', $data['widget']));
+
         if ($widgetClass instanceof Widget) {
-            return Blade::render('@livewire(' . $data['widget'] . '::class)');
+            $view = app('dynamic-dashboardTheme') . '.widgets.filament';
+            //return Blade::render('');
         }
 
         $data = array_merge($data, $this->viewData($data));
 
-        return view(app('dynamicDashboardTheme') . '.widgets.' . last(explode('\\', $data['widget'])))
+        return view($view)
             ->with('data', array_merge($data, $this->viewData($data)))
             ->render();
     }
@@ -57,7 +59,7 @@ trait InteractWithWidgets
         $widgetId = str(__CLASS__)->explode('\\')->last();
 
         return Block::make($widgetId)
-            ->label($this->getHeading())
+            ->label(str($widgetId)->snake(' ')->title())
             ->schema([
                 Tabs::make($widgetId . '_tabs')
                     ->schema([

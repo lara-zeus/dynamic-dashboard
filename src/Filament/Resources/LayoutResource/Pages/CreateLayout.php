@@ -27,7 +27,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     protected static string $resource = LayoutResource::class;
 
-    protected static string $view = 'zeus::filament.pages.layouts';
+    protected static string $view = 'zeus::filament.pages.builder';
 
     public Layout $dashLayout;
 
@@ -80,7 +80,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     public function getTitle(): string
     {
-        return __('create layout');
+        return __('create dashboard');
     }
 
     protected function getBlocksForms(string $key): array
@@ -93,7 +93,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->collapsible()
                 ->cloneable()
                 ->reorderableWithButtons(false)
-                ->addActionLabel(__('add layout'))
+                ->addActionLabel(__('add dashboard'))
                 ->blocks(DynamicDashboard::available()),
         ];
     }
@@ -105,7 +105,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 ->label(__('Title & Slug'))
                 ->schema([
                     TextInput::make('dashLayout.layout_title')
-                        ->label(__('layout title'))
+                        ->label(__('dashboard title'))
                         ->live(onBlur: true)
                         ->required()
                         ->afterStateUpdated(function (Forms\Set $set, $state) {

@@ -62,9 +62,9 @@ class LayoutResource extends Resource
 
                     Action::make('show')
                         ->color('warning')
-                        ->label(__('View Layout'))
+                        ->label(__('View Dashboard'))
                         ->icon('heroicon-o-arrow-top-right-on-square')
-                        ->tooltip(__('view Layout'))
+                        ->tooltip(__('view Dashboard'))
                         ->url(fn ($record): string => route('landing-page', $record->layout_slug))
                         ->openUrlInNewTab(),
                     DeleteAction::make('delete')->label(__('Delete')),
@@ -83,17 +83,17 @@ class LayoutResource extends Resource
 
     public static function getLabel(): string
     {
-        return __('Layout');
+        return __('Dashboard');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Layouts');
+        return __('Dashboards');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Layouts');
+        return __('Dashboards');
     }
 
     public static function getNavigationGroup(): ?string

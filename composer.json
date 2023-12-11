@@ -1,6 +1,6 @@
 {
-    "name": "lara-zeus/rain",
-    "description": "Zeus Rain Dynamic Dashboard to manage widgets for your website landing page",
+    "name": "lara-zeus/dynamic-dashboard",
+    "description": "Zeus Dynamic Dashboard to manage widgets for filament dashboard your website landing page",
     "keywords": [
         "laravel",
         "lara-zeus",
@@ -9,10 +9,10 @@
         "landing page",
         "filamentphp"
     ],
-    "homepage": "https://larazeus.com/rain",
+    "homepage": "https://larazeus.com/dynamic-dashboard",
     "support": {
-        "issues": "https://github.com/lara-zeus/rain/issues",
-        "source": "https://github.com/lara-zeus/rain"
+        "issues": "https://github.com/lara-zeus/dynamic-dashboard/issues",
+        "source": "https://github.com/lara-zeus/dynamic-dashboard"
     },
     "license": "MIT",
     "type": "library",

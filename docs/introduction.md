@@ -5,9 +5,9 @@ weight: 1
 
 ## Introduction
 
-Lara-zeus Rain, is a package provides a simple way to manage widgets and layout for your website landing page
+Lara-zeus Dynamic Dashboard, is a package provides a simple way to manage widgets and layout for your website landing page
 
-**[Demo](https://rain.larazeus.com) · [Source Code](https://github.com/lara-zeus/rain)**
+**[Demo](https://larazeus.com/dynamic-dashboard) · [Source Code](https://github.com/lara-zeus/dynamic-dashboard)**
 
 ## Features:
 
@@ -31,5 +31,5 @@ Lara-zeus Rain, is a package provides a simple way to manage widgets and layout 
 ## Support
 
 available support channels:
-* open an issue on [GitHub](https://github.com/lara-zeus/rain/issues)
+* open an issue on [GitHub](https://github.com/lara-zeus/dynamic-dashboard/issues)
 * email us using the [contact center](https://still-code.com/contact-us/lara-zeus)

@@ -32,7 +32,6 @@ class DynamicDashboard extends Facade
     {
         $coreWidgets = self::collectWidgets(__DIR__ . '/../Widgets/Classes', 'LaraZeus\\DynamicDashboard\\Widgets\\Classes\\');
         $appWidgets = self::collectWidgets(app_path('Zeus/Widgets'), 'App\\Zeus\\Widgets\\');
-
         $allFilamentWidgets = self::filamentWidgets();
 
         $widgets = collect();
@@ -54,18 +53,9 @@ class DynamicDashboard extends Facade
 
     public static function filamentWidgets(): Collection
     {
-        $filamentWidgetClasses = Filament::getCurrentPanel()->getWidgetDirectories();
-        $filamentWidgetNamespace = Filament::getCurrentPanel()->getWidgetNamespaces();
-
-        $allFilamentWidgets = collect();
-        $filamentWidgets = array_combine($filamentWidgetClasses, $filamentWidgetNamespace);
-
-        foreach ($filamentWidgets as $class => $namespace) {
-            $loadWidget = self::loadClasses($class, $namespace . '\\');
-            $allFilamentWidgets->push(self::setLayout($loadWidget)[0]);
-        }
-
-        return $allFilamentWidgets;
+        return collect(
+            self::setLayout(Filament::getCurrentPanel()->getWidgets())
+        );
     }
 
     public static function collectWidgets(string $path, string $namespace): Collection
