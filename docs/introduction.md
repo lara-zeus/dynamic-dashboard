@@ -32,4 +32,4 @@ Lara-zeus Dynamic Dashboard, is a package provides a simple way to manage widget
 
 available support channels:
 * open an issue on [GitHub](https://github.com/lara-zeus/dynamic-dashboard/issues)
-* email us using the [contact center](https://still-code.com/contact-us/lara-zeus)
+* email us using the [contact center](https://larazeus.com/contact-us)
