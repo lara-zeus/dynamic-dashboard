@@ -2,6 +2,15 @@
 
 All notable changes to `Dynamic Dashboard` will be documented in this file
 
+## v3.0.1 - 2024-02-09
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/lara-zeus/dynamic-dashboard/pull/34
+* fix UI and the usage of plugin config in FE by @atmonshi in https://github.com/lara-zeus/dynamic-dashboard/pull/35
+
+**Full Changelog**: https://github.com/lara-zeus/dynamic-dashboard/compare/v3.0.0...v3.0.1
+
 ## v3.0.0 - 2023-12-11
 
 ### changing the package name and new features
@@ -13,6 +22,7 @@ to upgrade to v3, the name and the name space changed from `Rain` to `DynamicDas
 ```bash
 php artisna vendor:publish --tag=zeus-dynamic-dashboard-config
 
+
 ```
 this will crate the new config file `zeus-dynamic-dashboard.php`, and you can move your configuration from the old file `zeus-rain`
 
@@ -21,6 +31,7 @@ this will crate the new config file `zeus-dynamic-dashboard.php`, and you can mo
 ```php
 DynamicDashboardPlugin::make()
 
+
 ```
 3- run the update script, since the namespace has changed, you need to run this command in the production to update the class names
 
@@ -28,6 +39,7 @@ DynamicDashboardPlugin::make()
 
 ```bash
 php artisan dynamic-dashboard:update-class
+
 
 ```
 this will change `LaraZeus\Rain` to `LaraZeus\DynamicDashboard`
@@ -58,6 +70,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
+
 
 
 
