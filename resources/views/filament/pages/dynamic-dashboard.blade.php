@@ -1,7 +1,7 @@
 <x-filament::page>
     @if($dashLayout->widgets !== null)
         <div class="grid grid-cols-12 gap-2 w-full px-2">
-            @foreach (\LaraZeus\DynamicDashboard\DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column)
+            @foreach (config('zeus-dynamic-dashboard.models.Columns')::all() as $column)
                 @if(isset($dashLayout->widgets[$column->key]))
                     @php
                         $widgetsItems = collect($dashLayout->widgets[$column->key])->sortBy('data.sort')->toArray();

@@ -46,7 +46,7 @@ class LibraryWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
     {
         return [
             // @phpstan-ignore-next-line
-            'library' => ($data['library_slug'] !== null) ? \LaraZeus\Sky\SkyPlugin::get()->getModel('Library')::withAnyTags([$data['library_slug']], 'library')->get() : null,
+            'library' => ($data['library_slug'] !== null) ? config('zeus-sky.models.Library')::withAnyTags([$data['library_slug']], 'library')->get() : null,
         ];
     }
 }

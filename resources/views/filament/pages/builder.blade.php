@@ -4,7 +4,7 @@
         {{ $this->mainWidgetForm }}
 
         <div class="grid grid-cols-12 gap-4 w-full">
-            @foreach (\LaraZeus\DynamicDashboard\DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout)
+            @foreach (config('zeus-dynamic-dashboard.models.Columns')::all() as $layout)
                 <x-filament::section class="w-full {{ $layout->class }}">
                     <p>{{ $layout->name }}</p>
                     {{ $this->{'widgetsFrom'.$layout->key} }}
