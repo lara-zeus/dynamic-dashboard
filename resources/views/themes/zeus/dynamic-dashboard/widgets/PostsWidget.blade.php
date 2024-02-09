@@ -1,4 +1,4 @@
-<div class="py-2 space-y-4">
+<div>
     @foreach($data['posts'] as $post)
         <a href="{{ route('post',$post->slug) }}" class="group flex items-center justify-center gap-4">
             @if($post->image() !== null && $data['show_thumbnail'])

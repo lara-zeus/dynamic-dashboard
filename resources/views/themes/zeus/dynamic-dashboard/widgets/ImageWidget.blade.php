@@ -1,4 +1,4 @@
-<div class="py-4">
+<div>
     @if(isset($data['url']))
         <img alt="{{ $data['alt'] }}" src="{{ asset('storage/'.$data['url']) }}">
     @endif

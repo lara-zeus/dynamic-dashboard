@@ -3,7 +3,6 @@
 namespace LaraZeus\DynamicDashboard\Livewire;
 
 use Illuminate\View\View;
-use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\DynamicDashboard\Models\Layout;
 use Livewire\Component;
 
@@ -13,8 +12,8 @@ class Layouts extends Component
 
     public function mount(?string $slug = null): void
     {
-        $l = $slug ?? DynamicDashboardPlugin::get()->getDefaultLayout();
-        $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::where('layout_slug', $l)->firstOrFail();
+        $l = $slug ?? config('zeus-dynamic-dashboard.defaultLayout');
+        $this->dashLayout = config('zeus-dynamic-dashboard.models.Layout')::where('layout_slug', $l)->firstOrFail();
     }
 
     public function render(): View
