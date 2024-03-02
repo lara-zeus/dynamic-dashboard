@@ -25,12 +25,12 @@
     ],
     "require": {
         "php": "^8.1",
-        "lara-zeus/core": "^3.0"
+        "lara-zeus/core": "^3.1"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.0",
-        "nunomaduro/larastan": "^2.0.1",
+        "larastan/larastan": "^2.0",
         "nunomaduro/phpinsights": "^2.8",
         "orchestra/testbench": "^8.0",
         "pestphp/pest": "^2.0",
@@ -77,5 +77,6 @@
             }
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
