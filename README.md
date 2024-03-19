@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://larazeus.com"><img alt="zeus dynamic dashboard" src="https://larazeus.com/images/dynamic-dashboard-banner.png" /></a>
+<a href="https://larazeus.com"><img alt="zeus dynamic dashboard" src="https://larazeus.com/images/lara-zeus-dynamic-dashboard.png" /></a>
 </p>
 
 <p align="center">
