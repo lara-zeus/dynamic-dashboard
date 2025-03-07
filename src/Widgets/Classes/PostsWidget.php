@@ -49,7 +49,6 @@ class PostsWidget implements Widget
                                     ->default('desc'),
 
                                 Select::make('category')
-                                    // @phpstan-ignore-next-line
                                     ->options(config('zeus-sky.models.Tag')::query()
                                         ->withType('category')
                                         ->pluck('name', 'id')),
@@ -64,11 +63,9 @@ class PostsWidget implements Widget
 
     public function viewData(array $data): array
     {
-        // @phpstan-ignore-next-line
         $posts = config('zeus-sky.models.Post')::query();
 
         if ($data['category'] !== null) {
-            // @phpstan-ignore-next-line
             $category = config('zeus-sky.models.Tag')::where('type', 'category')->find($data['category']);
             if ($category !== null) {
                 $posts = $category->postsPublished();

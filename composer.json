@@ -24,6 +24,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "lara-zeus/filament-plugin-tools": "^1.0",
         "lara-zeus/core": "^3.1"
     },
     "require-dev": {

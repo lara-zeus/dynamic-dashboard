@@ -2,15 +2,26 @@
 
 namespace LaraZeus\DynamicDashboard;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
+use LaraZeus\FilamentPluginTools\Concerns\CanHideResources;
+use LaraZeus\FilamentPluginTools\Concerns\HasModels;
+use LaraZeus\FilamentPluginTools\Concerns\HasNavigationGroupLabel;
+use LaraZeus\FilamentPluginTools\Concerns\HasUploads;
 
 final class DynamicDashboardPlugin implements Plugin
 {
+    use CanHideResources;
     use Configuration;
     use EvaluatesClosures;
+    use HasModels;
+    use HasNavigationGroupLabel;
+    use HasUploads;
+
+    protected Closure | string $navigationGroupLabel = 'Dynamic Dashboard';
 
     public function getId(): string
     {

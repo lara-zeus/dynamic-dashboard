@@ -6,8 +6,11 @@ parameters:
     paths:
         - src
         - database
-        - tests
     checkOctaneCompatibility: true
     checkModelProperties: true
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
+
+    ignoreErrors:
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics

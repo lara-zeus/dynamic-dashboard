@@ -25,7 +25,7 @@ trait InteractWithWidgets
 
         if ($widgetClass instanceof Widget) {
             $view = app('dynamic-dashboardTheme') . '.widgets.filament';
-            //return Blade::render('');
+            // return Blade::render('');
         }
 
         $data = array_merge($data, $this->viewData($data));

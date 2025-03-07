@@ -21,7 +21,7 @@ class LayoutResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return ! DynamicDashboardPlugin::get()->isLayoutResourceHidden();
+        return DynamicDashboardPlugin::get()->isResourceVisible(static::class);
     }
 
     public static function getModel(): string
