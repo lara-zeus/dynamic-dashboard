@@ -45,7 +45,6 @@ class FaqWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            // @phpstan-ignore-next-line
             'faqs' => ($data['faq_cat'] !== null) ? config('zeus-sky.models.Faq')::withAnyTags([$data['faq_cat']], 'faq')->get() : null,
         ];
     }

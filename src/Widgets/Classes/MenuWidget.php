@@ -48,7 +48,6 @@ class MenuWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
     public function viewData(array $data): array
     {
         return [
-            // @phpstan-ignore-next-line
             'menu' => ($data['menu_slug'] !== null) ? config('zeus-sky.models.Navigation')::fromHandle($data['menu_slug']) : null,
         ];
     }
