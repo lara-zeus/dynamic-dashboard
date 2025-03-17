@@ -2,10 +2,11 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Pages;
 
+use Filament\Pages\Page;
 use LaraZeus\DynamicDashboard\Filament\Pages\Concerns\Dash;
 use LaraZeus\DynamicDashboard\Models\Layout;
 
-class DynamicDashboard extends \Filament\Pages\Dashboard
+class DynamicDashboardPage extends Page
 {
     use Dash;
 
