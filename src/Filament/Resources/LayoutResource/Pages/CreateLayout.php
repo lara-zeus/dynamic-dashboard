@@ -4,10 +4,11 @@ namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Components\Builder;
-use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
+use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
@@ -27,7 +28,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     protected static string $resource = LayoutResource::class;
 
-    protected static string $view = 'zeus::filament.pages.builder';
+    protected string $view = 'zeus::filament.pages.builder';
 
     public Layout $dashLayout;
 
@@ -35,7 +36,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
 
     public function mount(?int $record = null): void
     {
-        if ($record === null) {
+        /*if ($record === null) {
             $layoutModel = DynamicDashboardPlugin::get()->getModel('Layout');
             $this->dashLayout = new $layoutModel;
             foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column) {
@@ -70,7 +71,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                 'layout_title' => $this->dashLayout->layout_title,
                 'layout_slug' => $this->dashLayout->layout_slug,
             ]);
-        }
+        }*/
     }
 
     protected function getFormModel(): Layout
@@ -108,7 +109,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
                         ->label(__('dashboard title'))
                         ->live(onBlur: true)
                         ->required()
-                        ->afterStateUpdated(function (Forms\Set $set, $state) {
+                        ->afterStateUpdated(function (Set $set, $state) {
                             if ($this->dashLayout->id !== null) {
                                 return;
                             }
@@ -126,12 +127,12 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         $forms = [];
 
-        $forms['mainWidgetForm'] = $this->makeForm()->schema($this->mainComponents());
+        /*$forms['mainWidgetForm'] = $this->makeForm()->schema($this->mainComponents());
 
         foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout) {
             $forms['widgetsFrom' . $layout->key] = $this->makeForm()
                 ->schema($this->getBlocksForms($layout->key));
-        }
+        }*/
 
         return $forms;
     }

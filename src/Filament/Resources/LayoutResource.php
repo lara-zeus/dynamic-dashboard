@@ -3,10 +3,10 @@
 namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
@@ -15,7 +15,7 @@ use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cloud';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
 
     protected static ?int $navigationSort = 20;
 

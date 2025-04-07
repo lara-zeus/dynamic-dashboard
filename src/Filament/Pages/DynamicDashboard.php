@@ -11,5 +11,5 @@ class DynamicDashboard extends \Filament\Pages\Dashboard
 
     public ?Layout $dashLayout;
 
-    protected static string $view = 'zeus::filament.pages.dynamic-dashboard';
+    protected string $view = 'zeus::filament.pages.dynamic-dashboard';
 }
