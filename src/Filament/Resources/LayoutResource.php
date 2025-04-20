@@ -2,11 +2,11 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
-use Filament\Resources\Resource;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
