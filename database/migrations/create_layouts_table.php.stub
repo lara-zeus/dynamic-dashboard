@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('layout_title');
             $table->string('layout_slug');
             $table->longText('widgets');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
