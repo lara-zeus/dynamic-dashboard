@@ -103,6 +103,7 @@ class CreateLayout extends Page implements Forms\Contracts\HasForms
     {
         return [
             Fieldset::make('mainComponents')
+                ->columnSpanFull()
                 ->label(__('Title & Slug'))
                 ->schema([
                     TextInput::make('dashLayout.layout_title')
