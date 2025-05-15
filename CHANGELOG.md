@@ -2,6 +2,15 @@
 
 All notable changes to `Dynamic Dashboard` will be documented in this file
 
+## v3.0.5 - 2025-05-15
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/lara-zeus/dynamic-dashboard/pull/48
+* fix creating a new dashboard by @atmonshi in https://github.com/lara-zeus/dynamic-dashboard/pull/49
+
+**Full Changelog**: https://github.com/lara-zeus/dynamic-dashboard/compare/v3.0.4...v3.0.5
+
 ## v3.0.4 - 2025-03-17
 
 ### What's Changed
@@ -57,6 +66,7 @@ php artisna vendor:publish --tag=zeus-dynamic-dashboard-config
 
 
 
+
 ```
 this will crate the new config file `zeus-dynamic-dashboard.php`, and you can move your configuration from the old file `zeus-rain`
 
@@ -69,6 +79,7 @@ DynamicDashboardPlugin::make()
 
 
 
+
 ```
 3- run the update script, since the namespace has changed, you need to run this command in the production to update the class names
 
@@ -76,6 +87,7 @@ DynamicDashboardPlugin::make()
 
 ```bash
 php artisan dynamic-dashboard:update-class
+
 
 
 
@@ -110,6 +122,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
+
 
 
 
