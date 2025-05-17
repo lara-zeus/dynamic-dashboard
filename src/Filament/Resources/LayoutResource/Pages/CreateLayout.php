@@ -2,12 +2,12 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
-use Filament\Forms;
 use Filament\Forms\Components\Builder;
-use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
+use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
@@ -25,7 +25,7 @@ class CreateLayout extends Page
 {
     protected static string $resource = LayoutResource::class;
 
-    protected static string $view = 'zeus::filament.pages.builder';
+    protected string $view = 'zeus::filament.pages.builder';
 
     public Layout $dashLayout;
 
@@ -116,7 +116,7 @@ class CreateLayout extends Page
                         ->label(__('dashboard title'))
                         ->live(onBlur: true)
                         ->required()
-                        ->afterStateUpdated(function (Forms\Set $set, $state) {
+                        ->afterStateUpdated(function (Set $set, $state) {
                             if ($this->dashLayout->id !== null) {
                                 return;
                             }
@@ -169,6 +169,6 @@ class CreateLayout extends Page
             ->success()
             ->send();
 
-        return redirect($this->getResource()::getUrl('edit', ['record' => $this->dashLayout]));
+        return redirect(self::getResource()::getUrl('edit', ['record' => $this->dashLayout]));
     }
 }
