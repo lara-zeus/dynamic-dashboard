@@ -110,6 +110,7 @@ class CreateLayout extends Page
     {
         return [
             Fieldset::make('mainComponents')
+                ->columnSpanFull()
                 ->label(__('Title & Slug'))
                 ->schema([
                     TextInput::make('layout_title')
