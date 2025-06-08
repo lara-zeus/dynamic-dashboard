@@ -14,7 +14,7 @@ trait Dash
 
         $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::query()
             ->where('is_active', 1)
-            ->where('user_id', auth()->user()?->id ?? 0)
+            ->where('user_id', auth()->user()->id ?? 0)
             ->first();
 
         if ($this->dashLayout === null) {
