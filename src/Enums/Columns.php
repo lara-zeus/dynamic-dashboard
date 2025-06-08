@@ -25,4 +25,13 @@ enum Columns: string implements HasLabel
             self::middleColumn => 6,
         };
     }
+
+    public function class(): string
+    {
+        return match ($this) {
+            self::headerColumn, self::footerColumn => 'md:col-span-12',
+            self::leftColumn, self::rightColumn => 'md:col-span-3',
+            self::middleColumn => 'md:col-span-6',
+        };
+    }
 }

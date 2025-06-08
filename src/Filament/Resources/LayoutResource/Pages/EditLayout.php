@@ -19,7 +19,7 @@ class EditLayout extends CreateLayout
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->tooltip(__('view form'))
                 ->color('warning')
-                ->url(fn () => route('landing-page'))
+                ->url(fn () => route('landing-page', ['slug' => $this->dashLayout->layout_slug]))
                 ->openUrlInNewTab(),
         ];
     }
