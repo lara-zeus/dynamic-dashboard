@@ -14,6 +14,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -25,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->login()
             ->plugins([
-                \LaraZeus\DynamicDashboard\DynamicDashboardPlugin::make(),
+                DynamicDashboardPlugin::make(),
                 SpatieTranslatablePlugin::make()
                     ->defaultLocales(['en']),
             ])

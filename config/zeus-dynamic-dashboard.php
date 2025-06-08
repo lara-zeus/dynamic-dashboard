@@ -1,5 +1,8 @@
 <?php
 
+use LaraZeus\DynamicDashboard\Enums\Columns;
+use LaraZeus\DynamicDashboard\Models\Layout;
+
 return [
     'domain' => null,
 
@@ -20,8 +23,8 @@ return [
      * ->skyModels([ ... ])
      */
     'models' => [
-        'Layout' => \LaraZeus\DynamicDashboard\Models\Layout::class,
-        'Columns' => \LaraZeus\DynamicDashboard\Enums\Columns::class,
+        'Layout' => Layout::class,
+        'Columns' => Columns::class,
     ],
 
     'defaultLayout' => 'new-page',

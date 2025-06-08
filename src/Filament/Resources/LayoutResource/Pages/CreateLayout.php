@@ -17,9 +17,10 @@ use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
 use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 use LaraZeus\DynamicDashboard\Models\Layout;
+use stdClass;
 
 /**
- * @property \stdClass $mainWidgetForm.
+ * @property stdClass $mainWidgetForm.
  */
 class CreateLayout extends Page
 {
