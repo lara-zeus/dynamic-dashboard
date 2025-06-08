@@ -4,8 +4,8 @@ namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 

@@ -5,7 +5,7 @@ namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Tabs;
+use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 
 class LibraryWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget

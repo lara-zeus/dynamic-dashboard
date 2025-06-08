@@ -16,11 +16,11 @@ class Columns extends Model
     public function getRows(): array
     {
         return [
-            ['key' => 'headerColumn', 'name' => __('top'), 'class' => 'w-full col-span-12 md:col-span-12'],
-            ['key' => 'leftColumn', 'name' => __('left'), 'class' => 'w-full col-span-12 md:col-span-3'],
-            ['key' => 'middleColumn', 'name' => __('middle'), 'class' => 'w-full col-span-12 md:col-span-6'],
-            ['key' => 'rightColumn', 'name' => __('right'), 'class' => 'w-full col-span-12 md:col-span-3'],
-            ['key' => 'footerColumn', 'name' => __('bottom'), 'class' => 'w-full col-span-12 md:col-span-12'],
+            ['key' => 'headerColumn', 'span' => '12', 'name' => __('top')],
+            ['key' => 'leftColumn', 'span' => '3', 'name' => __('left')],
+            ['key' => 'middleColumn', 'span' => '6', 'name' => __('middle')],
+            ['key' => 'rightColumn', 'span' => '3', 'name' => __('right')],
+            ['key' => 'footerColumn', 'span' => '12', 'name' => __('bottom')],
         ];
     }
 }

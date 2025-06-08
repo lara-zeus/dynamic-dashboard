@@ -4,9 +4,9 @@ namespace LaraZeus\DynamicDashboard\Concerns;
 
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
 
