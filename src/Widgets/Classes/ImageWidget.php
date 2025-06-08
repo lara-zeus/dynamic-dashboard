@@ -7,9 +7,10 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 
-class ImageWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
+class ImageWidget implements Widget
 {
     use InteractWithWidgets;
 

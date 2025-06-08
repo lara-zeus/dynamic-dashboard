@@ -98,7 +98,7 @@ class CreateLayout extends Page implements HasForms
                 // @phpstan-ignore-next-line
                 $columns = DynamicDashboardPlugin::get()->getModel('Columns')::cases();
                 foreach ($columns as $column) {
-                    $widgetsForm[] = Builder::make('widgets.'.$column->value)
+                    $widgetsForm[] = Builder::make('widgets.' . $column->value)
                         ->columnSpan($column->span())
                         ->hiddenLabel()
                         ->collapsed()
@@ -116,7 +116,7 @@ class CreateLayout extends Page implements HasForms
             });
     }
 
-    public function submit(): Application|Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
+    public function submit(): Application | Redirector | \Illuminate\Contracts\Foundation\Application | RedirectResponse
     {
         $data = $this->form->getState();
 

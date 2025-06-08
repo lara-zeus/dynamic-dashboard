@@ -7,14 +7,17 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
+use LaraZeus\Sky\SkyPlugin;
+use LaraZeus\Sky\SkyServiceProvider;
 
-class MenuWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
+class MenuWidget implements Widget
 {
     use InteractWithWidgets;
 
     public function enabled(): bool
     {
-        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
+        return class_exists(SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
     }
 
     public function form(): Builder\Block
@@ -31,7 +34,7 @@ class MenuWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
                                     ->required()
                                     ->options(
                                         // @phpstan-ignore-next-line
-                                        \LaraZeus\Sky\SkyPlugin::get()->getModel('Navigation')::pluck('name', 'handle')
+                                        SkyPlugin::get()->getModel('Navigation')::pluck('name', 'handle')
                                     ),
                                 Select::make('menu_dir')
                                     ->default('vertical')

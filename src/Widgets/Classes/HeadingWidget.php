@@ -6,8 +6,9 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
 
-class HeadingWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
+class HeadingWidget implements Widget
 {
     use InteractWithWidgets;
 

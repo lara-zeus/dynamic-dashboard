@@ -10,6 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Tabs;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
+use LaraZeus\Sky\SkyServiceProvider;
 
 class PostsWidget implements Widget
 {
@@ -17,7 +18,7 @@ class PostsWidget implements Widget
 
     public function enabled(): bool
     {
-        return class_exists(\LaraZeus\Sky\SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
+        return class_exists(SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
     }
 
     public function form(): Builder\Block

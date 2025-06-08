@@ -5,15 +5,18 @@ namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use LaraZeus\Bolt\BoltPlugin;
+use LaraZeus\Bolt\BoltServiceProvider;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
+use LaraZeus\DynamicDashboard\Contracts\Widget;
 
-class FormsWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
+class FormsWidget implements Widget
 {
     use InteractWithWidgets;
 
     public function enabled(): bool
     {
-        return class_exists(\LaraZeus\Bolt\BoltServiceProvider::class);
+        return class_exists(BoltServiceProvider::class);
     }
 
     public function form(): Builder\Block
@@ -30,7 +33,7 @@ class FormsWidget implements \LaraZeus\DynamicDashboard\Contracts\Widget
                                     ->required()
                                     ->options(
                                         // @phpstan-ignore-next-line
-                                        \LaraZeus\Bolt\BoltPlugin::getModel('Form')::pluck('name', 'slug')
+                                        BoltPlugin::getModel('Form')::pluck('name', 'slug')
                                     ),
                             ]),
                         $this->defaultOptionsTab(),

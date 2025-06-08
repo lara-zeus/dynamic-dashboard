@@ -2,6 +2,7 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -15,7 +16,7 @@ use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
 
     protected static ?int $navigationSort = 20;
 
