@@ -4,14 +4,17 @@ namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
 use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
@@ -19,10 +22,12 @@ use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 use LaraZeus\DynamicDashboard\Models\Layout;
 
 /**
- * @property \stdClass $mainWidgetForm.
+ * @property mixed $form.
  */
-class CreateLayout extends Page
+class CreateLayout extends Page implements HasForms
 {
+    use InteractsWithForms;
+
     protected static string $resource = LayoutResource::class;
 
     protected string $view = 'zeus::filament.pages.builder';
@@ -36,48 +41,20 @@ class CreateLayout extends Page
         if ($record === null) {
             $layoutModel = DynamicDashboardPlugin::get()->getModel('Layout');
             $this->dashLayout = new $layoutModel;
-            foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column) {
-                $this->{'widgetsFrom' . $column->key}->fill([
-                    'widgetsData.' . $column->key => [],
-                ]);
-                // @phpstan-ignore-next-line
-                $this->mainWidgetForm->fill([
-                    'layout_title' => '',
-                    'layout_slug' => '',
-                ]);
-            }
+            $this->form->fill([
+                'layout_title' => '',
+                'layout_slug' => '',
+                'widgets' => [],
+            ]);
         } else {
-            $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::findOrFail($record);
+            $this->dashLayout = DynamicDashboardPlugin::get()->getModel('Layout')::query()
+                ->findOrFail($record);
 
-            $allWidgets = $this->dashLayout->widgets;
-            foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $column) {
-                if (isset($allWidgets[$column->key])) {
-                    $widgetsItems = (new Collection($allWidgets[$column->key]))->sortBy('data.sort')->toArray();
-                    $this->{'widgetsFrom' . $column->key}->fill([
-                        'widgetsData.' . $column->key => $widgetsItems,
-                    ]);
-                } else {
-                    $this->{'widgetsFrom' . $column->key}->fill([
-                        'widgetsData.' . $column->key => '',
-                    ]);
-                }
-            }
-
-            // @phpstan-ignore-next-line
-            $this->mainWidgetForm->fill([
+            $this->form->fill([
                 'layout_title' => $this->dashLayout->layout_title,
                 'layout_slug' => $this->dashLayout->layout_slug,
+                'widgets' => $this->dashLayout->widgets,
             ]);
-
-            $columns = DynamicDashboardPlugin::get()->getModel('Columns')::all();
-
-            foreach ($columns as $column) {
-                $this->{'widgetsFrom' . $column->key}
-                    ->fill([
-                        'widgetsData.' . $column->key => $this->dashLayout->widgets[$column->key],
-                    ]);
-            }
-
         }
     }
 
@@ -91,77 +68,61 @@ class CreateLayout extends Page
         return __('create dashboard');
     }
 
-    protected function getBlocksForms(string $key): array
+    public function form(Schema $schema): Schema
     {
-        return [
-            Builder::make('widgetsData.' . $key)
-                ->reorderableWithButtons()
-                ->label('')
-                ->collapsed()
-                ->collapsible()
-                ->cloneable()
-                ->reorderableWithButtons(false)
-                ->addActionLabel(__('add dashboard'))
-                ->blocks(DynamicDashboard::available()),
-        ];
-    }
-
-    public function mainComponents(): array
-    {
-        return [
-            Fieldset::make('mainComponents')
-                ->columnSpanFull()
-                ->label(__('Title & Slug'))
-                ->schema([
-                    TextInput::make('layout_title')
-                        ->label(__('dashboard title'))
-                        ->live(onBlur: true)
-                        ->required()
-                        ->afterStateUpdated(function (Set $set, $state) {
-                            if ($this->dashLayout->id !== null) {
-                                return;
-                            }
-
-                            $set('layout_slug', Str::slug($state));
-                        }),
-                    TextInput::make('layout_slug')
-                        ->required()
-                        ->label(__('slug')),
-                ]),
-        ];
-    }
-
-    protected function getForms(): array
-    {
-        $forms = [];
-
-        $forms['mainWidgetForm'] = $this->makeForm()
+        return $schema
             ->statePath('widgetsData')
-            ->schema($this->mainComponents());
+            ->schema(function () {
+                $form = $widgetsForm = [];
 
-        $columns = DynamicDashboardPlugin::get()->getModel('Columns')::all();
+                $form[] = Fieldset::make('mainComponents')
+                    ->columnSpanFull()
+                    ->label(__('Title & Slug'))
+                    ->schema([
+                        TextInput::make('layout_title')
+                            ->label(__('dashboard title'))
+                            ->live(onBlur: true)
+                            ->required()
+                            ->afterStateUpdated(function (Set $set, $state) {
+                                if ($this->dashLayout->id !== null) {
+                                    return;
+                                }
 
-        foreach ($columns as $column) {
-            $forms['widgetsFrom' . $column->key] = $this->makeForm()
-                ->schema($this->getBlocksForms($column->key));
-        }
+                                $set('layout_slug', Str::slug($state));
+                            }),
+                        TextInput::make('layout_slug')
+                            ->required()
+                            ->label(__('slug')),
+                    ]);
 
-        return $forms;
+                // @phpstan-ignore-next-line
+                $columns = DynamicDashboardPlugin::get()->getModel('Columns')::cases();
+                foreach ($columns as $column) {
+                    $widgetsForm[] = Builder::make('widgets.'.$column->value)
+                        ->columnSpan($column->span())
+                        ->hiddenLabel()
+                        ->collapsed()
+                        ->collapsible()
+                        ->cloneable()
+                        ->addActionLabel(__('add dashboard'))
+                        ->blocks(DynamicDashboard::available());
+                }
+
+                $form[] = Grid::make()
+                    ->columns(12)
+                    ->schema($widgetsForm);
+
+                return $form;
+            });
     }
 
-    public function submit(): Application | Redirector | \Illuminate\Contracts\Foundation\Application | RedirectResponse
+    public function submit(): Application|Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
-        $widgetsData = [];
+        $data = $this->form->getState();
 
-        foreach (DynamicDashboardPlugin::get()->getModel('Columns')::all() as $layout) {
-            $widgetsData[$layout->key] = $this->{'widgetsFrom' . $layout->key}->getState()['widgetsData'][$layout->key];
-        }
-
-        // @phpstan-ignore-next-line
-        $this->dashLayout->layout_title = $this->mainWidgetForm->getState()['layout_title'];
-        // @phpstan-ignore-next-line
-        $this->dashLayout->layout_slug = $this->mainWidgetForm->getState()['layout_slug'];
-        $this->dashLayout->widgets = $widgetsData;
+        $this->dashLayout->layout_title = $data['layout_title'];
+        $this->dashLayout->layout_slug = $data['layout_slug'];
+        $this->dashLayout->widgets = $data['widgets'];
         $this->dashLayout->user_id = auth()->user()->id;
         $this->dashLayout->save();
 
