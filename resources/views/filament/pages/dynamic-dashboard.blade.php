@@ -6,7 +6,7 @@
                     @php
                         $widgetsItems = collect($dashLayout->widgets[$column->value])->sortBy('data.sort')->toArray();
                     @endphp
-                    <div class="{{ $column->span() }}">
+                    <div class="w-full col-span-12 {{ $column->class() }}">
                         @if(count($widgetsItems) !== 0)
                             @foreach($widgetsItems as $key => $data)
                                 @if(class_exists($data['data']['widget']))

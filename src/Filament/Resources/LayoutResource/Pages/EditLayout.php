@@ -3,13 +3,13 @@
 namespace LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 use Filament\Actions\Action;
+use Filament\Resources\Pages\EditRecord;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
+use LaraZeus\DynamicDashboard\Models\Layout;
 
-class EditLayout extends CreateLayout
+class EditLayout extends EditRecord
 {
-    public function getTitle(): string
-    {
-        return __('edit dashboard');
-    }
+    protected static string $resource = LayoutResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -19,7 +19,7 @@ class EditLayout extends CreateLayout
                 ->icon('heroicon-o-arrow-top-right-on-square')
                 ->tooltip(__('view form'))
                 ->color('warning')
-                ->url(fn () => route('landing-page', ['slug' => $this->dashLayout->layout_slug]))
+                ->url(fn (Layout $record) => route('landing-page', ['slug' => $record->layout_slug]))
                 ->openUrlInNewTab(),
         ];
     }

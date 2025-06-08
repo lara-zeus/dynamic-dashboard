@@ -7,11 +7,19 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
+use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
 use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
@@ -28,6 +36,54 @@ class LayoutResource extends Resource
     public static function getModel(): string
     {
         return DynamicDashboardPlugin::get()->getModel('Layout');
+    }
+
+    public static function form(Schema $schema): Schema
+    {
+        return $schema
+            ->schema(function () {
+                $form = $widgetsForm = [];
+
+                $form[] = Fieldset::make('mainComponents')
+                    ->columnSpanFull()
+                    ->label(__('Title & Slug'))
+                    ->schema([
+                        TextInput::make('layout_title')
+                            ->label(__('dashboard title'))
+                            ->live(onBlur: true)
+                            ->required()
+                            ->afterStateUpdated(function (Set $set, $state, string $context) {
+                                if ($context === 'edit') {
+                                    return;
+                                }
+
+                                $set('layout_slug', Str::slug($state));
+                            }),
+                        TextInput::make('layout_slug')
+                            ->required()
+                            ->label(__('slug')),
+                    ]);
+
+                // @phpstan-ignore-next-line
+                $columns = DynamicDashboardPlugin::get()->getModel('Columns')::cases();
+                foreach ($columns as $column) {
+                    $widgetsForm[] = Builder::make('widgets.' . $column->value)
+                        ->columnSpan($column->span())
+                        ->hiddenLabel()
+                        ->collapsed()
+                        ->collapsible()
+                        ->cloneable()
+                        ->addActionLabel(__('add dashboard'))
+                        ->blocks(DynamicDashboard::available());
+                }
+
+                $form[] = Grid::make()
+                    ->columnSpanFull()
+                    ->columns(12)
+                    ->schema($widgetsForm);
+
+                return $form;
+            });
     }
 
     public static function table(Table $table): Table
@@ -77,8 +133,8 @@ class LayoutResource extends Resource
     {
         return [
             'index' => Pages\ListLayout::route('/'),
-            'edit' => Pages\EditLayout::route('/{record}/manage'),
-            'create' => Pages\CreateLayout::route('/manage'),
+            'edit' => Pages\EditLayout::route('/{record}/edit'),
+            'create' => Pages\CreateLayout::route('/create'),
         ];
     }
 
