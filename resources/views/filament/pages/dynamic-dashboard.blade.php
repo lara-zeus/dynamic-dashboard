@@ -1,12 +1,12 @@
 <x-filament::page>
     @if($dashLayout->widgets !== null)
         <div class="grid grid-cols-12 gap-2 w-full px-2">
-            @foreach (config('zeus-dynamic-dashboard.models.Columns')::all() as $column)
-                @if(isset($dashLayout->widgets[$column->key]))
+            @foreach (config('zeus-dynamic-dashboard.models.Columns')::cases() as $column)
+                @if(isset($dashLayout->widgets[$column->value]))
                     @php
-                        $widgetsItems = collect($dashLayout->widgets[$column->key])->sortBy('data.sort')->toArray();
+                        $widgetsItems = collect($dashLayout->widgets[$column->value])->sortBy('data.sort')->toArray();
                     @endphp
-                    <div class="{{ $column->class }}">
+                    <div class="{{ $column->span() }}">
                         @if(count($widgetsItems) !== 0)
                             @foreach($widgetsItems as $key => $data)
                                 @if(class_exists($data['data']['widget']))

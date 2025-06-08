@@ -17,7 +17,7 @@ enum Columns: string implements HasLabel
         return __(str($this->name)->replace('Column', ''));
     }
 
-    public function getSpan(): int
+    public function span(): int
     {
         return match ($this) {
             self::headerColumn, self::footerColumn => 12,

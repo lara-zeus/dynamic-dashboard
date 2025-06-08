@@ -21,7 +21,7 @@ return [
      */
     'models' => [
         'Layout' => \LaraZeus\DynamicDashboard\Models\Layout::class,
-        'Columns' => \LaraZeus\DynamicDashboard\Models\Columns::class,
+        'Columns' => \LaraZeus\DynamicDashboard\Enums\Columns::class,
     ],
 
     'defaultLayout' => 'new-page',

@@ -17,7 +17,6 @@ You need to add these files to your `tailwind.config.js` file in the `content` s
 content: [
     //...
     './vendor/lara-zeus/dynamic-dashboard/resources/views/themes/**/*.blade.php',
-    './vendor/lara-zeus/dynamic-dashboard/src/Models/Columns.php',
 ]
 ```
 
@@ -27,7 +26,6 @@ content: [
 content: [
     //...
   './vendor/lara-zeus/rain/resources/views/filament/**/*.blade.php',
-  './vendor/lara-zeus/rain/src/Models/Columns.php',
 ]
 ```
 
