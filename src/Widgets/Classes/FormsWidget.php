@@ -3,10 +3,9 @@
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Forms\Components\Builder\Block;
-use Filament\Schemas\Components\Tabs\Tab;
-use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\Bolt\BoltPlugin;
 use LaraZeus\Bolt\BoltServiceProvider;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;

@@ -2,12 +2,11 @@
 
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
-use Filament\Forms\Components\Builder\Block;
-use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Facades\Filament;
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
 use LaraZeus\Sky\SkyPlugin;

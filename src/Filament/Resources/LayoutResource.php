@@ -2,9 +2,6 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\ListLayout;
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\EditLayout;
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\CreateLayout;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -23,11 +20,13 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\CreateLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\EditLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\ListLayout;
 
 class LayoutResource extends Resource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
 
     protected static ?int $navigationSort = 20;
 

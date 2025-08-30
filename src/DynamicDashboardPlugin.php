@@ -18,8 +18,8 @@ final class DynamicDashboardPlugin implements Plugin
     use CanHideResources;
     use Configuration;
     use EvaluatesClosures;
-    use HasModels;
     use HasEnums;
+    use HasModels;
     use HasNavigationGroupLabel;
     use HasUploads;
 
