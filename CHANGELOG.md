@@ -2,6 +2,17 @@
 
 All notable changes to `Dynamic Dashboard` will be documented in this file
 
+## 4.0.1 - 2025-08-30
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/lara-zeus/dynamic-dashboard/pull/51
+* Update config test and support filament 4 by @atmonshi in https://github.com/lara-zeus/dynamic-dashboard/pull/53
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/lara-zeus/dynamic-dashboard/pull/52
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/lara-zeus/dynamic-dashboard/pull/50
+
+**Full Changelog**: https://github.com/lara-zeus/dynamic-dashboard/compare/4.0.0...4.0.1
+
 ## v3.0.5 - 2025-05-15
 
 ### What's Changed
@@ -67,6 +78,7 @@ php artisna vendor:publish --tag=zeus-dynamic-dashboard-config
 
 
 
+
 ```
 this will crate the new config file `zeus-dynamic-dashboard.php`, and you can move your configuration from the old file `zeus-rain`
 
@@ -80,6 +92,7 @@ DynamicDashboardPlugin::make()
 
 
 
+
 ```
 3- run the update script, since the namespace has changed, you need to run this command in the production to update the class names
 
@@ -87,6 +100,7 @@ DynamicDashboardPlugin::make()
 
 ```bash
 php artisan dynamic-dashboard:update-class
+
 
 
 
@@ -122,6 +136,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
+
 
 
 
