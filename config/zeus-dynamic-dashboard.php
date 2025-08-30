@@ -24,6 +24,9 @@ return [
      */
     'models' => [
         'Layout' => Layout::class,
+    ],
+
+    'enums' => [
         'Columns' => Columns::class,
     ],
 
