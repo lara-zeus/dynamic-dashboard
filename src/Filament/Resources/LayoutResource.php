@@ -2,6 +2,9 @@
 
 namespace LaraZeus\DynamicDashboard\Filament\Resources;
 
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\ListLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\EditLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\CreateLayout;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -24,7 +27,7 @@ use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
 
 class LayoutResource extends Resource
 {
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cloud';
 
     protected static ?int $navigationSort = 20;
 
@@ -41,7 +44,7 @@ class LayoutResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema(function () {
+            ->components(function () {
                 $form = $widgetsForm = [];
 
                 $form[] = Fieldset::make('mainComponents')
@@ -112,7 +115,7 @@ class LayoutResource extends Resource
                     ->label(__('user')),
             ])
             ->defaultSort('id', 'desc')
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit')
                         ->label(__('Edit')),
@@ -132,9 +135,9 @@ class LayoutResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLayout::route('/'),
-            'edit' => Pages\EditLayout::route('/{record}/edit'),
-            'create' => Pages\CreateLayout::route('/create'),
+            'index' => ListLayout::route('/'),
+            'edit' => EditLayout::route('/{record}/edit'),
+            'create' => CreateLayout::route('/create'),
         ];
     }
 
