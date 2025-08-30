@@ -3,9 +3,10 @@
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Facades\Filament;
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
 use LaraZeus\Sky\SkyPlugin;
@@ -20,14 +21,14 @@ class MenuWidget implements Widget
         return class_exists(SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
     }
 
-    public function form(): Builder\Block
+    public function form(): Block
     {
-        return Builder\Block::make('Menu')
+        return Block::make('Menu')
             ->label(__('Menu'))
             ->schema([
                 Tabs::make('Menu_tabs')
                     ->schema([
-                        Tabs\Tab::make('Menu')
+                        Tab::make('Menu')
                             ->label(__('Menu'))
                             ->schema([
                                 Select::make('menu_slug')

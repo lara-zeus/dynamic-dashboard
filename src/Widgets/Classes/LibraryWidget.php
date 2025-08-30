@@ -3,9 +3,10 @@
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
 use Filament\Facades\Filament;
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
 use LaraZeus\Sky\SkyPlugin;
@@ -20,14 +21,14 @@ class LibraryWidget implements Widget
         return class_exists(SkyServiceProvider::class) && Filament::hasPlugin('zeus-sky');
     }
 
-    public function form(): Builder\Block
+    public function form(): Block
     {
-        return Builder\Block::make('Library')
+        return Block::make('Library')
             ->label(__('Library'))
             ->schema([
                 Tabs::make('Library_tabs')
                     ->schema([
-                        Tabs\Tab::make('Library')
+                        Tab::make('Library')
                             ->label(__('Library'))
                             ->schema([
                                 Select::make('library_slug')

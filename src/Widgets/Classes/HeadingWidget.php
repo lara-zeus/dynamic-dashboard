@@ -2,9 +2,10 @@
 
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
 
@@ -12,14 +13,14 @@ class HeadingWidget implements Widget
 {
     use InteractWithWidgets;
 
-    public function form(): Builder\Block
+    public function form(): Block
     {
-        return Builder\Block::make('paragraph')
+        return Block::make('paragraph')
             ->label(__('Paragraph'))
             ->schema([
                 Tabs::make('paragraph_tabs')
                     ->schema([
-                        Tabs\Tab::make('paragraph')
+                        Tab::make('paragraph')
                             ->label(__('Paragraph'))
                             ->schema([
                                 MarkdownEditor::make('content')

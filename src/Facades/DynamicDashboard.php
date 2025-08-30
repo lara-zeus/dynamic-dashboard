@@ -54,7 +54,7 @@ class DynamicDashboard extends Facade
     public static function filamentWidgets(): Collection
     {
         return collect(
-            self::setLayout(Filament::getCurrentPanel()->getWidgets())
+            self::setLayout(Filament::getCurrentOrDefaultPanel()->getWidgets())
         );
     }
 

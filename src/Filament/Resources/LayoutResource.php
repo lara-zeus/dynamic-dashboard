@@ -20,7 +20,9 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
 use LaraZeus\DynamicDashboard\Facades\DynamicDashboard;
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\CreateLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\EditLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\ListLayout;
 
 class LayoutResource extends Resource
 {
@@ -41,7 +43,7 @@ class LayoutResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema(function () {
+            ->components(function () {
                 $form = $widgetsForm = [];
 
                 $form[] = Fieldset::make('mainComponents')
@@ -65,7 +67,7 @@ class LayoutResource extends Resource
                     ]);
 
                 // @phpstan-ignore-next-line
-                $columns = DynamicDashboardPlugin::get()->getModel('Columns')::cases();
+                $columns = DynamicDashboardPlugin::get()->getEnum('Columns')::cases();
                 foreach ($columns as $column) {
                     $widgetsForm[] = Builder::make('widgets.' . $column->value)
                         ->columnSpan($column->span())
@@ -112,7 +114,7 @@ class LayoutResource extends Resource
                     ->label(__('user')),
             ])
             ->defaultSort('id', 'desc')
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit')
                         ->label(__('Edit')),
@@ -132,9 +134,9 @@ class LayoutResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLayout::route('/'),
-            'edit' => Pages\EditLayout::route('/{record}/edit'),
-            'create' => Pages\CreateLayout::route('/create'),
+            'index' => ListLayout::route('/'),
+            'edit' => EditLayout::route('/{record}/edit'),
+            'create' => CreateLayout::route('/create'),
         ];
     }
 

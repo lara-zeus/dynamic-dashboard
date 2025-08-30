@@ -2,9 +2,10 @@
 
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\Bolt\BoltPlugin;
 use LaraZeus\Bolt\BoltServiceProvider;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
@@ -19,14 +20,14 @@ class FormsWidget implements Widget
         return class_exists(BoltServiceProvider::class);
     }
 
-    public function form(): Builder\Block
+    public function form(): Block
     {
-        return Builder\Block::make('Forms')
+        return Block::make('Forms')
             ->label(__('Forms'))
             ->schema([
                 Tabs::make('Forms_tabs')
                     ->schema([
-                        Tabs\Tab::make('Forms')
+                        Tab::make('Forms')
                             ->label(__('Forms'))
                             ->schema([
                                 Select::make('form_slug')

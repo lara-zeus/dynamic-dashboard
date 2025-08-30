@@ -8,6 +8,7 @@ use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 use LaraZeus\FilamentPluginTools\Concerns\CanHideResources;
+use LaraZeus\FilamentPluginTools\Concerns\HasEnums;
 use LaraZeus\FilamentPluginTools\Concerns\HasModels;
 use LaraZeus\FilamentPluginTools\Concerns\HasNavigationGroupLabel;
 use LaraZeus\FilamentPluginTools\Concerns\HasUploads;
@@ -17,6 +18,7 @@ final class DynamicDashboardPlugin implements Plugin
     use CanHideResources;
     use Configuration;
     use EvaluatesClosures;
+    use HasEnums;
     use HasModels;
     use HasNavigationGroupLabel;
     use HasUploads;

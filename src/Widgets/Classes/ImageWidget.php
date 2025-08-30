@@ -2,10 +2,11 @@
 
 namespace LaraZeus\DynamicDashboard\Widgets\Classes;
 
-use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use LaraZeus\DynamicDashboard\Concerns\InteractWithWidgets;
 use LaraZeus\DynamicDashboard\Contracts\Widget;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
@@ -14,14 +15,14 @@ class ImageWidget implements Widget
 {
     use InteractWithWidgets;
 
-    public function form(): Builder\Block
+    public function form(): Block
     {
-        return Builder\Block::make('image')
+        return Block::make('image')
             ->label(__('Image'))
             ->schema([
                 Tabs::make('image_tabs')
                     ->schema([
-                        Tabs\Tab::make('image')
+                        Tab::make('image')
                             ->label(__('Image'))
                             ->schema([
                                 FileUpload::make('url')

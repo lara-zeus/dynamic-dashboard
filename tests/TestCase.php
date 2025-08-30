@@ -14,7 +14,7 @@ use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\DynamicDashboard\DynamicDashboardServiceProvider;
-use LaraZeus\SpatieTranslatable\SpatieLaravelTranslatablePluginServiceProvider;
+use LaraZeus\SpatieTranslatable\SpatieTranslatableServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -38,7 +38,7 @@ class TestCase extends Orchestra
             InfolistsServiceProvider::class,
             LivewireServiceProvider::class,
             NotificationsServiceProvider::class,
-            SpatieLaravelTranslatablePluginServiceProvider::class,
+            SpatieTranslatableServiceProvider::class,
             SupportServiceProvider::class,
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
