@@ -2,6 +2,14 @@
 
 All notable changes to `Dynamic Dashboard` will be documented in this file
 
+## 4.0.3 - 2025-12-09
+
+### What's Changed
+
+* set user when creating a new layout by @atmonshi in https://github.com/lara-zeus/dynamic-dashboard/pull/57
+
+**Full Changelog**: https://github.com/lara-zeus/dynamic-dashboard/compare/4.0.2...4.0.3
+
 ## 4.0.2 - 2025-12-02
 
 ### What's Changed
@@ -78,6 +86,7 @@ php artisna vendor:publish --tag=zeus-dynamic-dashboard-config
 
 
 
+
 ```
 this will crate the new config file `zeus-dynamic-dashboard.php`, and you can move your configuration from the old file `zeus-rain`
 
@@ -92,6 +101,7 @@ DynamicDashboardPlugin::make()
 
 
 
+
 ```
 3- run the update script, since the namespace has changed, you need to run this command in the production to update the class names
 
@@ -99,6 +109,7 @@ DynamicDashboardPlugin::make()
 
 ```bash
 php artisan dynamic-dashboard:update-class
+
 
 
 
@@ -135,6 +146,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
+
 
 
 
