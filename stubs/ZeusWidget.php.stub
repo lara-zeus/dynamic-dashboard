@@ -4,7 +4,7 @@ namespace {{ namespace }};
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\Tabs;
+use Filament\Schemas\Components\Tabs;
 
 class {{ class }}Widget implements \LaraZeus\DynamicDashboard\Contracts\Widget
 {
