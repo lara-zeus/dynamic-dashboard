@@ -1,6 +1,7 @@
 <?php
 
 use LaraZeus\DynamicDashboard\Enums\Columns;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 use LaraZeus\DynamicDashboard\Models\Layout;
 
 return [
@@ -28,6 +29,10 @@ return [
 
     'enums' => [
         'Columns' => Columns::class,
+    ],
+
+    'resources' => [
+        'layout' => LayoutResource::class,
     ],
 
     'defaultLayout' => 'new-page',
