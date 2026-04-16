@@ -24,8 +24,8 @@
     ],
     "require": {
         "php": "^8.1",
-        "lara-zeus/core": "^4.0",
-        "lara-zeus/filament-plugin-tools": "^2.0"
+        "lara-zeus/core": "^5.0",
+        "lara-zeus/filament-plugin-tools": "^3.0"
     },
     "require-dev": {
         "filament/upgrade": "^4.0",
@@ -33,10 +33,10 @@
         "laravel/pint": "^1.22",
         "nunomaduro/collision": "^8.0",
         "orchestra/testbench": "^10.0",
-        "pestphp/pest": "^3.0",
-        "pestphp/pest-plugin-arch": "^3.0",
-        "pestphp/pest-plugin-laravel": "^3.0",
-        "pestphp/pest-plugin-livewire": "^3.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "pestphp/pest-plugin-livewire": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
