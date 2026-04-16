@@ -2,6 +2,10 @@
 
 All notable changes to `Dynamic Dashboard` will be documented in this file
 
+## 5.0.0 - 2026-04-16
+
+add support for filament 5
+
 ## 4.0.4 - 2026-01-19
 
 ### What's Changed
@@ -101,6 +105,7 @@ php artisna vendor:publish --tag=zeus-dynamic-dashboard-config
 
 
 
+
 ```
 this will crate the new config file `zeus-dynamic-dashboard.php`, and you can move your configuration from the old file `zeus-rain`
 
@@ -117,6 +122,7 @@ DynamicDashboardPlugin::make()
 
 
 
+
 ```
 3- run the update script, since the namespace has changed, you need to run this command in the production to update the class names
 
@@ -124,6 +130,7 @@ DynamicDashboardPlugin::make()
 
 ```bash
 php artisan dynamic-dashboard:update-class
+
 
 
 
@@ -162,6 +169,7 @@ or republish the config file
 
 ```bash
 php artisan vendor:publish --tag=zeus-dynamic-dashboard-config --force
+
 
 
 
