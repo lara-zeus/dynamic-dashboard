@@ -18,7 +18,7 @@ class DynamicDashboardServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('dynamic-dashboard');
-        Livewire::addComponent(name:'landing', class:Layouts::class);
+        Livewire::addComponent(name: 'landing', class: Layouts::class);
     }
 
     public function configurePackage(Package $package): void
