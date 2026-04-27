@@ -1,6 +1,6 @@
 ---
-title: v4
+title: v5
 slogan: Dynamic widgets for your Dashboard
 githubUrl: https://github.com/lara-zeus/dynamic-widgets
-branch: 4.x
+branch: 5.x
 ---
