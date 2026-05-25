@@ -32,10 +32,11 @@ final class DynamicDashboardPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel
-            ->resources([
-                LayoutResource::class,
-            ]);
+        $resource = config('zeus-dynamic-dashboard.resources.layout', LayoutResource::class);
+
+        $panel->resources([
+            $resource,
+        ]);
     }
 
     public static function make(): static
