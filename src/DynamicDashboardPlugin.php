@@ -11,6 +11,7 @@ use LaraZeus\FilamentPluginTools\Concerns\CanHideResources;
 use LaraZeus\FilamentPluginTools\Concerns\HasEnums;
 use LaraZeus\FilamentPluginTools\Concerns\HasModels;
 use LaraZeus\FilamentPluginTools\Concerns\HasNavigationGroupLabel;
+use LaraZeus\FilamentPluginTools\Concerns\HasResources;
 use LaraZeus\FilamentPluginTools\Concerns\HasUploads;
 
 final class DynamicDashboardPlugin implements Plugin
@@ -21,6 +22,7 @@ final class DynamicDashboardPlugin implements Plugin
     use HasEnums;
     use HasModels;
     use HasNavigationGroupLabel;
+    use HasResources;
     use HasUploads;
 
     protected Closure | string $navigationGroupLabel = 'Dynamic Dashboard';
@@ -32,10 +34,13 @@ final class DynamicDashboardPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel
-            ->resources([
-                LayoutResource::class,
+        $layoutResource = $this->resolveResource('Layout') ?? LayoutResource::class;
+
+        if (! in_array($layoutResource, $this->getHiddenResources(), true)) {
+            $panel->resources([
+                $layoutResource,
             ]);
+        }
     }
 
     public static function make(): static

@@ -4,7 +4,7 @@ namespace LaraZeus\DynamicDashboard\Filament\Pages\Concerns;
 
 use Filament\Actions\Action;
 use LaraZeus\DynamicDashboard\DynamicDashboardPlugin;
-use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource\Pages\EditLayout;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 
 trait Dash
 {
@@ -32,7 +32,7 @@ trait Dash
                 ->tooltip('Edit Dashboard')
                 ->icon('heroicon-m-pencil-square')
                 ->iconButton()
-                ->url(fn () => EditLayout::getUrl(['record' => $this->dashLayout->id])),
+                ->url(fn () => (DynamicDashboardPlugin::getResource('Layout') ?? LayoutResource::class)::getUrl('edit', ['record' => $this->dashLayout->id])),
         ];
     }
 }
