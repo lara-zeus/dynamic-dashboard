@@ -66,7 +66,6 @@ class LayoutResource extends Resource
                             ->label(__('slug')),
                     ]);
 
-                // @phpstan-ignore-next-line
                 $columns = DynamicDashboardPlugin::get()->getEnum('Columns')::cases();
                 foreach ($columns as $column) {
                     $widgetsForm[] = Builder::make('widgets.' . $column->value)
