@@ -1,6 +1,7 @@
 <?php
 
 use LaraZeus\DynamicDashboard\Enums\Columns;
+use LaraZeus\DynamicDashboard\Filament\Resources\LayoutResource;
 use LaraZeus\DynamicDashboard\Models\Layout;
 
 return [
@@ -24,6 +25,10 @@ return [
      */
     'models' => [
         'Layout' => Layout::class,
+    ],
+
+    'resources' => [
+        'Layout' => LayoutResource::class,
     ],
 
     'enums' => [
